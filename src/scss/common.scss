@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F7F7F7;
+    font-family: 'Microsoft YaHei','Hiragino Sans GB','SimHei';
+}
+
+p,h3{
+    margin: 0;
+}
+
+ul,li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+img{
+    border: none;
+}
+.ui-helper-hidden-accessible{
+    display: none !important;
+}
+input,button,select,textarea{
+    outline:none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.not-visible{
+    visibility: hidden;
+}
+
+.not-display{
+	display: none!important;
+}
+
+.clear{
+	clear: both;
+}
