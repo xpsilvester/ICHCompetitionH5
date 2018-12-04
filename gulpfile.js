@@ -3,16 +3,10 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifycss = require('gulp-minify-css'),
-	imagemin = require('gulp-imagemin'),
 	babel = require('gulp-babel'),
-	jshint = require('gulp-jshint'),
-	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	livereload = require('gulp-livereload'),
 	notify = require('gulp-notify'),
-	cache = require('gulp-cache'),
-	rename = require('gulp-rename'),
-	del = require('del');
+	rename = require('gulp-rename');
 
 
 gulp.task('scripts', function() {
