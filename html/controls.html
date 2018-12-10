@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控件集</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0
+        }
+
+        hr {
+            width: 100%;
+            height: 0;
+            border: none;
+            border-bottom: 2px dashed #000000;
+        }
+
+        #title {
+            text-align: center;
+            padding: .5em 0;
+        }
+
+        #root {
+            width: 65%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            min-height: 100%;
+        }
+
+        /******* TextField *******/
+
+        .yuko-textfield {
+            position: relative;
+            width: 312px;
+            height: 40px;
+            line-height: 40px;
+            margin-bottom: 11px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .yuko-textfield_bg {
+            display: block;
+            width: 30px;
+            height: 40px;
+            background: url(img/pollex.png) no-repeat center center;
+            background-size: 37%;
+            float: left;
+        }
+
+        .yuko-textfield .yuko-textfield_input {
+            color: #999999;
+            font-size: 13px;
+            border: none;
+            outline: none;
+            background-color: #f8f8f8;
+            width: 174px;
+            height: 100%;
+            padding: 0 13px;
+            position: absolute;
+            right: 0;
+        }
+
+        .yuko-textfield .yuko-textfield_label {
+            color: #58595b;
+            font-size: 14px;
+            height: 100%;
+        }
+
+        .yuko-textfield .yuko-textfield_textbtn {
+            color: #ffcc00;
+            font-size: 13px;
+            position: absolute;
+            right: 13px;
+        }
+
+        .yuko-textfield .yuko-textfield_searchbtn {
+            position: absolute;
+            content: "";
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: url(img/search.png) no-repeat center center;
+            background-size: contain;
+        }
+
+        /******* TextField *******/
+
+        /******* Select *******/
+
+        .yuko-select {
+            position: relative;
+            width: 174px;
+            height: 40px;
+            font-family: Arial;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .yuko-select .yuko-select_selected {
+            position: relative;
+            background-color: #f8f8f8;
+            color: #999999;
+            padding: 0 16px;
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .yuko-select .yuko-select_items {
+            position: absolute;
+            background-color: #f8f8f8;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
+
+        .yuko-select .yuko-select_hide {
+            display: none;
+        }
+
+        .yuko-select_items div,
+        .yuko-select_selected {
+            position: relative;
+            color: #999999;
+            padding: 0 16px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .yuko-select .yuko-select_selected:after {
+            position: absolute;
+            content: "";
+            top: 8px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: url(img/arrow_down.png) no-repeat center center;
+            background-size: contain;
+        }
+
+        .yuko-select_selected.yuko-select_arrow-active:after {
+            background: url(img/arrow_up.png) no-repeat center center;
+            background-size: contain;
+        }
+
+        /******* Select *******/
+
+        /******* Radio *******/
+
+        .yuko-radio {
+            position: relative;
+            font-size: 16px;
+            line-height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            width: 24px;
+            height: 24px;
+            margin: 0;
+            padding-left: 0;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        }
+
+        .yuko-radio .yuko-radio_input {
+            position: absolute;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            -ms-appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            border: none;
+        }
+
+        .yuko-radio.is-checked .yuko-radio_outer-circle {
+            border: 2px solid #cba200;
+        }
+
+        .yuko-radio_outer-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            cursor: pointer;
+            border: 2px solid #cba200;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .yuko-radio.is-checked .yuko-radio_inner-circle {
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+        }
+
+        .yuko-radio_inner-circle {
+            position: absolute;
+            z-index: 1;
+            margin: 0;
+            top: 5px;
+            left: 5px;
+            box-sizing: border-box;
+            width: 10px;
+            height: 10px;
+            cursor: pointer;
+            transition-duration: .28s;
+            transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+            transition-property: transform;
+            transition-property: transform, -webkit-transform;
+            -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+            border-radius: 50%;
+            background: #ffcc00;
+        }
+
+        /******* Radio *******/
+
+        /******* Button *******/
+
+        .yuko-button {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .yuko-imgbtn_bg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .yuko-imgbtn_bg.bg-1 {
+            width: 290px;
+            height: 55px;
+            line-height: 50px;
+            color: #58595b;
+            font-size: 24px;
+            background: url(img/btn1.png) no-repeat center center;
+            background-size: contain;
+        }
+
+        .yuko-imgbtn_bg.bg-2 {
+            width: 80px;
+            height: 32.5px;
+            line-height: 30.5px;
+            color: #000000;
+            font-size: 13px;
+            background: url(img/btn2.png) no-repeat center center;
+            background-size: contain;
+        }
+
+        /******* Button *******/
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <h1 id="title">控件集</h1>
+        <hr>
+        <h3>普通输入框</h3>
+        <br>
+
+        <div class="yuko-textfield">
+            <span class="yuko-textfield_bg"></span>
+            <label class="yuko-textfield_label" for="yuko-input1">联系电话</label>
+            <input class="yuko-textfield_input" type="text" pattern="^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$" id="yuko-input1" placeholder="请填写家长手机号码">
+        </div>
+
+        <br>
+        <h3>带按钮输入框1</h3>
+        <br>
+
+        <div class="yuko-textfield">
+            <span class="yuko-textfield_bg"></span>
+            <label class="yuko-textfield_label" for="yuko-input1">手机验证码</label>
+            <input class="yuko-textfield_input" type="text" pattern="" id="yuko-input1" placeholder="填写手机验证码">
+            <span class="yuko-textfield_textbtn">获取验证码</span>
+        </div>
+
+        <br>
+        <h3>带按钮输入框2</h3>
+        <br>
+
+        <div class="yuko-textfield">
+            <span class="yuko-textfield_bg"></span>
+            <label class="yuko-textfield_label" for="yuko-input1">所在学校</label>
+            <input class="yuko-textfield_input" type="text" pattern="" id="yuko-input1" placeholder="请填写所在学校关键词">
+            <span class="yuko-textfield_searchbtn"></span>
+        </div>
+        <hr>
+
+        <h3>选择菜单</h3>
+        <br>
+
+        <div class="yuko-select">
+            <div class="yuko-select_selected">Mini</div>
+            <div class="yuko-select_items yuko-select_hide">
+                <div>Audi</div>
+                <div>BMW</div>
+                <div>Citroen</div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="yuko-textfield">
+            <span class="yuko-textfield_bg"></span>
+            <label class="yuko-textfield_label" for="yuko-input1">所在城市</label>
+            <div class="yuko-select" style="float: right;">
+                <div class="yuko-select_selected">请选择</div>
+                <div class="yuko-select_items yuko-select_hide">
+                    <div>广州</div>
+                    <div>深圳</div>
+                    <div>佛山</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <br>
+        <h3>单选Radio</h3>
+        <br>
+        <div class="yuko-radio">
+            <input type="radio" class="yuko-radio_input" name="rd" checked="">
+
+            <span class="yuko-radio_outer-circle"></span>
+            <span class="yuko-radio_inner-circle"></span>
+        </div>
+        <div class="yuko-radio is-checked">
+            <input type="radio" class="yuko-radio_input" name="rd" checked="">
+
+            <span class="yuko-radio_outer-circle"></span>
+            <span class="yuko-radio_inner-circle"></span>
+        </div>
+        <hr>
+
+        <br>
+        <h3>按钮1</h3>
+        <br>
+        <div class="yuko-button yuko-imgbtn">
+            <div class="yuko-imgbtn_bg bg-1">确认提交</div>
+        </div>
+        <div class="yuko-button yuko-imgbtn">
+            <div class="yuko-imgbtn_bg bg-2">活动规则</div>
+        </div>
+
+    </div>
+    <script src="controls.js"></script>
+</body>
+
+</html>
