@@ -3,7 +3,7 @@ $(()=>{
         slidesPerView: 'auto',
         initialSlide : 1,
         centeredSlides: true,
-        spaceBetween: 20,
+        spaceBetween: 10,
         grabCursor: true
     });
 })

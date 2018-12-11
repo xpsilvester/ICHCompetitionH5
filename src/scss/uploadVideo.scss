@@ -1,6 +1,109 @@
+// px转换为rem
+@function pxToRem($px, $base: 750px) {
+    $min: 1 / $base * 10 * 1;
+    $result: $px / $base * 10 * 1;
+
+    @if $result < 0.027 and $result > 0 {
+        @return 2px;
+    }
+
+    @else {
+        @return $px / $base * 10 * 1rem;
+    }
+
+}
+
+// 设置dpr下的字体大小
+@mixin font-dpr($font-size, $line-height: $font-size) {
+    font-size: $font-size / 2;
+
+    @if $line-height != none {
+        line-height: $line-height / 2;
+    }
+
+    [data-dpr="2"] & {
+        font-size: $font-size;
+
+        @if $line-height != none {
+            line-height: $line-height;
+        }
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3 / 2;
+
+        @if $line-height != none {
+            line-height: $line-height * 3 / 2;
+        }
+    }
+}
+@font-face {
+    font-family: 'PingFang Regular';
+    src: url('../font/enroll/PingFang Regular.eot');
+    src:
+      url('../font/enroll/PingFang Regular.eot?#font-spider') format('embedded-opentype'),
+      url('../font/enroll/PingFang Regular.woff') format('woff'),
+      url('../font/enroll/PingFang Regular.ttf') format('truetype'),
+      url('../font/enroll/PingFang Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body{
-    background: url(../images/uploadVideo/back.png);
+    background: url(../images/uploadVideo/back.png) 0 0 repeat-x;
     background-size: contain;
+    font-family: 'PingFang Regular';
+}
+
+.header{
+    width: 100%;
+    height: pxToRem(215px);
+    padding-top: pxToRem(210px);
+    position: relative;
+
+    .time{
+        width: 100%;
+        height: pxToRem(215px);
+        position: absolute;
+        top: pxToRem(210px);
+        left: 0px;
+        
+        .time-img{
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: block;
+        }
+
+        .time-word{
+            position: absolute;
+            top: pxToRem(10px);
+            left: pxToRem(310px);
+            color: #ea4684;
+            font-weight: bold;
+            @include font-dpr(38px);
+        }
+    }
+
+    .rule{
+        width: pxToRem(161px);
+        position: absolute;
+        top: pxToRem(210px);
+        right: pxToRem(35px);
+
+        .rule-link{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rule-img{
+            width: 100%;
+            display: block;
+        }
+    }
 }
 .swiper-container {
     width: 100%;
@@ -13,30 +116,62 @@ body{
     background: url(../images/uploadVideo/video_box.png);
     background-size:100%; 
     width: 270px !important;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+    position: relative;
+
+    .title{
+        @include font-dpr(38px);
+        margin: 47.5px auto 0;
+    }
+    img{
+        display: block;
+    }
+    .illustration{
+        width: 247.5px;
+        margin: 10px auto 0;
+    }
+    .video_pic{
+        width: 258px;
+        height: 142.5px;
+        margin: 4px auto 7px;
+    }
+    .video_play{
+        width: 43px;
+        height: 42.5px;
+        background: url(../images/uploadVideo/video_play.png);
+        background-size: 100%;
+        position: absolute;
+        top:259px;
+        left: 50%;
+        margin-left: -21.5px;
+    }
+    .intro{
+        @include font-dpr(26px);
+    }
 }
-header,.select-themes{
+.select-themes{
     width: 100%;
+    margin-top: 14px;
     img{
         display: block;
         width: 100%;
     }
 }
+.tips{
+    width: 183px;
+    height: 24.5px;
+    background: url(../images/uploadVideo/tips.png);
+    background-size: 100%;
+    margin: 5px auto;
+}
+.group{
+    width: 100%;
+    text-align: center;
+    @include font-dpr(26px);
+    margin: 10px auto 7px;
+}
 .submit{
     width: 284px;
-    margin: 5px auto;
+    margin: 5px auto 15px;
     img{
         display: block;
         width: 100%;
