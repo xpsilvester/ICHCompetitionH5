@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link type="text/css" rel="stylesheet" href="../static/css/common.min.css">
     <link type="text/css" rel="stylesheet" href="../static/css/enroll.min.css">
+    <link rel="stylesheet" href="../static/css/controls.min.css">
     <script src="../static/js/jquery-1.12.3.min.js"></script>
     <script src="../static/js/flexible.min.js"></script>
+    <script src="../static/js/zone.min.js"></script>
     <script src="../static/js/enroll.min.js"></script>
     <title>点击报名</title>
 </head>
@@ -26,45 +28,66 @@
         </div>
 
         <div class="main">
-            <div class="main-line first-line">
-                <img class="main-line-img" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">选手姓名</p>
-                <input class="main-line-input" type="text" placeholder="请填写孩子中文姓名" />
+            <div class="yuko-textfield center">
+                <span class="yuko-textfield_bg"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">选手姓名</label>
+                <input class="yuko-textfield_input" type="text" id="yuko-input1" placeholder="请填写孩子中文姓名">
             </div>
-            <div class="main-line">
-                <img class="main-line-img" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">联系电话</p>
-                <input class="main-line-input" type="text" placeholder="请填写家长手机号码" />
+            <div class="yuko-textfield center">
+                <span class="yuko-textfield_bg"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">联系电话</label>
+                <input class="yuko-textfield_input" type="text" pattern="^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$" id="yuko-input2" placeholder="请填写家长手机号码">
             </div>
-            <div class="main-line">
-                <img class="main-line-img" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">手机验证码</p>
-                <input class="main-line-input" type="text" placeholder="填写手机验证码" />
+            <div class="yuko-textfield center">
+                <span class="yuko-textfield_bg"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">手机验证码</label>
+                <input class="yuko-textfield_input" type="text" id="yuko-input3" placeholder="填写手机验证码">
+                <span class="yuko-textfield_textbtn">获取验证码</span>
             </div>
-            <div class="main-line">
-                <img class="main-line-img" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">所在省市</p>
-                <input class="main-line-input" type="text" placeholder="请选择" />
+            <div class="yuko-textfield center province">
+                <span class="yuko-textfield_bg"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">所在省市</label>
+                <div class="yuko-select" style="float: right;">
+                    <div class="yuko-select_selected">请选择</div>
+                    <div class="yuko-select_items yuko-select_hide">
+                    </div>
+                </div>
             </div>
-            <div class="main-line">
-                <img class="main-line-img" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">所在城市</p>
-                <input class="main-line-input" type="text" placeholder="请选择" />
+            <div class="yuko-textfield center city">
+                <span class="yuko-textfield_bg"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">所在城市</label>
+                <div class="yuko-select" style="float: right;">
+                    <div class="yuko-select_selected">请选择</div>
+                    <div class="yuko-select_items yuko-select_hide">
+                    </div>
+                </div>
             </div>
-            <div class="main-line">
-                <img class="main-line-img" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">所在学校</p>
-                <input class="main-line-input" type="text" placeholder="请填写所在学校关键词" />
+            <div class="yuko-textfield center">
+                <span class="yuko-textfield_bg"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">所在学校</label>
+                <input class="yuko-textfield_input" type="text" id="yuko-input4" placeholder="请填写所在学校关键词">
+                <span class="yuko-textfield_searchbtn"></span>
             </div>
-            <div class="main-line">
-                <img class="main-line-img" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">所在年级</p>
-                <input class="main-line-input" type="text" placeholder="请选择" />
+            <div class="yuko-textfield center">
+                <span class="yuko-textfield_bg"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">所在年级</label>
+                <div class="yuko-select" style="float: right;">
+                    <div class="yuko-select_selected">请选择</div>
+                    <div class="yuko-select_items yuko-select_hide">
+                        <div>没上小学</div>
+                        <div>小学一年级</div>
+                        <div>小学二年级</div>
+                        <div>小学三年级</div>
+                        <div>小学四年级</div>
+                        <div>小学五年级</div>
+                        <div>小学六年级</div>
+                    </div>
+                </div>
             </div>
-            <div class="main-line last-line">
-                <img class="main-line-img not-visible" src="../static/images/signUpFinger.png" />
-                <p class="main-line-title">指导老师</p>
-                <input class="main-line-input" type="text" placeholder="请指导老师姓名" />
+            <div class="yuko-textfield center">
+                <span class="yuko-textfield_bg not-visible"></span>
+                <label class="yuko-textfield_label" for="yuko-input1">指导老师</label>
+                <input class="yuko-textfield_input" type="text" pattern="^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$" id="yuko-input5" placeholder="请填写指导老师姓名">
             </div>
             <p class="main-word">
                 报名参加中华少年说<span class="main-word-pink">北京赛区” “高年级”</span>组选拔
@@ -82,5 +105,6 @@
             </a>
         </div>
     </div>
+    <script src="../static/js/controls.min.js"></script>
 </body>
 </html>

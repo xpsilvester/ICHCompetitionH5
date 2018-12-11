@@ -114,6 +114,11 @@
         background-image: url('../images/signUpMain.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+        padding-top: pxToRem(30px);
+
+        .center{
+            margin: 0 0 pxToRem(24px) pxToRem(10px);
+        }
 
         .main-line{
             width: pxToRem(603px);
