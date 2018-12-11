@@ -135,7 +135,7 @@
                         y[i].classList.remove("yuko-select_arrow-active");
                     }
                 }
-            }
+            };
 
             var toggleSelect = function (selected) {
                 var items_list = selected.nextElementSibling;
@@ -147,7 +147,9 @@
                     selected.classList.remove('yuko-select_arrow-active');
                     items_list.classList.add('yuko-select_hide');
                 }
-            }
+            };
+
+            var fingerdownPointY, fingerupPointY;
 
             document.addEventListener(fingerdown, function (evt) {
                 // _this: yuko-selectbox
@@ -155,6 +157,8 @@
                     _selected,
                     _items,
                     _target = evt.target;
+                fingerdownPointY = evt.pageY || evt.changedTouches[0].pageY;
+
                 if (_target != document.documentElement) {
                     if (_target.classList.contains('yuko-select_selected')) {
                         _selected = _target;
@@ -173,6 +177,7 @@
                     _selected,
                     _items,
                     _target = evt.target;
+                fingerupPointY = evt.pageY || evt.changedTouches[0].pageY;
                 if (_target != document.documentElement) {
                     if (_target.classList.contains('yuko-select_selected')) {
                         _selected = _target;
@@ -188,12 +193,12 @@
                     closeAllSelect();
                 }
 
-                if (_items != undefined) {
+                if (_items != undefined && fingerupPointY - fingerdownPointY === 0) {
                     var selected_val = _target.innerHTML.trim();
                     // Set selected value
-                    if(_selected.nodeName.toLocaleLowerCase() === 'input') {
+                    if (_selected.nodeName.toLocaleLowerCase() === 'input') {
                         _selected.value = selected_val;
-                    }else {
+                    } else {
                         _selected.innerHTML = selected_val;
                     }
                     closeAllSelect();
