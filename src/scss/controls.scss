@@ -81,6 +81,33 @@
         background: url(../images/search.png) no-repeat center center;
         background-size: contain;
     }
+
+    .yuko-list_items {
+        position: absolute;
+        background-color: #f8f8f8;
+        width: pxToRem(400px);
+        top: 100%;
+        right: 0;
+        z-index: 99;
+        max-height: pxToRem(328px);
+        overflow: scroll;
+        
+        &.yuko-list_hide {
+            display: none;
+        }
+        
+        div {
+            position: relative;
+            color: #999999;
+            padding: 0 pxToRem(32px);
+            height: pxToRem(80px);
+            line-height: pxToRem(80px);
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent;
+            cursor: pointer;
+            overflow: hidden;
+        }
+    }
 }
 /******* TextField *******/
 
@@ -91,6 +118,7 @@
     width: pxToRem(400px);
     height: pxToRem(80px);
     font-family: Arial;
+    @include font-dpr(26px);
     -webkit-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     user-select: none;

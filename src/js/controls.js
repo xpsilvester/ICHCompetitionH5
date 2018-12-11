@@ -191,7 +191,11 @@
                 if (_items != undefined) {
                     var selected_val = _target.innerHTML.trim();
                     // Set selected value
-                    _selected.innerHTML = selected_val;
+                    if(_selected.nodeName.toLocaleLowerCase() === 'input') {
+                        _selected.value = selected_val;
+                    }else {
+                        _selected.innerHTML = selected_val;
+                    }
                     closeAllSelect();
                 }
 
