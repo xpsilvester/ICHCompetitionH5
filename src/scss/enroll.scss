@@ -60,14 +60,14 @@
     .header{
         width: 100%;
         height: pxToRem(215px);
-        padding-top: pxToRem(210px);
+        padding-top: pxToRem(35px);
         position: relative;
 
         .time{
             width: 100%;
             height: pxToRem(215px);
             position: absolute;
-            top: pxToRem(210px);
+            top: pxToRem(35px);
             left: 0px;
             
             .time-img{
@@ -91,7 +91,7 @@
         .rule{
             width: pxToRem(161px);
             position: absolute;
-            top: pxToRem(210px);
+            top: pxToRem(35px);
             right: pxToRem(35px);
 
             .rule-link{
