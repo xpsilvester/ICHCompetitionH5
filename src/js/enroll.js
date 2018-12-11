@@ -15,7 +15,7 @@ let getVerifyCode = () => {
         if(cellphone == ""){
             alert("请填写手机号码");
         }
-        else if(!/^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$/.test(cellphone)){
+        else if(!/^(\+86)?1[0-9]{10}$/.test(cellphone)){
             alert("手机号码格式不正确");
         }
         else{
@@ -66,7 +66,7 @@ let appendCity = (province) => {
             }
         }
     }
-    $(".city .yuko-select_items>div").on("click",function(){
+    $(".city .yuko-select_items>div").on("touchstart",function(){
         city = $(this).html();
     });
 }
@@ -113,43 +113,53 @@ let submit = () => {
         name = $.trim($("#name").val());
         phone = $.trim($("#phone").val());
         code = $.trim($("#code").val());
+        school = $.trim($("#school").val());
         teacher = $.trim($("#teacher").val());
         let flag = true;
         if(name == ""){
             alert("请填写孩子中文姓名");
             flag = false;
+            return;
         }
         if(phone == ""){
             alert("请填写家长手机号码");
             flag = false;
+            return;
         }
-        else if(!/^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$/.test(phones)){
+        else if(!/^(\+86)?1[0-9]{10}$/.test(phone)){
             alert("手机号码格式不正确");
             flag = false;
+            return;
         }
         if(code == ""){
             alert("请填写手机验证码");
             flag = false;
+            return;
         }
         if(province == ""){
             alert("请选择省");
             flag = false;
+            return;
         }
         if(city == ""){
             alert("请选择市");
             flag = false;
+            return;
         }
         if(school == ""){
             alert("请选择学校");
             flag = false;
+            return;
         }
         if(grade == ""){
             alert("请选择年级");
             flag = false;
+            return;
         }
         if(!ok){
             alert("请确认信息属实");
             flag = false;
+            return;
         }
         if(flag){
             submitAjax(name,phone,code,province,city,school,grade,teacher,ok);
@@ -163,4 +173,5 @@ $(()=>{
     selectSchool();
     selectGrade();
     confirmInfo();
+    submit();
 });
