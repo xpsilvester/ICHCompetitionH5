@@ -11,6 +11,56 @@
     <script src="../static/js/flexible.min.js"></script>
     <script src="../static/js/zone.min.js"></script>
     <script src="../static/js/enroll.min.js"></script>
+    <script>
+        //发送验证码
+        let getVerifyCodeAjax = (inputPhone) => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {phone:inputPhone},//顾名思义的数据
+                dataType: "json",
+                success: function(data){
+                    changeCodeStyle();//执行重新发送的倒计时
+                    alert(data);//可修改，success处理
+                },
+                error: function(data){
+                    alert(data);
+                }
+            });
+        }
+        //选择学校
+        let selectSchoolAjax = (selectSchool) => {
+            $.ajax({
+                url: "test.json",
+                type: "post",
+                data: {school:selectSchool},//顾名思义的数据
+                dataType: "json",
+                success: function(data){
+                    //data需要把学校的数组传回来，如data.result为["aaa","bbb","ccc"...]
+                    schoolChoice(data.result);//回调函数，需保留
+                    alert(data);//可修改，success处理
+                },
+                error: function(data){
+                    alert(data);
+                }
+            });
+        }
+        //提交按钮
+        let submitAjax = (inputName,inputPhone,inputCode,selectProvince,selectCity,selectSchool,selectGrade,inputTeacher,selectOk) => {
+            $.ajax({
+                url: "test.json",
+                type: "post",
+                data: {name:inputName,phone:inputPhone,code:inputCode,province:selectProvince,city:selectCity,school:selectSchool,grade:selectGrade,teacher:inputTeacher,ok:selectOk},//顾名思义的数据
+                dataType: "json",
+                success: function(data){
+                    alert(data);//可修改，success处理
+                },
+                error: function(data){
+                    alert(data);
+                }
+            });
+        }
+    </script>
     <title>点击报名</title>
 </head>
 <body>
@@ -31,17 +81,17 @@
             <div class="yuko-textfield center">
                 <span class="yuko-textfield_bg"></span>
                 <label class="yuko-textfield_label" for="yuko-input1">选手姓名</label>
-                <input class="yuko-textfield_input" type="text" id="yuko-input1" placeholder="请填写孩子中文姓名">
+                <input class="yuko-textfield_input" type="text" id="name" placeholder="请填写孩子中文姓名">
             </div>
             <div class="yuko-textfield center">
                 <span class="yuko-textfield_bg"></span>
                 <label class="yuko-textfield_label" for="yuko-input1">联系电话</label>
-                <input class="yuko-textfield_input" type="text" pattern="^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$" id="yuko-input2" placeholder="请填写家长手机号码">
+                <input class="yuko-textfield_input" type="text" pattern="^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$" id="phone" placeholder="请填写家长手机号码" maxlength="13">
             </div>
-            <div class="yuko-textfield center">
+            <div class="yuko-textfield center code">
                 <span class="yuko-textfield_bg"></span>
                 <label class="yuko-textfield_label" for="yuko-input1">手机验证码</label>
-                <input class="yuko-textfield_input" type="text" id="yuko-input3" placeholder="填写手机验证码">
+                <input class="yuko-textfield_input" type="text" id="code" placeholder="填写手机验证码">
                 <span class="yuko-textfield_textbtn">获取验证码</span>
             </div>
             <div class="yuko-textfield center province">
@@ -62,13 +112,31 @@
                     </div>
                 </div>
             </div>
-            <div class="yuko-textfield center">
+            <!-- <div class="yuko-textfield center school">
                 <span class="yuko-textfield_bg"></span>
                 <label class="yuko-textfield_label" for="yuko-input1">所在学校</label>
-                <input class="yuko-textfield_input" type="text" id="yuko-input4" placeholder="请填写所在学校关键词">
+                <input class="yuko-textfield_input" type="text" id="school" placeholder="请填写所在学校关键词">
                 <span class="yuko-textfield_searchbtn"></span>
-            </div>
-            <div class="yuko-textfield center">
+            </div> -->
+            <div class="yuko-textfield center school">
+                    <span class="yuko-textfield_bg"></span>
+                    <label class="yuko-textfield_label" for="yuko-input1">所在学校</label>
+                    <input class="yuko-textfield_input" type="text" id="school" placeholder="请填写所在学校关键词">
+                    <div class="yuko-list_items yuko-list_hide">
+                        <div>广州</div>
+                        <div>深圳</div>
+                        <div>佛山</div>
+                        <div>广州</div>
+                        <div>深圳</div>
+                        <div>佛山</div>
+                        <div>广州</div>
+                        <div>深圳</div>
+                        <div>佛山</div>
+                    </div>
+                    <span class="yuko-textfield_searchbtn search-school"></span>
+                    
+                </div>
+            <div class="yuko-textfield center grade">
                 <span class="yuko-textfield_bg"></span>
                 <label class="yuko-textfield_label" for="yuko-input1">所在年级</label>
                 <div class="yuko-select" style="float: right;">
@@ -87,22 +155,23 @@
             <div class="yuko-textfield center">
                 <span class="yuko-textfield_bg not-visible"></span>
                 <label class="yuko-textfield_label" for="yuko-input1">指导老师</label>
-                <input class="yuko-textfield_input" type="text" pattern="^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$" id="yuko-input5" placeholder="请填写指导老师姓名">
+                <input class="yuko-textfield_input" type="text" pattern="^(\+86)?1[0-9]{10}$|^[569][0-9]{7}$" id="teacher" placeholder="请填写指导老师姓名">
             </div>
             <p class="main-word">
                 报名参加中华少年说<span class="main-word-pink">北京赛区” “高年级”</span>组选拔
             </p>
         </div>
         <div class="confirm1">
-            <img class="confirm1-check" src="../static/images/signUpCheck.png" />
+            <div class="yuko-radio">
+                <input type="radio" class="yuko-radio_input" name="rd" checked="">
+                <span class="yuko-radio_outer-circle"></span>
+                <span class="yuko-radio_inner-circle"></span>
+            </div>
             <p class="confirm1-word">请确认信息属实, 一旦提交后不可再修改</p>
         </div>
         <p class="confirm2">主办方对本次活动收集的个人信息严格保密</p>
         <div class="submit">
-            <!-- <input class="submit-action" type="submit" value=""/> -->
-            <a class="submit-link" href="#">
-                <img class="submit-img" src="../static/images/signUpSubmit.png" />
-            </a>
+            <img class="submit-img" src="../static/images/signUpSubmit.png" />
         </div>
     </div>
     <script src="../static/js/controls.min.js"></script>

@@ -120,40 +120,6 @@
             margin: 0 0 pxToRem(24px) pxToRem(10px);
         }
 
-        .main-line{
-            width: pxToRem(603px);
-            height: pxToRem(80px);
-            margin: pxToRem(24px) auto 0;
-
-            &.first-line{
-                padding-top: pxToRem(30px);
-                margin: 0 auto;
-            }
-
-            .main-line-img{
-                display: block;
-                width: pxToRem(24px);
-                margin: pxToRem(24px) pxToRem(20px) 0 0;
-                float: left;
-            }
-
-            .main-line-title{
-                @include font-dpr(28px,80px);
-                width: pxToRem(160px);
-                float: left;
-            }
-
-            .main-line-input{
-                border: none;
-                @include font-dpr(26px,34px);
-                padding: pxToRem(24px) pxToRem(20px);
-                width: pxToRem(350px);
-                color: #999999;
-                background-color: #f8f8f8;
-                float: left;
-            }
-        }
-
         .main-word{
             clear: both;
             @include font-dpr(26px,40px);
@@ -171,12 +137,6 @@
         width: 70%;
         margin: 0 auto;
         display: flex;
-
-        .confirm1-check{
-            width: pxToRem(40px);
-            height: pxToRem(40px);
-            margin-right: pxToRem(10px);
-        }
 
         .confirm1-word{
             @include font-dpr(26px,40px);
