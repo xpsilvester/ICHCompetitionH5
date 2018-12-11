@@ -119,6 +119,7 @@ body{
     background-size:100%; 
     width: 270px !important;
     position: relative;
+    overflow: hidden;
 
     .title{
         @include font-dpr(38px);
@@ -134,7 +135,7 @@ body{
     .video_pic{
         width: 258px;
         height: 142.5px;
-        margin: 4px auto 7px;
+        margin: 4px auto 0;
     }
     .video_play{
         width: 43px;
