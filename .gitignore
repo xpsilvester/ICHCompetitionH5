@@ -14,6 +14,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 
+static/css/
+static/js/
+
 gulpfile.js
 package-lock.json
 package.json

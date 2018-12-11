@@ -65,7 +65,7 @@
     }
 
     .yuko-textfield_textbtn {
-        color: #ffcc00;
+        color: #cba200;
         @include font-dpr(26px);
         position: absolute;
         right: pxToRem(26px);
@@ -88,7 +88,7 @@
 
 .yuko-select {
     position: relative;
-    width: pxToRem(348px);
+    width: pxToRem(400px);
     height: pxToRem(80px);
     font-family: Arial;
     -webkit-tap-highlight-color: transparent;
@@ -114,6 +114,8 @@
         left: 0;
         right: 0;
         z-index: 99;
+        max-height: pxToRem(328px);
+        overflow: scroll;
     }
 
     .yuko-select_hide {
