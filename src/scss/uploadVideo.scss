@@ -137,14 +137,14 @@ body{
         margin: 4px auto 7px;
     }
     .video_play{
-        width: 46px;
-        height: 45.5px;
+        width: 43px;
+        height: 42.5px;
         background: url(../images/uploadVideo/video_play.png);
         background-size: 100%;
         position: absolute;
-        top:252px;
+        top:257px;
         left: 50%;
-        margin-left: -23.5px;
+        margin-left: -21.5px;
     }
     .intro{
         @include font-dpr(26px);
