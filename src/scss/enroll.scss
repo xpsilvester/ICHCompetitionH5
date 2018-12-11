@@ -133,10 +133,9 @@
         }
     }
 
-    .confirm1{
-        width: 70%;
+    .confirm1{     
         margin: 0 auto;
-        display: flex;
+        text-align: center;
 
         .confirm1-word{
             @include font-dpr(26px,40px);
