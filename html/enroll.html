@@ -12,6 +12,22 @@
     <script src="../static/js/zone.min.js"></script>
     <script src="../static/js/enroll.min.js"></script>
     <script>
+        //获取剩余天数
+        let getDayAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    setDay(data.day);//执行插入天数,传入天数
+                    alert(data);//可修改，success处理
+                },
+                error: function(data){
+                    alert(data);
+                }
+            });
+        }
         //发送验证码
         let getVerifyCodeAjax = (inputPhone) => {
             $.ajax({
@@ -67,8 +83,10 @@
     <div class="enroll-container">
         <div class="header">
             <div class="time">
-                <img class="time-img" src="../static/images/signUpTime.png" />
-                <p class="time-word">86</p>
+                <img class="time-img" src="../static/images/enroll/signUpTime.png" />
+                <div class="time-box">
+                    <p class="time-word">86</p>
+                </div>
             </div>
             <div class="rule">
                 <a class="rule-link" href="#">
@@ -171,7 +189,7 @@
         </div>
         <p class="confirm2">主办方对本次活动收集的个人信息严格保密</p>
         <div class="submit">
-            <img class="submit-img" src="../static/images/signUpSubmit.png" />
+            <img class="submit-img" src="../static/images/enroll/signUpSubmit.png" />
         </div>
     </div>
     <script src="../static/js/controls.min.js"></script>

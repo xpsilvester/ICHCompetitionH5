@@ -8,6 +8,14 @@ let grade = "";
 let teacher = "";
 let ok = false;
 
+let getDay = () => {
+    getDayAjax();
+}
+
+let setDay = (day) => {
+    $(".header .time .time-word").html(day);
+}
+
 let getVerifyCode = () => {
     $(".code .yuko-textfield_textbtn").on("touchstart",function(){
         console.log('tag', '');
@@ -168,6 +176,7 @@ let submit = () => {
 }
 
 $(()=>{
+    getDay();
     getVerifyCode();
     initProvince();
     selectSchool();

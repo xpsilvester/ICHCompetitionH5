@@ -52,7 +52,7 @@
 
 .enroll-container{
     width: 100%;
-    background-image: url('../images/signUpBackground.png');
+    background-image: url('../images/enroll/signUpBackground.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     font-family: 'PingFang Regular';
@@ -78,13 +78,19 @@
                 display: block;
             }
 
-            .time-word{
+            .time-box{
+                width: pxToRem(60px);
                 position: absolute;
                 top: pxToRem(10px);
-                left: pxToRem(310px);
+                left: pxToRem(305px);
+                text-align: center;
+            }
+
+            .time-word{
                 color: #ea4684;
                 font-weight: bold;
                 @include font-dpr(38px);
+                text-align: center;
             }
         }
 
@@ -111,7 +117,7 @@
         width: pxToRem(675px);
         height: pxToRem(920px);
         margin: pxToRem(24px) auto;
-        background-image: url('../images/signUpMain.png');
+        background-image: url('../images/enroll/signUpMain.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
         padding-top: pxToRem(30px);
@@ -156,7 +162,7 @@
         padding-bottom: pxToRem(36px);
 
         .submit-action{
-            background-image: url('../static/images/signUpSubmit.png');
+            background-image: url('../images/signUpSubmit.png');
             background-size: 100% 100%;
             display: block;
             width: 100%;
