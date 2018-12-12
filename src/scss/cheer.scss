@@ -132,17 +132,20 @@
             color: #58595b;
             @include font-dpr(38px,58px);
             text-align: center;
+            font-weight: bold;
         }
 
         .title-word-number{
             color: #ea4684;
             @include font-dpr(42px,58px);
+            font-weight: bold;
         }
 
         .title-word2{
             color: #58595b;
             @include font-dpr(32px,58px);
             text-align: center;
+            font-weight: bold;
         }
     }
 
@@ -165,11 +168,11 @@
         }
 
         .content-video{
-            width: pxToRem(540px);
-            height: pxToRem(330px);
+            width: pxToRem(520px);
+            height: pxToRem(307px);
             display: block;
             margin: 0 auto;
-            padding: pxToRem(40px) 0 0 0;
+            padding: pxToRem(58px) 0 0 0;
             border-radius: pxToRem(20px);
         }
 
