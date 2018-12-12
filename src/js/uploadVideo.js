@@ -1,4 +1,4 @@
-$(()=>{
+let uploadVideo = ()=>{
     let swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',
         initialSlide : 1,
@@ -28,4 +28,4 @@ $(()=>{
             $(this).parent().find('.video_play').removeClass('hidden')
         }
     })
-})
+}
