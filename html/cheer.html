@@ -11,80 +11,80 @@
     <script src="../static/js/flexible.min.js"></script>
     <script src="../static/js/cheer.min.js"></script>
     <script>
-            //获取剩余天数
-            let getDayAjax = () => {
-                $.ajax({
-                    url: "test.json",//后端链接
-                    type: "post",
-                    data: {},
-                    dataType: "json",
-                    success: function(data){
-                        setDay(data.day);//执行插入天数,传入天数
-                        alert(data);//可修改，success处理
-                    },
-                    error: function(data){
-                        alert(data);
-                    }
-                });
-            }
-            //获取剩余天数
-            let getVideoAjax = () => {
-                $.ajax({
-                    url: "test.json",//后端链接
-                    type: "post",
-                    data: {},
-                    dataType: "json",
-                    success: function(data){
-                        setVideo(data.src);//执行插入视频链接,传入视频链接
-                        alert(data);//可修改，success处理
-                    },
-                    error: function(data){
-                        alert(data);
-                    }
-                });
-            }
-            //获取点赞数
-            let getFavorAjax = () => {
-                $.ajax({
-                    url: "test.json",//后端链接
-                    type: "post",
-                    data: {},
-                    dataType: "json",
-                    success: function(data){
-                        setFavor(data.favor);//执行插入点赞数,传入点赞数
-                        alert(data);//可修改，success处理
-                    },
-                    error: function(data){
-                        alert(data);
-                    }
-                });
-            }
-            //微信朋友圈分享，参考https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
-            // wx.config({
-            //     debug: false,
-            //     appId: '@appId',
-            //     timestamp: '@timestamp',
-            //     nonceStr: '@noncestr',
-            //     signature: '@signature',
-            //     jsApiList: ['updateTimelineShareData']
-            // });
-            // wx.ready(function () {//需在用户可能点击分享按钮前就先调用
-            //     wx.updateTimelineShareData({ 
-            //         title: '', // 分享标题
-            //         link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            //         imgUrl: '', // 分享图标
-            //         success: function () {
-            //             // 设置成功
-            //         }
-            //     });
-            // });
-            $(function(){
-                $(".invitation").on("click",function(){
-                    //微信朋友圈分享
-                    alert("微信朋友圈分享");
-                });
+        //获取剩余天数
+        let getDayAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    setDay(data.day);//执行插入天数,传入天数
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
             });
-        </script>
+        }
+        //获取剩余天数
+        let getVideoAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    setVideo(data.src);//执行插入视频链接,传入视频链接
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
+        //获取点赞数
+        let getFavorAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    setFavor(data.favor);//执行插入点赞数,传入点赞数
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
+        //微信朋友圈分享，参考https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
+        // wx.config({
+        //     debug: false,
+        //     appId: '@appId',
+        //     timestamp: '@timestamp',
+        //     nonceStr: '@noncestr',
+        //     signature: '@signature',
+        //     jsApiList: ['updateTimelineShareData']
+        // });
+        // wx.ready(function () {//需在用户可能点击分享按钮前就先调用
+        //     wx.updateTimelineShareData({ 
+        //         title: '', // 分享标题
+        //         link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        //         imgUrl: '', // 分享图标
+        //         success: function () {
+        //             // 设置成功
+        //         }
+        //     });
+        // });
+        $(function(){
+            $(".invitation").on("click",function(){
+                //微信朋友圈分享
+                console.log("微信朋友圈分享");
+            });
+        });
+    </script>
     <title>中华少年说</title>
 </head>
 <body>

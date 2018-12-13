@@ -21,10 +21,10 @@
                 dataType: "json",
                 success: function(data){
                     setDay(data.day);//执行插入天数,传入天数
-                    alert(data);//可修改，success处理
+                    console.log(data);//可修改，success处理
                 },
                 error: function(data){
-                    alert(data);
+                    console.log(data);
                 }
             });
         }
@@ -37,10 +37,10 @@
                 dataType: "json",
                 success: function(data){
                     changeCodeStyle();//执行重新发送的倒计时
-                    alert(data);//可修改，success处理
+                    console.log(data);//可修改，success处理
                 },
                 error: function(data){
-                    alert(data);
+                    console.log(data);
                 }
             });
         }
@@ -54,10 +54,10 @@
                 success: function(data){
                     //data需要把学校的数组传回来，如data.result为["aaa","bbb","ccc"...]
                     schoolChoice(data.result);//回调函数，需保留
-                    alert(data);//可修改，success处理
+                    console.log(data);//可修改，success处理
                 },
                 error: function(data){
-                    alert(data);
+                    console.log(data);
                 }
             });
         }
@@ -69,10 +69,10 @@
                 data: {name:inputName,phone:inputPhone,code:inputCode,province:selectProvince,city:selectCity,school:selectSchool,grade:selectGrade,teacher:inputTeacher,ok:selectOk},//顾名思义的数据
                 dataType: "json",
                 success: function(data){
-                    alert(data);//可修改，success处理
+                    console.log(data);//可修改，success处理
                 },
                 error: function(data){
-                    alert(data);
+                    console.log(data);
                 }
             });
         }
