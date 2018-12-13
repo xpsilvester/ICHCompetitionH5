@@ -44,4 +44,4 @@ $(()=>{
     videoPlay();
     videoPause();
     getFavor();
-})
+});
