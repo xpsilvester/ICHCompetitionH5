@@ -11,6 +11,22 @@
     <script src="../static/js/flexible.min.js"></script>
     <script src="../static/js/cheer_1.min.js"></script>
     <script>
+        //获取第x个加入
+        let getDayAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    setDay(data.number);//执行插入名次,传入名次
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
         //获取视频链接
         let getVideoAjax = () => {
             $.ajax({
@@ -27,7 +43,7 @@
                 }
             });
         }
-        //获取点赞数
+        //获取是否已点赞
         let getFavorAjax = () => {
             $.ajax({
                 url: "test.json",//后端链接
@@ -35,7 +51,7 @@
                 data: {},
                 dataType: "json",
                 success: function(data){
-                    setFavor(data.favor);//执行插入点赞数,传入点赞数
+                    setFavor(data.isFavor);//true or false
                     console.log(data);//可修改，success处理
                 },
                 error: function(data){
@@ -74,7 +90,18 @@
 <body>
     <div class="cheer1-container">
         <div class="main">
-            
+            <div class="main-header">
+                <p class="header-word">
+                    我是第 <span class="header-number">2839230</span> 位加入<br>
+                    非遗文化保护的小使者！
+                </p>
+            </div>
+            <div class="main-screen">
+                <img class="screen-play" src="../static/images/cheer/play.png" />
+                <video class="screen-video" src="http://video.tp-link.com.cn/mercury/3_p2.mp4" poster="../static/images/cheer1/poster.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+            </div>
+            <div class="main-heart"></div>
+            <p class="main-word">为TA助威</p>
         </div>
         <div class="invitation">
             
