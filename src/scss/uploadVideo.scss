@@ -276,3 +276,63 @@ body{
         color: #333333;
     }
 }
+
+.upload-compelete{
+    width: 343.5px;
+    margin: 10px auto 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    .resubmit,.commit{
+        width: 160px;
+        height: 55px;
+        margin: 0;
+    }
+    .resubmit{
+        background: url(../images/uploadVideo/resubmit.png);
+        background-size: 100%;
+    }
+    .commit{
+        background: url(../images/uploadVideo/commit.png);
+        background-size: 100%;
+    }
+}
+.mask{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    top:0;
+    left: 0;
+    // display: flex;
+    // justify-content:center;
+    // align-items:center;
+    .submit-error,.submit-out{
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .submit-error{
+        width: 303.5px;
+        height: 202.5px;
+        background: url(../images/uploadVideo/submit_error.png);
+        background-size: 100%;
+    }
+    .submit-out{
+        width: 303.5px;
+        height: 152.5px;
+        background: url(../images/uploadVideo/submit_out.png);
+        background-size: 100%;
+    }
+    .cancel{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+}
