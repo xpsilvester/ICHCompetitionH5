@@ -55,6 +55,79 @@
     height: 100%;
     background-color: rgba(0,0,0,0.8);
     position: fixed;
+    overflow: scroll;
 
-    
+    .content{
+        width: pxToRem(678px);
+        height: pxToRem(1346px);
+        background-image: url('../images/rule/ruleBackground.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        padding: pxToRem(50px) 0;
+        margin: pxToRem(50px) auto;
+
+        .content-close{
+            width: pxToRem(38px);
+            height: pxToRem(38px);
+            display: block;
+            margin: pxToRem(210px) 0 0 pxToRem(586px);
+        }
+
+        .content-title{
+            margin: pxToRem(70px) auto pxToRem(40px);
+            @include font-dpr(42px);
+            font-weight: bold;
+            color: #1acbfd;
+            text-align: center;
+        }
+
+        .content-detail{
+            width: pxToRem(640px);
+            height: pxToRem(900px);
+            overflow: scroll;
+            margin: 0 auto;
+        }
+
+        .content-block{
+            width: pxToRem(560px);
+            text-align: left;
+            margin: 0 auto pxToRem(24px);
+        }
+
+        .content-subtitle{
+            @include font-dpr(28px,48px);
+            color: #1acbfd;
+            margin: 0;
+        }
+
+        .content-item{
+            width: 100%;
+            margin-bottom: pxToRem(50px);
+            display: flex;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
+        .content-number{
+            width: pxToRem(34px);
+            height: pxToRem(37px);
+            text-align: center;
+            @include font-dpr(28px,37px);
+            color: #ffffff;
+            background-image: url('../images/rule/numberDot.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin-right: pxToRem(10px);
+        }
+
+        .content-word{
+            @include font-dpr(28px,48px);
+            color: #333333;
+            margin: 0;
+            width: pxToRem(520px);
+        }
+    }
 }
