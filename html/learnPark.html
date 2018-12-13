@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -7,10 +8,173 @@
     <link type="text/css" rel="stylesheet" href="../static/css/common.min.css">
     <link type="text/css" rel="stylesheet" href="../static/css/learnPark.min.css">
     <script src="../static/js/jquery-1.12.3.min.js"></script>
+    <script src="../static/js/flexible.min.js"></script>
     <script src="../static/js/learnPark.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
     <title>学习乐园</title>
 </head>
+
 <body>
-    
+    <div id="yuko-root">
+        <div id="yuko-header">
+            <div id="yuko-next">下一个</div>
+            <a id="yuko-back" href="./index.html">
+                <div>返回首页</div>
+            </a>
+        </div>
+        <div id="yuko-main">
+            <div id="yuko-videotitle">
+                <p>Tim老师聊非遗-京剧</p>
+                <span>中国国粹京剧的表演方式与表演艺术</span>
+            </div>
+            <div id="yuko-videoplay">
+                <img id="yuko-videoplay-bg" src="../static/images/learnPark/video_box2.png" />
+                <div id="yuko-videoplay-video">
+                    <video src="http://video.tp-link.com.cn/mercury/3_p2.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline
+                        muted x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+                </div>
+                <img id="yuko-videoplay-icon" src="../static/images/learnPark/video_play.png" />
+            </div>
+            <div id="yuko-videodesc">
+                视频介绍: 京剧, 曾称平剧, 中国五大戏曲剧种之一,场景布置注重写意，腔调以西皮、二黄为主，用胡琴和锣鼓等伴奏，被视为中国国粹，中国戏曲三鼎甲“榜首”。徽剧是京剧的前身。是...
+            </div>
+            <div id="yuko-recordplay">
+                <a id="yuko-recordplay-enroll" href="./enroll.html"></a>
+                <div id="yuko-recordplay-en">
+                    Peking Opera has traveled all over the world, with Beijing as its center and throughout China. It has become an important
+                    medium for introducing and disseminating Chinese traditional art and culture.
+                </div>
+                <div id="yuko-recordplay-cn">
+                    京剧走遍世界各地，分布地以北京为中心，遍及中国，成为介绍、传播中国传统艺术文化的重要媒介。
+                </div>
+                <div id="yuko-recordplay-opr">
+                    <div id="yuko-recordplay-play"></div>
+                    <div id="yuko-recordplay-record">
+                        <div class="yuko-toggletip"></div>
+                    </div>
+                    <div id="yuko-recordplay-read"></div>
+                </div>
+            </div>
+            <div id="yuko-generate">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+
+            /**
+             * 下一站按钮点击事件
+             * 跳转到下一站页面
+             */
+            $('#yuko-next').on('touchend', function (evt) {
+                // TODO
+                console.log('跳转到下一站');
+            })
+
+            var isRecordTouched = false,    // 录音是否按下
+                isRecordPlaying = false,    // 录音是否正在播放
+                isVoicePlaying = false,     // 音频是否正在播放
+                recordLocalId;              // 录音音频本地 id
+            /**
+             * 录音相关按钮点击事件
+             */
+            $('#yuko-recordplay').on('touchstart', function (evt) {
+                var tar = evt.target;
+
+                isRecordTouched = true;
+                switch (tar.id) {
+                    case 'yuko-recordplay-record':
+                        /*
+                         * 开始录音
+                         * 此处调用微信录音相关接口获取录音权限并开始录音
+                           wx.startRecord();
+                         */
+                        // TODO
+                        console.log('开始录音');
+
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            $('#yuko-recordplay').on('touchend', function (evt) {
+                var tar = evt.target;
+                isRecordTouched = false;
+                switch (tar.id) {
+                    case 'yuko-recordplay-play':
+                        if (!isRecordPlaying) {
+                            /*
+                             * 播放录音
+                                if(recordLocalId) {
+                                    wx.playVoice({
+                                        localId: recordLocalId
+                                    });
+                                }
+                            */
+                            // TODO
+                            isRecordPlaying = true;
+                            console.log('播放录音');
+                        } else {
+                            /*
+                            * 停止播放录音
+                            if(recordLocalId) {
+                                    wx.stopVoice({
+                                        localId: recordLocalId
+                                    });
+                            }
+                            */
+                            // TODO
+                            isRecordPlaying = false;
+                            console.log('停止播放录音');
+                        }
+
+                        break;
+                    case 'yuko-recordplay-record':
+                        /*
+                         * 结束录音
+                         * 此处调用微信录音相关接口获取录音权限并停止录音
+                           wx.stopRecord({
+                                success: function (res) {
+                                    recordLocalId = res.localId;
+                                }
+                           });
+                         */
+                        // TODO
+                        console.log('结束录音');
+
+                        break;
+                    case 'yuko-recordplay-read':
+                        if (!isVoicePlaying) {
+
+                            // 播放音频
+                            // TODO
+                            isVoicePlaying = true;
+                            console.log('播放音频');
+                        } else {
+                            // 停止播放音频
+                            // TODO
+                            isVoicePlaying = false;
+                            console.log('停止播放音频');
+                        }
+
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            /**
+             * 朋友圈分享按钮点击事件
+             */
+            $('#yuko-generate').on('touchend', function (evt) {
+
+                window.location = '';
+
+            });
+        });
+    </script>
 </body>
+
 </html>
