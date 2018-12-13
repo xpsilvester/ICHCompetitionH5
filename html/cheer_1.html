@@ -11,23 +11,7 @@
     <script src="../static/js/flexible.min.js"></script>
     <script src="../static/js/cheer_1.min.js"></script>
     <script>
-        //获取剩余天数
-        let getDayAjax = () => {
-            $.ajax({
-                url: "test.json",//后端链接
-                type: "post",
-                data: {},
-                dataType: "json",
-                success: function(data){
-                    setDay(data.day);//执行插入天数,传入天数
-                    console.log(data);//可修改，success处理
-                },
-                error: function(data){
-                    console.log(data);
-                }
-            });
-        }
-        //获取剩余天数
+        //获取视频链接
         let getVideoAjax = () => {
             $.ajax({
                 url: "test.json",//后端链接
