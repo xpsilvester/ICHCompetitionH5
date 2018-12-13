@@ -42,8 +42,8 @@
     src: url('../font/enroll/PingFang Regular.eot');
     src:
       url('../font/enroll/PingFang Regular.eot?#font-spider') format('embedded-opentype'),
-      url('../font/enroll/PingFang Regular.woff') format('woff'),
       url('../font/enroll/PingFang Regular.ttf') format('truetype'),
+      url('../font/enroll/PingFang Regular.woff') format('woff'),
       url('../font/enroll/PingFang Regular.svg') format('svg');
     font-weight: normal;
     font-style: normal;
@@ -156,7 +156,7 @@ body{
 }
 .select-themes{
     width: 100%;
-    margin: 14px 0 -5px;
+    margin: 16px 0 -5px;
     img{
         display: block;
         width: 100%;
@@ -182,5 +182,97 @@ body{
     img{
         display: block;
         width: 100%;
+    }
+}
+
+.upload-box{
+    width: 343.5px;
+    height: 402.5px;
+    margin: 0 auto;
+    background: url(../images/uploadVideo/video_box2.png);
+    background-size:100%; 
+    overflow: hidden;
+    position: relative;
+    .upload-back-img{
+        width: 309px;
+        height: 165.5px;
+        border-radius: 8px;
+        position: absolute;
+        top:61px;
+        left: 50%;
+        margin-left: -155.5px;
+        z-index: 1;
+    }
+    .video-play{
+        width: 43px;
+        height: 42.5px;
+        background: url(../images/uploadVideo/video_play.png);
+        background-size: 100%;
+        position: relative;
+        z-index: 2;
+        margin: 117px auto 0;
+    }
+    .upload-back-mask{
+        width: 309px;
+        height: 0px;
+        border-radius: 8px;
+        position: absolute;
+        left: 50%;
+        bottom: 176px;
+        margin-left: -155.5px;
+        z-index: 1;
+        background: rgba(255,255,255,0.8);
+        transition: all 0.1s;
+    }
+    .upload-back-word{
+        margin: 130px auto 0;
+        text-align: center;
+        position: relative;
+        z-index: 3;
+        @include font-dpr(32px);
+    }
+    .upload-btn{
+        display: block;
+        width: 75px;
+        height: 75px;
+        background: url(../images/uploadVideo/upload_btn.png);
+        background-size:100%; 
+        margin: 102px auto 0;
+    }
+    .progress{
+        display: block;
+        width: 200px;
+        height: 75px;
+        margin: 102px auto 0;
+        text-align: center;
+        color: #fff;
+        @include font-dpr(122px);
+        line-height: 75px;
+    }
+    .upload-end-word{
+        display: block;
+        width: 250px;
+        height: 75px;
+        margin: 92px auto 0;
+        text-align: center;
+        color: #fff;
+        @include font-dpr(60px);
+        span{
+            @include font-dpr(30px,50px);
+        }
+    }
+    .illus{
+        margin: 20px;
+        text-align: center;
+        @include font-dpr(26px,42px);
+    }
+}
+.confirm1{     
+    margin: 15px auto 0;
+    text-align: center;
+
+    .confirm1-word{
+        @include font-dpr(26px,40px);
+        color: #333333;
     }
 }
