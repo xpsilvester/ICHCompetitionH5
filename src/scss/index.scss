@@ -42,8 +42,8 @@
     src: url('../font/enroll/PingFang Regular.eot');
     src:
       url('../font/enroll/PingFang Regular.eot?#font-spider') format('embedded-opentype'),
-      url('../font/enroll/PingFang Regular.woff') format('woff'),
       url('../font/enroll/PingFang Regular.ttf') format('truetype'),
+      url('../font/enroll/PingFang Regular.woff') format('woff'),
       url('../font/enroll/PingFang Regular.svg') format('svg');
     font-weight: normal;
     font-style: normal;
@@ -162,5 +162,100 @@
         background-image: url('../images/index/host.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+    }
+
+    .small-site{
+        width: pxToRem(750px);
+        height: pxToRem(1100px);
+        background: url(../images/index/learnBackground.png) 0 0 no-repeat;
+        background-size: 100%;
+        position: relative;
+        font-family: 'PingFangSC-Regular','PingFang';
+        overflow: hidden;
+    
+        .site-btn{
+            width: pxToRem(172px);
+            height: pxToRem(92px);
+            background: url(../images/index/stationNormal.png) center center;
+            background-size: 100%;
+            position: absolute;
+            @include font-dpr(28px,92px);
+            text-align: center;
+            color: #fff;
+        }
+        .site-btn1{
+            top: pxToRem(288px);
+            left: pxToRem(50px);
+        }
+        .site-btn2{
+            top: pxToRem(275px);
+            left: pxToRem(294px);
+        }
+        .site-btn3{
+            top: pxToRem(288px);
+            left: pxToRem(549px);
+        }
+        .site-btn.active{
+            background: url(../images/index/stationActive.png) center center;
+            background-size: 100%;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 211px;
+            margin-top: pxToRem(450px);
+            padding-top: pxToRem(20px);
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            background: url(../images/index/screen.png);
+            background-size:100%; 
+            width: 290px !important;
+            position: relative;
+        
+            .video_pic{
+                width: 250px;
+                height: 142px;
+                margin: 16px auto 10px;
+                border-radius: 8px;
+            }
+            .learning{
+                width: 52px;
+                height: 52px;
+                position: absolute;
+                top:-10px;
+                right: -10px;
+                background: url(../images/index/learning.png);
+                background-size: 100%;
+            }
+            .video_play{
+                width: 43px;
+                height: 42.5px;
+                background: url(../images/index/play.png);
+                background-size: 100%;
+                position: absolute;
+                top:59px;
+                left: 50%;
+                margin-left: -21.5px;
+            }
+            .title{
+                @include font-dpr(34px);
+                margin: -6px auto 0;
+                font-weight: bold;
+                font-family:'PingFangSC-Semibold','PingFang';
+            }
+            .intro{
+                @include font-dpr(26px);
+            }
+        }
+        .slide-lr{
+            width: pxToRem(339px);
+            height: pxToRem(49px);
+            margin: pxToRem(20px) auto 0;
+            background: url(../images/index/slideHint.png);
+            background-size: 100%;
+            transition: all 0.5s;
+        }
     }
 }
