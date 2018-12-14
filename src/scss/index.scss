@@ -49,61 +49,23 @@
     font-style: normal;
   }
 
-@keyframes enroll
+@keyframes ball
 {
     from {
-        width: pxToRem(152px);
-        height: pxToRem(158px);
-        top: pxToRem(950px);
+        transform: scale(1,1);
     }
     to {
-        width: pxToRem(200px);
-        height: pxToRem(208px);
-        top: pxToRem(930px);
-    }
-}
-
-@keyframes upload
-{
-    from {
-        width: pxToRem(124px);
-        height: pxToRem(214px);
-        top: pxToRem(930px);
-    }
-    to {
-        width: pxToRem(150px);
-        height: pxToRem(259px);
-        top: pxToRem(900px);
-    }
-}
-
-@keyframes invitation
-{
-    from {
-        width: pxToRem(124px);
-        height: pxToRem(214px);
-        top: pxToRem(930px);
-    }
-    to {
-        width: pxToRem(150px);
-        height: pxToRem(259px);
-        top: pxToRem(900px);
+        transform: scale(1.03,1.03);
     }
 }
 
 @keyframes enrollBelow
 {
     from {
-        width: pxToRem(130px);
-        height: pxToRem(135px);
-        top: pxToRem(390px);
-        right: pxToRem(20px);
+        transform: scale(1,1);
     }
     to {
-        width: pxToRem(170px);
-        height: pxToRem(177px);
-        top: pxToRem(370px);
-        right: 0;
+        transform: scale(1.1,1.1);
     }
 }
 
@@ -144,30 +106,22 @@
             margin: 0 auto;
             background-repeat: no-repeat;
             background-size: 100% 100%;
+            width: pxToRem(294px);
+            height: pxToRem(285px);
+            top: pxToRem(890px);
+            animation: ball .5s infinite alternate;
         }
 
         .enroll{
-            width: pxToRem(152px);
-            height: pxToRem(158px);
-            top: pxToRem(950px);
-            background-image: url('../images/index/enroll.png');
-            animation: enroll .5s infinite alternate;
+            background-image: url('../images/index/enroll2.png');
         }
 
         .upload{
-            width: pxToRem(124px);
-            height: pxToRem(214px);
-            top: pxToRem(930px);
             background-image: url('../images/index/upload.png');
-            animation: upload .5s infinite alternate;
         }
 
         .invitation{
-            width: pxToRem(124px);
-            height: pxToRem(214px);
-            top: pxToRem(930px);
             background-image: url('../images/index/invitation.png');
-            animation: invitation .5s infinite alternate;
         }
     }
 
