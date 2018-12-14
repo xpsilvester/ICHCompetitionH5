@@ -1,4 +1,15 @@
-$(()=>{
+let getTheme = () => {
+    getThemeAjax();
+}
+
+let setTheme = (theme,link) => {
+    $(".index-container .header .action").unbind().attr("class","action " + theme);
+    $(".index-container .header .action").on("click",function(){
+        window.location.href = link;
+    });
+}
+
+let uploadVideo = ()=>{
     let swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',
         initialSlide : 0,
@@ -56,4 +67,8 @@ $(()=>{
             $(this).parent().find('.video_play').removeClass('not-display')
         }
     })
-})
+}
+
+$(()=>{
+    getTheme();
+});

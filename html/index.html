@@ -13,7 +13,54 @@
     <script src="../static/js/common.min.js"></script>
     <script src="../static/js/index.min.js"></script>
     <script>
-    
+        //获取顶部的球
+        let getThemeAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    setTheme(data.theme,data.link);//执行设置球的样式(theme为enroll,upload,invitation,link为跳转的链接)
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
+
+        $(function(){
+            uploadVideo(); //动态获取视频时去掉
+
+            //获取视频数据（如果不动态获取，可直接在html标签中添加）
+            $.ajax({
+                url: 'xxxxx',
+                type: 'get',
+                dataType: 'json',
+                data: {  },//数据
+                success: function (list) {
+                    if(list != null){
+                        var videoList ="";
+                        for(var i=0;i<list.length;i++){
+                            //假设：list[i].id 视频id ， list[i].title 主题 ， list[i].illustrationImg 主题图 ， 
+                            //list[i].video 视频url , list[i].videoImg 视频略缩图， list[i].intro 视频简介 
+                            videoList += `
+                            <div class="swiper-slide" data-id="`+ list[i].id +`">
+                                <p class="title">`+ list[i].title +`</p>
+                                <img class="illustration" src="`+ list[i].illustrationImg +`+"/>
+                                <video class="video_pic" src="`+ list[i].video +`" poster="`+ list[i].videoImg +`" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+                                <p class="intro">`+ list[i].intro +`</p>
+                                <div class="video_play"></div>
+                            </div>
+                            `
+                        }
+                        videoList.length > 0 ? $('.swiper-wrapper').html(videoList):'';
+                    }
+                    uploadVideo(); 
+                }
+            });
+        });
     </script>
     <title>中华少年说</title>
 </head>
