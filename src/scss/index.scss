@@ -91,6 +91,22 @@
     }
 }
 
+@keyframes enrollBelow
+{
+    from {
+        width: pxToRem(130px);
+        height: pxToRem(135px);
+        top: pxToRem(390px);
+        right: pxToRem(20px);
+    }
+    to {
+        width: pxToRem(170px);
+        height: pxToRem(177px);
+        top: pxToRem(370px);
+        right: 0;
+    }
+}
+
 .index-container{
     width: 100%;
     background-image: url('../images/index/indexBackground.png');
@@ -257,5 +273,45 @@
             background-size: 100%;
             transition: all 0.5s;
         }
+    }
+
+    .star-cheer{
+        width: pxToRem(750px);
+        height: pxToRem(1015px);
+        margin: pxToRem(80px) auto pxToRem(70px);
+        background-image: url('../images/index/starCheer.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .enroll-progress{
+        width: pxToRem(750px);
+        height: pxToRem(988px);
+        margin: 0 auto pxToRem(60px);
+        background-image: url('../images/index/enrollProgress.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+
+        .enroll-below{
+            width: pxToRem(130px);
+            height: pxToRem(135px);
+            background-image: url('../images/index/enrollBelow.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            display: block;
+            position: absolute;
+            top: pxToRem(390px);
+            right: pxToRem(20px);
+            animation: enrollBelow .5s infinite alternate;
+        }
+    }
+
+    .footer{
+        width: pxToRem(750px);
+        height: pxToRem(191px);
+        background-image: url('../images/index/copyRight.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
     }
 }
