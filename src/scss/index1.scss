@@ -49,6 +49,48 @@
     font-style: normal;
   }
 
+@keyframes enroll
+{
+    from {
+        width: pxToRem(152px);
+        height: pxToRem(158px);
+        top: pxToRem(950px);
+    }
+    to {
+        width: pxToRem(200px);
+        height: pxToRem(208px);
+        top: pxToRem(930px);
+    }
+}
+
+@keyframes upload
+{
+    from {
+        width: pxToRem(124px);
+        height: pxToRem(214px);
+        top: pxToRem(930px);
+    }
+    to {
+        width: pxToRem(150px);
+        height: pxToRem(259px);
+        top: pxToRem(900px);
+    }
+}
+
+@keyframes invitation
+{
+    from {
+        width: pxToRem(124px);
+        height: pxToRem(214px);
+        top: pxToRem(930px);
+    }
+    to {
+        width: pxToRem(150px);
+        height: pxToRem(259px);
+        top: pxToRem(900px);
+    }
+}
+
 .index-container{
     width: 100%;
     background-image: url('../images/index/indexBackground.png');
@@ -63,10 +105,6 @@
         .header-bg{
             width: 100%;
             display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
         }
 
         .rule{
@@ -74,7 +112,7 @@
             position: absolute;
             top: pxToRem(65px);
             right: pxToRem(20px);
-            z-index: 2;
+            z-index: 1;
 
             .rule-img{
                 width: 100%;
@@ -84,28 +122,45 @@
 
         .action{
             position: absolute;
-            z-index: 2;
+            z-index: 1;
             right: 0;
             left: 0;
             margin: 0 auto;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
 
         .enroll{
             width: pxToRem(152px);
             height: pxToRem(158px);
             top: pxToRem(950px);
+            background-image: url('../images/index/enroll.png');
+            animation: enroll .5s infinite alternate;
         }
 
         .upload{
             width: pxToRem(124px);
             height: pxToRem(214px);
             top: pxToRem(930px);
+            background-image: url('../images/index/upload.png');
+            animation: upload .5s infinite alternate;
         }
 
         .invitation{
             width: pxToRem(124px);
             height: pxToRem(214px);
             top: pxToRem(930px);
+            background-image: url('../images/index/invitation.png');
+            animation: invitation .5s infinite alternate;
         }
+    }
+
+    .host{
+        width: pxToRem(678px);
+        height: pxToRem(505px);
+        margin: pxToRem(50px) auto pxToRem(40px);
+        background-image: url('../images/index/host.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
     }
 }
