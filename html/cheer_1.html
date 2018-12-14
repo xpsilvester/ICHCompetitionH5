@@ -9,6 +9,7 @@
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
     <script src="../static/js/jquery-1.12.3.min.js"></script>
     <script src="../static/js/flexible.min.js"></script>
+    <script src="../static/js/common.min.js"></script>
     <script src="../static/js/cheer_1.min.js"></script>
     <script>
         //获取第x个加入
@@ -94,6 +95,10 @@
         //     });
         // });
         $(function(){
+            //显示新手教程
+            //showCheerGuide();
+            //隐藏新手教程
+            //hideCheerGuide();
             $(".invitation").on("click",function(){
                 //微信朋友圈分享
                 console.log("微信朋友圈分享");
@@ -122,5 +127,6 @@
             
         </div>
     </div>
+    <iframe id="cheer-guide" name="cheer-guide" src="cheerGuide.html"></iframe>
 </body>
 </html>

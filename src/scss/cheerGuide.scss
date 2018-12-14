@@ -1,0 +1,67 @@
+// px转换为rem
+@function pxToRem($px, $base: 750px) {
+    $min: 1 / $base * 10 * 1;
+    $result: $px / $base * 10 * 1;
+
+    @if $result < 0.027 and $result > 0 {
+        @return 2px;
+    }
+
+    @else {
+        @return $px / $base * 10 * 1rem;
+    }
+}
+
+// 设置dpr下的字体大小
+@mixin font-dpr($font-size, $line-height: $font-size) {
+    font-size: $font-size / 2;
+
+    @if $line-height != none {
+        line-height: $line-height / 2;
+    }
+
+    [data-dpr="2"] & {
+        font-size: $font-size;
+
+        @if $line-height != none {
+            line-height: $line-height;
+        }
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3 / 2;
+
+        @if $line-height != none {
+            line-height: $line-height * 3 / 2;
+        }
+    }
+}
+
+@font-face {
+    font-family: 'PingFang Regular';
+    src: url('../font/enroll/PingFang Regular.eot');
+    src:
+      url('../font/enroll/PingFang Regular.eot?#font-spider') format('embedded-opentype'),
+      url('../font/enroll/PingFang Regular.woff') format('woff'),
+      url('../font/enroll/PingFang Regular.ttf') format('truetype'),
+      url('../font/enroll/PingFang Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.cheer-guide{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    overflow: scroll;
+    font-family: 'PingFang Regular';
+
+    .guide{
+        width: pxToRem(444px);
+        height: pxToRem(181px);
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
