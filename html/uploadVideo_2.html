@@ -31,7 +31,7 @@
             })
         }
 
-        //开始上传
+        //开始上传效果
         var uploadStart = function(){
             $('.upload-back-img').removeClass('not-visible');
             $('.upload-back-word').text('视频上传中...');
@@ -39,14 +39,14 @@
             $('.progress').removeClass('not-display');
         }
         
-        //上传过程
+        //上传过程效果
         var uploading = function (percent){
             //视频遮罩
             $('.upload-back-mask').css('height',percent*1.65+'px');
             $('.progress').text(percent + '%');
         }
 
-        //上传结束
+        //上传结束效果，需要传入视频链接
         var uploadEnd = function (url){
             $('.upload-back-word').addClass('not-display');
             $('.upload-back-mask').addClass('not-display');
@@ -115,10 +115,10 @@
                     }
                 });                             
             }else{
-                //模拟上传
-                uploadStart();
-                uploading(100); 
-                setTimeout(uploadEnd, 1000);
+                //模拟上传（正式环境可删除）
+                uploadStart(); //开始上传
+                uploading(100); //上传过程
+                setTimeout(uploadEnd, 1000); //上传结束
             } 
         }
         
@@ -159,6 +159,7 @@
             }
         })
         
+        //取消弹窗
         $('.cancel').on('click',function(){
             $('.mask,.submit-error,.submit-out').addClass('not-display');
         })
