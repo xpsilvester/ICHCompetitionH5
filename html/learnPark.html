@@ -62,6 +62,22 @@
         </div>
     </div>
     <script>
+        //获取标题、子标题、介绍、跟读内容
+        let getContentAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    setContent(data.title,data.subtitle,data.description,data.readEnglish,data.readChinese);//执行插入数据,传入数据
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
         $(function () {
             $('#yuko-videodesc').css('-webkit-box-orient','vertical');
             /**
@@ -134,11 +150,18 @@
                         break;
                     case 'yuko-recordplay-record':
                         /*
-                         * 结束录音
-                         * 此处调用微信录音相关接口获取录音权限并停止录音
+                         * 结束录音 并 上传
+                         * 此处调用微信录音相关接口获取录音权限并停止录音，上传录音
                            wx.stopRecord({
                                 success: function (res) {
                                     recordLocalId = res.localId;
+                                    wx.uploadVoice({
+                                        localId: res.localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                                        isShowProgressTips: 1, // 默认为1，显示进度提示
+                                        success: function (res) {
+                                            var serverId = res.serverId; // 返回音频的服务器端ID
+                                        }
+                                    });
                                 }
                            });
                          */

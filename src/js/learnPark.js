@@ -1,8 +1,20 @@
+'use strict';
+
+let getContent = () => {
+    getContentAjax();
+}
+
+let setContent = (title,subtitle,description,readEnglish,readChinese) => {
+    $("#yuko-videotitle p").html(title);
+    $("#yuko-videotitle span").html(subtitle);
+    $("#yuko-videodesc").html(description);
+    $("#yuko-recordplay-en").html(readEnglish);
+    $("#yuko-recordplay-cn").html(readChinese);
+}
+
 $(() => {
-    'use strict';
-
+    getContent();
     $('#yuko-videoplay').on('touchend', function (evt) {
-
         let tar = evt.target,
             $videoMainCon = $('#yuko-videoplay'),
             $video = $('#yuko-videoplay-video video');
