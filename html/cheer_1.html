@@ -12,14 +12,14 @@
     <script src="../static/js/cheer_1.min.js"></script>
     <script>
         //获取第x个加入
-        let getDayAjax = () => {
+        let getNumberAjax = () => {
             $.ajax({
                 url: "test.json",//后端链接
                 type: "post",
                 data: {},
                 dataType: "json",
-                success: function(data){
-                    setDay(data.number);//执行插入名次,传入名次
+                success: function(number){
+                    setNumber(data.number);//执行插入名次,传入名次
                     console.log(data);//可修改，success处理
                 },
                 error: function(data){
@@ -52,6 +52,21 @@
                 dataType: "json",
                 success: function(data){
                     setFavor(data.isFavor);//true or false
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
+        //点赞
+        let favorAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
                     console.log(data);//可修改，success处理
                 },
                 error: function(data){
