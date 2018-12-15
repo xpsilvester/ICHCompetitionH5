@@ -51,7 +51,7 @@
                 <div id="yuko-recordplay-opr">
                     <div id="yuko-recordplay-play"></div>
                     <div id="yuko-recordplay-record">
-                        <div class="yuko-toggletip"></div>
+                        <!-- <div class="yuko-toggletip"></div> -->
                     </div>
                     <div id="yuko-recordplay-read"></div>
                 </div>
@@ -60,9 +60,13 @@
 
             </div>
         </div>
+        <!-- 原声音频 -->
+        <audio id="player" style="display:none" controls="controls" autoplay">
+            <source src="xxx.mp3"/>
+         </audio>
     </div>
     <script>
-        //获取标题、子标题、介绍、跟读内容
+        //获取标题、子标题、介绍、跟读内容、跟读内容音频地址
         let getContentAjax = () => {
             $.ajax({
                 url: "test.json",//后端链接
@@ -70,7 +74,7 @@
                 data: {},
                 dataType: "json",
                 success: function(data){
-                    setContent(data.title,data.subtitle,data.description,data.readEnglish,data.readChinese);//执行插入数据,传入数据
+                    setContent(data.title,data.subtitle,data.description,data.readEnglish,data.readChinese,data.audio);//执行插入数据,传入数据
                     console.log(data);//可修改，success处理
                 },
                 error: function(data){
@@ -78,8 +82,27 @@
                 }
             });
         }
+
         $(function () {
             $('#yuko-videodesc,#yuko-recordplay-en').css('-webkit-box-orient','vertical');
+
+            //报名按钮
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(isEnroll){
+                    //判断是否去掉报名按钮
+                    if(!isEnroll){
+                        $('#yuko-recordplay-enroll').addClass('not-display');
+                    }
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+
             /**
              * 下一站按钮点击事件
              * 跳转到下一站页面
@@ -96,6 +119,61 @@
             /**
              * 录音相关按钮点击事件
              */
+
+            //状态
+            //开始状态
+            var initial = function(){
+                $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_ready.png)');
+                $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record.png)');
+                $('#yuko-recordplay-read').css('background-image','url(../static/images/learnPark/blank.png)');
+            }
+            initial();
+
+            //播放原声
+            var playPro = function(){
+                $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_play.png)');
+                $('#player').get(0).play();
+            }
+
+            //停止原声
+            var pausePro = function(){
+                $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_ready.png)');
+                $('#player').get(0).pause();
+            }
+
+            //开始录音
+            var record = function(){
+                $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record2.png)');
+            }
+
+            //停止录音
+            var recordStop = function(){
+                $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record.png)');
+            }
+
+            //通过验证打分
+            var pass = function(){
+                $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record3.png)');
+                readStop();
+            }
+
+            //未通过验证打分
+            var unPass = function(){
+                $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record4.png)');
+                readStop();
+            }
+
+            //我的录音停止
+            var readStop = function(){
+                $('#yuko-recordplay-read').css('background-image','url(../static/images/learnPark/voice_read.png)');
+            }
+
+            //我的录音播放
+            var readPlay = function(){
+                $('#yuko-recordplay-read').css('background-image','url(../static/images/learnPark/voice_read2.png)');
+            }
+
+
             //录音相关方法及上传需调用微信JS-SDK，相关参数需后台传入,具体配置请参考API：https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
             $('#yuko-recordplay').on('touchstart', function (evt) {
                 var tar = evt.target;
@@ -109,6 +187,7 @@
                            wx.startRecord();
                          */
                         // TODO
+                        record();
                         console.log('开始录音');
 
                         break;
@@ -121,7 +200,7 @@
                 var tar = evt.target;
                 isRecordTouched = false;
                 switch (tar.id) {
-                    case 'yuko-recordplay-play':
+                    case 'yuko-recordplay-read':
                         if (!isRecordPlaying) {
                             /*
                              * 播放录音
@@ -132,6 +211,7 @@
                                 }
                             */
                             // TODO
+                            readPlay();
                             isRecordPlaying = true;
                             console.log('播放录音');
                         } else {
@@ -144,12 +224,14 @@
                             }
                             */
                             // TODO
+                            readStop();
                             isRecordPlaying = false;
                             console.log('停止播放录音');
                         }
 
                         break;
                     case 'yuko-recordplay-record':
+                        recordStop();
                         /*
                          * 结束录音 并 上传
                          * 此处调用微信录音相关接口获取录音权限并停止录音，上传录音
@@ -167,20 +249,30 @@
                            });
                          */
                         // TODO
+                        //验证
+                        var valide = true;
+                        if(valide){
+                            setTimeout(pass,1000); //通过验证
+                        }else{
+                            setTimeout(unPass,1000); //未通过验证
+                        }
+
                         console.log('结束录音');
 
                         break;
-                    case 'yuko-recordplay-read':
+                    case 'yuko-recordplay-play':
                         if (!isVoicePlaying) {
 
                             // 播放音频
                             // TODO
                             isVoicePlaying = true;
+                            playPro();
                             console.log('播放音频');
                         } else {
-                            // 停止播放音频
+                            // 停止音频
                             // TODO
                             isVoicePlaying = false;
+                            pausePro();
                             console.log('停止播放音频');
                         }
 

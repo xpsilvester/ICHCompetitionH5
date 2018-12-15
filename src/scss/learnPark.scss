@@ -25,7 +25,15 @@
         font-size: $font-size * 3 / 2;
     }
 }
-
+@keyframes enrollBelow
+{
+    from {
+        transform: scale(1,1);
+    }
+    to {
+        transform: scale(1.1,1.1);
+    }
+}
 #yuko-root {
     min-height: 100%;
     background: linear-gradient(to bottom,#0dc7fd, #effbff);
@@ -154,17 +162,20 @@
             margin: pxToRem(34px);
             height: pxToRem(1030px);
             padding: 0 pxToRem(56px);
-            background: url(../images/learnPark/record_display2.png) no-repeat center center;
+            background: url(../images/learnPark/record_display.png) no-repeat center center;
             background-size: contain;
 
             #yuko-recordplay-enroll {
                 display: block;
                 width: pxToRem(130px);
-                height: pxToRem(140px);
+                height: pxToRem(135px);
                 position: absolute;
                 top: 0;
                 right: 0;
                 user-select: none;
+                background: url(../images/learnPark/enroll.png);
+                background-size: 100%;
+                animation: enrollBelow .5s infinite alternate;
             }
             
             #yuko-recordplay-en {
@@ -198,7 +209,7 @@
                 #yuko-recordplay-play {
                     width: pxToRem(108px);
                     height: pxToRem(108px);
-                    background: url(../images/learnPark/voice_play.png) no-repeat center center;
+                    background: url(../images/learnPark/voice_ready.png) no-repeat center center;
                     background-size: 84.375%;
                 }
 
@@ -208,18 +219,6 @@
                     height: pxToRem(128px);
                     background: url(../images/learnPark/voice_record.png) no-repeat center center;
                     background-size: 100%;
-
-                    .yuko-toggletip {
-                        position: absolute;
-                        top: pxToRem(-10px);
-                        right: pxToRem(-12px);
-                        z-index: 2;
-                        width: pxToRem(53px);
-                        height: pxToRem(53px);
-                        background: url(../images/learnPark/smile1.png) no-repeat center center;
-                        background-size: 100%;
-                    }
-
                 }
 
                 #yuko-recordplay-read {

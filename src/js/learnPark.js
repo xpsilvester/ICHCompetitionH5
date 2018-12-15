@@ -4,12 +4,13 @@ let getContent = () => {
     getContentAjax();
 }
 
-let setContent = (title,subtitle,description,readEnglish,readChinese) => {
+let setContent = (title,subtitle,description,readEnglish,readChinese,audio) => {
     $("#yuko-videotitle p").html(title);
     $("#yuko-videotitle span").html(subtitle);
     $("#yuko-videodesc").html(description);
     $("#yuko-recordplay-en").html(readEnglish);
     $("#yuko-recordplay-cn").html(readChinese);
+    $('#player source').attr('src',audio);
 }
 
 $(() => {
