@@ -9,10 +9,10 @@ let setTheme = (theme,link) => {
     });
 }
 
-let uploadVideo = ()=>{
+let uploadVideo = (learningIndex)=>{
     let swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',
-        initialSlide : 0,
+        initialSlide : learningIndex,
         centeredSlides: true,
         spaceBetween: 10,
         grabCursor: true,
@@ -25,6 +25,27 @@ let uploadVideo = ()=>{
             slideShadows : false,
         }
     });
+
+    //点亮站点按钮
+    let changeSite = ($index)=>{
+        if($index <= 4){
+            $('.site-btn').removeClass('active');
+            $('.site-btn1').addClass('active');
+        }else if($index <= 9){
+            $('.site-btn').removeClass('active');
+            $('.site-btn2').addClass('active');
+        }else{
+            $('.site-btn').removeClass('active');
+            $('.site-btn3').addClass('active');
+        }
+    }
+    changeSite(learningIndex);
+
+    //学习中图标
+    $('.swiper-slide .learning').addClass('not-display');
+    $('.swiper-slide .learning').eq(learningIndex).removeClass('not-display');
+
+
     //监听左右滑动
     let moveX = 0;
     $('.swiper-container').on('touchstart',function(){
@@ -34,18 +55,10 @@ let uploadVideo = ()=>{
         if((swiper.getTranslate()-moveX) != 0){
             $('.slide-lr').css('opacity','0');
             var $index = $('.swiper-slide-active').index();
-            if($index <= 4){
-                $('.site-btn').removeClass('active');
-                $('.site-btn1').addClass('active');
-            }else if($index <= 9){
-                $('.site-btn').removeClass('active');
-                $('.site-btn2').addClass('active');
-            }else{
-                $('.site-btn').removeClass('active');
-                $('.site-btn3').addClass('active');
-            }
+            changeSite($index);
         };
     });
+
     //点击站按钮
     $('.site-btn').on('click',function(){
         swiper.slideTo($(this).index()*5, 1000, false);

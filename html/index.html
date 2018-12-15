@@ -22,6 +22,10 @@
                 dataType: "json",
                 success: function(data){
                     setTheme(data.theme,data.link);//执行设置球的样式(theme为enroll,upload,invitation,link为跳转的链接)
+                    //如果不是enroll,去掉底部报名按钮
+                    if(data.theme != "enroll"){
+                        $('.enroll-below').addClass('not-display');
+                    }
                     console.log(data);//可修改，success处理
                 },
                 error: function(data){
@@ -31,7 +35,7 @@
         }
 
         $(function(){
-            uploadVideo(); //动态获取视频时去掉
+            uploadVideo(0); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
 
             //获取视频数据（如果不动态获取，可直接在html标签中添加）
             $.ajax({
@@ -43,21 +47,30 @@
                     if(list != null){
                         var videoList ="";
                         for(var i=0;i<list.length;i++){
-                            //假设：list[i].id 视频id ， list[i].title 主题 ， list[i].illustrationImg 主题图 ， 
+                            //假设：list[i].id 视频id 
                             //list[i].video 视频url , list[i].videoImg 视频略缩图， list[i].intro 视频简介 
                             videoList += `
                             <div class="swiper-slide" data-id="`+ list[i].id +`">
-                                <p class="title">`+ list[i].title +`</p>
-                                <img class="illustration" src="`+ list[i].illustrationImg +`+"/>
+                                <div class="learning not-display"></div>
                                 <video class="video_pic" src="`+ list[i].video +`" poster="`+ list[i].videoImg +`" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
-                                <p class="intro">`+ list[i].intro +`</p>
+                                <p class="title">第1站 - 参赛指南</p>
                                 <div class="video_play"></div>
                             </div>
                             `
                         }
                         videoList.length > 0 ? $('.swiper-wrapper').html(videoList):'';
                     }
-                    uploadVideo(); 
+            
+                    //获取当前学习的站点
+                    $.ajax({
+                        url: 'xxxxx',
+                        type: 'get',
+                        dataType: 'json',
+                        data: {  },//数据
+                        success: function (index) {
+                            uploadVideo(index);
+                        }
+                    })
                 }
             });
         });

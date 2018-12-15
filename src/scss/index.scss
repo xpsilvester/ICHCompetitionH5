@@ -136,7 +136,7 @@
 
     .small-site{
         width: pxToRem(750px);
-        height: pxToRem(1100px);
+        height: pxToRem(1050px);
         background: url(../images/index/learnBackground.png) 0 0 no-repeat;
         background-size: 100%;
         position: relative;
@@ -222,7 +222,7 @@
         .slide-lr{
             width: pxToRem(339px);
             height: pxToRem(49px);
-            margin: pxToRem(20px) auto 0;
+            margin: pxToRem(10px) auto 0;
             background: url(../images/index/slideHint.png);
             background-size: 100%;
             transition: all 0.5s;
@@ -232,7 +232,7 @@
     .star-cheer{
         width: pxToRem(750px);
         height: pxToRem(1015px);
-        margin: pxToRem(80px) auto pxToRem(70px);
+        margin: pxToRem(48px) auto pxToRem(70px);
         background-image: url('../images/index/starCheer.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
