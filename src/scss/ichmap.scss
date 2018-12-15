@@ -1,0 +1,271 @@
+// px转换为rem
+@function pxToRem($px, $base: 750px) {
+    $min: 1 / $base * 10 * 1;
+    $result: $px / $base * 10 * 1;
+
+    @if $result < 0.027 and $result > 0 {
+        @return 2px;
+    }
+
+    @else {
+        @return $px / $base * 10 * 1rem;
+    }
+
+}
+// 设置dpr下的字体大小
+@mixin font-dpr($font-size, $line-height: $font-size) {
+    font-size: $font-size / 2;
+
+    [data-dpr="2"] & {
+        font-size: $font-size;
+
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3 / 2;
+    }
+}
+
+#yuko-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(0,0,0,.8);
+
+    #yuko-mask-sharehand {
+        width: pxToRem(410px);
+        height: pxToRem(256px);
+        margin: pxToRem(534px) pxToRem(170px) pxToRem(116px) pxToRem(170px);
+        background: url(../images/ichmap/sharehand.png) no-repeat center center;
+        background-size: 100%;
+}
+
+    #yuko-mask-iknow {
+        width: pxToRem(161px);
+        height: pxToRem(60px);
+        margin: 0 auto;
+        background: url(../images/ichmap/iknow.png) no-repeat center center;
+        background-size: 99%;
+    }
+}
+
+#yuko-root {
+    width: pxToRem(750px);
+    height: pxToRem(1334px);
+    // background: url(../images/ichmap/bg.png) no-repeat center center;
+    // background-size: 100%;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+
+    #yuko-root-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+    #yuko-station-activenum {
+        position: absolute;
+        top: pxToRem(251px);
+        left: pxToRem(589px);
+        @include font-dpr(40px);
+        font-weight: bold;
+        color: #ff5395;
+        text-shadow: 0 1px 2px #efb404;
+    }
+
+    .yuko-station {
+        width: pxToRem(88px);
+        height: pxToRem(88px);
+        position: absolute;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 64%;
+
+        img {
+            width: 64%;
+            height: 64%;
+            position: absolute;
+            top: 18%;
+            left: 18%;
+            z-index: 1;
+        }
+        img.active {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    }
+
+    .yuko-station.active {
+        background-size: 100%;
+
+        img.active {
+            z-index: 2;
+        }
+    }
+
+    #yuko-station-01 {
+        // // background-image: url(../images/ichmap/inactive/1.png);
+        top: pxToRem(173px);
+        left: pxToRem(247px);
+    }
+
+    
+    #yuko-station-02 {
+        // background-image: url(../images/ichmap/inactive/2.png);
+        top: pxToRem(173px);
+        left: pxToRem(347px);
+    }
+
+    
+    #yuko-station-03 {
+        // background-image: url(../images/ichmap/inactive/3.png);
+        top: pxToRem(218px);
+        left: pxToRem(428px);
+    }
+
+    
+    #yuko-station-04 {
+        // background-image: url(../images/ichmap/inactive/4.png);
+        top: pxToRem(316px);
+        left: pxToRem(437px);
+    }
+
+    
+    #yuko-station-05 {
+        // background-image: url(../images/ichmap/inactive/5.png);
+        top: pxToRem(338px);
+        left: pxToRem(548px);
+    }
+
+    
+    #yuko-station-06 {
+        // background-image: url(../images/ichmap/inactive/6.png);
+        top: pxToRem(436px);
+        left: pxToRem(594px);
+    }
+
+    
+    #yuko-station-07 {
+        // background-image: url(../images/ichmap/inactive/7.png);
+        top: pxToRem(422px);
+        left: pxToRem(424px);
+    }
+
+    
+    #yuko-station-08 {
+        // background-image: url(../images/ichmap/inactive/8.png);
+        top: pxToRem(360px);
+        left: pxToRem(126px);
+    }
+
+    
+    #yuko-station-09 {
+        // background-image: url(../images/ichmap/inactive/9.png);
+        top: pxToRem(442px);
+        left: pxToRem(8px);
+    }
+
+    
+    #yuko-station-10 {
+        // background-image: url(../images/ichmap/inactive/10.png);
+        top: pxToRem(550px);
+        left: pxToRem(106px);
+    }
+
+    
+    #yuko-station-11 {
+        // background-image: url(../images/ichmap/inactive/11.png);
+        top: pxToRem(575px);
+        left: pxToRem(203px);
+    }
+
+    
+    #yuko-station-12 {
+        // background-image: url(../images/ichmap/inactive/12.png);
+        top: pxToRem(584px);
+        left: pxToRem(316px);
+    }
+
+    
+    #yuko-station-13 {
+        // background-image: url(../images/ichmap/inactive/13.png);
+        top: pxToRem(590px);
+        left: pxToRem(458px);
+    }
+
+    
+    #yuko-station-14 {
+        // background-image: url(../images/ichmap/inactive/14.png);
+        top: pxToRem(626px);
+        left: pxToRem(582px);
+    }
+
+    
+    #yuko-station-15 {
+        // background-image: url(../images/ichmap/inactive/15.png);
+        top: pxToRem(719px);
+        left: pxToRem(599px);
+    }
+
+    
+    #yuko-station-16 {
+        // background-image: url(../images/ichmap/inactive/16.png);
+        top: pxToRem(810px);
+        left: pxToRem(599px);
+    }
+
+    
+    #yuko-question-title {
+        position: absolute;
+        top: pxToRem(836px);
+        left: pxToRem(87px);
+        width: pxToRem(284px);
+        height: pxToRem(80px);
+        line-height: pxToRem(80px);
+        text-align: center;
+        @include font-dpr(30px);
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 1px 3px #a87c13;
+    }
+
+    #yuko-question-content {
+        display: table;
+        position: absolute;
+        top: pxToRem(936px);
+        left: pxToRem(32px);
+        width: pxToRem(488px);
+        height: pxToRem(122px);
+        text-align: center;
+        @include font-dpr(30px);
+        font-weight: bold;
+        color: #ffffff;
+
+        #yuko-question-text {
+            display: table-cell;
+            vertical-align: middle;
+            text-shadow: 0 0 .5px #fde700;
+        }
+    }
+
+    #yuko-qrcode {
+        position: absolute;
+        top: pxToRem(1106px);
+        left: pxToRem(447px);
+        width: pxToRem(150px);
+        height: pxToRem(150px);
+
+        img {
+            width: 100%;
+        }
+    }
+
+}

@@ -1,18 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非遗小站地图</title>
     <link type="text/css" rel="stylesheet" href="../static/css/common.min.css">
     <link type="text/css" rel="stylesheet" href="../static/css/ichmap.min.css">
     <script src="../static/js/jquery-1.12.3.min.js"></script>
+    <script src="../static/js/flexible.min.js"></script>
+    <script src="../static/js/html2canvas.min.js"></script>
+    <script src="../static/js/canvas2image.js"></script>
     <script src="../static/js/ichmap.min.js"></script>
-    <title>非遗小站地图</title>
+    <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
 </head>
+
 <body>
-    <div id="yuko-root">
-        
+    <div id="yuko-mask">
+        <div id="yuko-mask-sharehand"></div>
+        <div id="yuko-mask-iknow"></div>
     </div>
+    <div id="yuko-root">
+        <img id="yuko-root-bg" src="../static/images/ichmap/bg.png" />
+        <div id="yuko-station-activenum">16</div>
+        <div class="yuko-station" id="yuko-station-01">
+            <img src="../static/images/ichmap/inactive/1.png" />
+            <img class="active" src="../static/images/ichmap/active/1.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-02">
+            <img src="../static/images/ichmap/inactive/2.png" />
+            <img class="active" src="../static/images/ichmap/active/2.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-03">
+            <img src="../static/images/ichmap/inactive/3.png" />
+            <img class="active" src="../static/images/ichmap/active/3.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-04">
+            <img src="../static/images/ichmap/inactive/4.png" />
+            <img class="active" src="../static/images/ichmap/active/4.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-05">
+            <img src="../static/images/ichmap/inactive/5.png" />
+            <img class="active" src="../static/images/ichmap/active/5.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-06">
+            <img src="../static/images/ichmap/inactive/6.png" />
+            <img class="active" src="../static/images/ichmap/active/6.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-07">
+            <img src="../static/images/ichmap/inactive/7.png" />
+            <img class="active" src="../static/images/ichmap/active/7.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-08">
+            <img src="../static/images/ichmap/inactive/8.png" />
+            <img class="active" src="../static/images/ichmap/active/8.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-09">
+            <img src="../static/images/ichmap/inactive/9.png" />
+            <img class="active" src="../static/images/ichmap/active/9.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-10">
+            <img src="../static/images/ichmap/inactive/10.png" />
+            <img class="active" src="../static/images/ichmap/active/10.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-11">
+            <img src="../static/images/ichmap/inactive/11.png" />
+            <img class="active" src="../static/images/ichmap/active/11.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-12">
+            <img src="../static/images/ichmap/inactive/12.png" />
+            <img class="active" src="../static/images/ichmap/active/12.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-13">
+            <img src="../static/images/ichmap/inactive/13.png" />
+            <img class="active" src="../static/images/ichmap/active/13.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-14">
+            <img src="../static/images/ichmap/inactive/14.png" />
+            <img class="active" src="../static/images/ichmap/active/14.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-15">
+            <img src="../static/images/ichmap/inactive/15.png" />
+            <img class="active" src="../static/images/ichmap/active/16.png" />
+        </div>
+        <div class="yuko-station" id="yuko-station-16">
+            <img src="../static/images/ichmap/inactive/16.png" />
+            <img class="active" src="../static/images/ichmap/active/16.png" />
+        </div>
+        <div id="yuko-question-title">
+            书法趣味问答
+        </div>
+        <div id="yuko-question-content">
+            <div id="yuko-question-text">
+                书法家千千万
+                <br> 为什么王羲之是“书圣”？
+            </div>
+        </div>
+        <div id="yuko-qrcode">
+            <img src="../static/images/ichmap/qrcode.png" />
+        </div>
+    </div>
+    <script>
+        $(function () {
+
+            var touchTotalTime = 0,// 按住屏幕的时间
+                touchStartTime, // 手指按下屏幕的时间
+                touchEndTime, // 手指松开屏幕的时间
+                LONG_TOUCH_TIME = 800; // 判定为长按的时间，单位毫秒，可修改
+            $(document).on('touchstart', function () {
+                touchStartTime = new Date().getTime();
+            });
+
+            $(document).on('touchmove', function () {
+                // 一旦手指移动，重置 touchStartTime
+                touchStartTime = new Date().getTime();
+            });
+
+            $(document).on('touchend', function (evt) {
+                touchEndTime = new Date().getTime();
+                touchTotalTime = touchEndTime - touchStartTime;
+                if (touchTotalTime >= LONG_TOUCH_TIME && evt.target.id !== 'yuko-mask' && evt.target.parentElement.id !== 'yuko-mask') {
+                    console.log('这是长按事件');
+                    // 保存图片和分享
+                    saveImage();
+                }
+            });
+
+            /**
+             * 设置点亮的图标数目
+             */
+            function setActiveNum(num) {
+                $('#yuko-station-activenum').text(num);
+            }
+
+            /**
+             * 保存图片
+             */
+            function saveImage() {
+                var shareContent = document.body;//需要截图的包裹的（原生的）DOM 对象
+                var width = shareContent.offsetWidth; //获取dom 宽度
+                var height = shareContent.offsetHeight; //获取dom 高度
+                var canvas = document.createElement("canvas"); //创建一个canvas节点
+                var scale = 3; //定义任意放大倍数 支持小数
+                canvas.width = width * scale; //定义canvas 宽度 * 缩放
+                canvas.height = height * scale; //定义canvas高度 *缩放
+                canvas.getContext("2d").scale(scale, scale); //获取context,设置scale 
+                var opts = {
+                    scale: scale, // 添加的scale 参数
+                    canvas: canvas, //自定义 canvas
+                    // logging: true, //日志开关，便于查看html2canvas的内部执行流程
+                    width: width, //dom 原始宽度
+                    height: height,
+                    allowTaint: true, //允许污染
+                    taintTest: true, //在渲染前测试图片
+                    useCORS: true // 【重要】开启跨域配置
+                };
+                html2canvas(shareContent, opts).then(function (canvas) {
+
+                    var context = canvas.getContext('2d');
+                    // 【重要】关闭抗锯齿
+                    context.mozImageSmoothingEnabled = false;
+                    context.webkitImageSmoothingEnabled = false;
+                    context.msImageSmoothingEnabled = false;
+                    context.imageSmoothingEnabled = false;
+
+                    // 【重要】默认转化的格式为png,也可设置为其他格式
+                    var img = Canvas2Image.convertToJPEG(canvas, canvas.width, canvas.height);
+
+                    document.body.appendChild(img);
+
+                    $(img).css({
+                        'width': canvas.width / scale + 'px',
+                        'height': canvas.height / scale + 'px',
+                        'position': 'fixed',
+                        'top': 0,
+                        'left': 0,
+                        'z-index': 99
+                    });
+
+                });
+            }
+
+            /**
+             * 分享图片
+             */
+            function shareImage() {
+                
+            }
+
+
+            // 点亮图标
+            $.ajax({
+                url: '/',//获取以已点亮的站列表
+                type: 'post',
+                data: {},//请求所需数据，如用户ID等
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);//TODO success处理
+
+                    // 假设存在数据 data.activeNum = 5
+                    data.activeNum = 5
+                    setActiveNum(data.activeNum);//设置点亮的图标数目
+
+                    for (var i = 0; i < data.activeNum; i++) {
+                        // 点亮图标
+                        $($('.yuko-station')[i]).addClass('active');
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+
+        });
+    </script>
 </body>
+
 </html>

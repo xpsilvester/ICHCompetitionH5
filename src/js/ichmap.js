@@ -1,3 +1,9 @@
+
 $(()=>{
-    console.log(1)
-})
+    'use strict';
+
+    $('#yuko-mask-iknow').on('touchend', function () {
+        $('#yuko-mask').fadeOut(280);
+    });
+    
+});
