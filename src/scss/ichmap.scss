@@ -41,7 +41,7 @@
         margin: pxToRem(534px) pxToRem(170px) pxToRem(116px) pxToRem(170px);
         background: url(../images/ichmap/sharehand.png) no-repeat center center;
         background-size: 100%;
-}
+    }
 
     #yuko-mask-iknow {
         width: pxToRem(161px);
@@ -58,13 +58,22 @@
     // background: url(../images/ichmap/bg.png) no-repeat center center;
     // background-size: 100%;
     position: relative;
-    user-select: none;
-    -webkit-user-select: none;
+    
+    #yuko-mask-transparent {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
 
     #yuko-root-bg {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -10;
         width: 100%;
         height: auto;
     }
@@ -76,6 +85,8 @@
         font-weight: bold;
         color: #ff5395;
         text-shadow: 0 1px 2px #efb404;
+        user-select: none;
+        -webkit-user-select: none;
     }
 
     .yuko-station {
@@ -92,14 +103,14 @@
             position: absolute;
             top: 18%;
             left: 18%;
-            z-index: 1;
+            z-index: -2;
         }
         img.active {
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0;
+            z-index: -3;
         }
     }
 
@@ -107,7 +118,7 @@
         background-size: 100%;
 
         img.active {
-            z-index: 2;
+            z-index: -1;
         }
     }
 
@@ -235,6 +246,8 @@
         font-weight: bold;
         color: #ffffff;
         text-shadow: 0 1px 3px #a87c13;
+        user-select: none;
+        -webkit-user-select: none;
     }
 
     #yuko-question-content {
@@ -253,6 +266,8 @@
             display: table-cell;
             vertical-align: middle;
             text-shadow: 0 0 .5px #fde700;
+            user-select: none;
+            -webkit-user-select: none;
         }
     }
 
@@ -262,6 +277,7 @@
         left: pxToRem(447px);
         width: pxToRem(150px);
         height: pxToRem(150px);
+        z-index: 2;
 
         img {
             width: 100%;

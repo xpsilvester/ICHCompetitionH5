@@ -22,6 +22,7 @@
         <div id="yuko-mask-iknow"></div>
     </div>
     <div id="yuko-root">
+        <div id="yuko-mask-transparent"></div>
         <img id="yuko-root-bg" src="../static/images/ichmap/bg.png" />
         <div id="yuko-station-activenum">16</div>
         <div class="yuko-station" id="yuko-station-01">
@@ -98,7 +99,7 @@
             </div>
         </div>
         <div id="yuko-qrcode">
-            <img src="../static/images/ichmap/qrcode.png" />
+            <img id="yuko-qrcode-img" src="../static/images/ichmap/qrcode.png" />
         </div>
     </div>
     <script>
@@ -107,25 +108,40 @@
             var touchTotalTime = 0,// 按住屏幕的时间
                 touchStartTime, // 手指按下屏幕的时间
                 touchEndTime, // 手指松开屏幕的时间
-                LONG_TOUCH_TIME = 800; // 判定为长按的时间，单位毫秒，可修改
-            $(document).on('touchstart', function () {
+                timeoutId,
+                LONG_TOUCH_TIME = 700; // 判定为长按的时间，单位毫秒，可修改
+            $(document).on('touchstart', function (evt) {
                 touchStartTime = new Date().getTime();
+                timeoutId = setTimeout(function () {
+                    touchEndHandler(evt);
+                }, LONG_TOUCH_TIME);
             });
 
-            $(document).on('touchmove', function () {
+            $(document).on('touchmove', function (evt) {
                 // 一旦手指移动，重置 touchStartTime
                 touchStartTime = new Date().getTime();
+                clearTimeout(timeoutId);
             });
 
             $(document).on('touchend', function (evt) {
+                clearTimeout(timeoutId);
+            });
+
+            /*
+             * 处理长按事件
+             */
+            function touchEndHandler(evt) {
                 touchEndTime = new Date().getTime();
                 touchTotalTime = touchEndTime - touchStartTime;
-                if (touchTotalTime >= LONG_TOUCH_TIME && evt.target.id !== 'yuko-mask' && evt.target.parentElement.id !== 'yuko-mask') {
-                    console.log('这是长按事件');
+                if (touchTotalTime >= LONG_TOUCH_TIME &&    // 按下时间超过判定时间
+                    evt.target.id !== 'yuko-qrcode-img' &&  // 非二维码
+                    evt.target.id !== 'yuko-screenshot' &&  // 非分享截图
+                    evt.target.id !== 'yuko-mask' &&        // 非 Mask
+                    evt.target.parentElement.id !== 'yuko-mask') {
                     // 保存图片和分享
                     saveImage();
                 }
-            });
+            }
 
             /**
              * 设置点亮的图标数目
@@ -167,17 +183,18 @@
 
                     // 【重要】默认转化的格式为png,也可设置为其他格式
                     var img = Canvas2Image.convertToJPEG(canvas, canvas.width, canvas.height);
-
-                    document.body.appendChild(img);
+                    img.id = 'yuko-screenshot';
 
                     $(img).css({
-                        'width': canvas.width / scale + 'px',
-                        'height': canvas.height / scale + 'px',
-                        'position': 'fixed',
-                        'top': 0,
-                        'left': 0,
+                        'width': (canvas.width / scale) + 'px',
+                        'height': (canvas.height / scale) + 'px',
+                        'position': 'absolute',
+                        'top': '0',
+                        'left': '0',
                         'z-index': 99
                     });
+                    $(document.body).append(img);
+                    alert('图片生成成功');
 
                 });
             }
@@ -186,7 +203,7 @@
              * 分享图片
              */
             function shareImage() {
-                
+
             }
 
 
