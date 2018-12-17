@@ -14,7 +14,6 @@
 </head>
 <script>
     $(function(){
-
         var intervaClear;
         
         //播放视频
@@ -30,7 +29,6 @@
                 }
             })
         }
-
         //开始上传效果
         var uploadStart = function(){
             $('.upload-back-img').removeClass('not-visible');
@@ -45,7 +43,6 @@
             $('.upload-back-mask').css('height',percent*1.65+'px');
             $('.progress').text(percent + '%');
         }
-
         //上传结束效果，需要传入视频链接
         var uploadEnd = function (url){
             $('.upload-back-word').addClass('not-display');
@@ -57,8 +54,6 @@
             $('video').attr('url',url);
             videoPlay();
         }
-
-
         //上传视频函数
         var uploadFiles = function(){                                            
             var formData = new FormData();
@@ -71,10 +66,8 @@
                 $('.file').val("");
                 return;
             }
-
             //上传地址
             var submitUrl = '';
-
             if(submitUrl != ''){
                 $.ajax({
                     type:"post",
@@ -90,7 +83,6 @@
                         if(myXhr.upload){ // 检查是否存在myXhr属性
                             //开始上传
                             uploadStart();
-
                             myXhr.upload.addEventListener('progress',function(e){                            
                                 var loaded = e.loaded;                  //已经上传大小情况 
                                 var total = e.total;                      //附件总大小 
@@ -133,16 +125,14 @@
                     }
                 }, 100);
             }else{
-                alert('请先确认授权！');
+                alert('请点击下方先确认授权并同意！');
             }
             
         })
-
         //确认提交
         $('.commit').on('click',function(){
             console.log('确认提交');
         })
-
         //重新提交
         $('.resubmit').on('click',function(){
             if($('.yuko-radio').hasClass('is-checked')){
@@ -163,7 +153,6 @@
         $('.cancel').on('click',function(){
             $('.mask,.submit-error,.submit-out').addClass('not-display');
         })
-
         //同意授权
         $(".confirm1 .yuko-radio").on("click",function(){
             $(this).hasClass('is-checked') ? $(this).removeClass('is-checked') : $(this).addClass('is-checked');
