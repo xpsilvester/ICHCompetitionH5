@@ -119,7 +119,7 @@
             /**
              * 录音相关按钮点击事件
              */
-
+            var playProInter,flagPlay=0;
             //状态
             //开始状态
             var initial = function(){
@@ -131,12 +131,22 @@
 
             //播放原声
             var playPro = function(){
-                $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_play.png)');
+                playProInter = setInterval(function(){
+                    if(flagPlay == 0){
+                        flagPlay = 1;
+                        $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_play.png)');
+                    }else{
+                        flagPlay = 0;
+                        $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_ready.png)');
+                    }
+                },500);
+                
                 $('#player').get(0).play();
             }
 
             //停止原声
             var pausePro = function(){
+                clearInterval(playProInter);
                 $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_ready.png)');
                 $('#player').get(0).pause();
             }

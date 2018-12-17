@@ -24,3 +24,4 @@ gulp
 
 #### 12.17
 1. 添加uploadVideo_2.html、ichmap.html页面
+2. learnPark.html 添加播放动效
