@@ -21,11 +21,7 @@
                 data: {},
                 dataType: "json",
                 success: function(data){
-                    setTheme(data.theme,data.link);//执行设置球的样式(theme为enroll,upload,invitation,link为跳转的链接)
-                    //如果不是enroll,去掉底部报名按钮
-                    if(data.theme != "enroll"){
-                        $('.enroll-below').addClass('not-display');
-                    }
+                    setTheme(data.theme,data.link);//执行设置球的样式(theme为enroll,upload,invitation,link为跳转的链接)，如果不是enroll,去掉底部报名按钮
                     console.log(data);//可修改，success处理
                 },
                 error: function(data){
@@ -78,7 +74,19 @@
     <title>中华少年说</title>
 </head>
 <body>
-    <div class="index-container">
+    <div class="index-progress">
+        <img class="badge" src="../static/images/index/badge.png" />
+        <img class="logo" src="../static/images/index/logo.png" />
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <p class="loading-progress">正在加载...<span class="loading-number">0</span>%</p>
+    </div>
+    <div class="star-yell not-display">
+        <video class="star-video" src="http://video.tp-link.com.cn/mercury/1_p2.mp4" poster="../static/images/uploadVideo/video_pic.png" autoplay playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+        <img class="jump" src="../static/images/index/jump.png" />
+    </div>
+    <div class="index-container not-display">
         <div class="header">
             <img class="header-bg" src="../static/images/index/header.png" />
             <div class="rule">

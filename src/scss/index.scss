@@ -69,6 +69,72 @@
     }
 }
 
+.index-progress{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #f3d548;
+
+    .badge{
+        width: pxToRem(187px);
+        height: pxToRem(188px);
+        display: block;
+        margin: pxToRem(95px) auto pxToRem(80px);
+    }
+
+    .logo{
+        width: pxToRem(708px);
+        height: pxToRem(510px);
+        display: block;
+        margin: 0 auto;
+    }
+
+    .progress-bar{
+        width: pxToRem(550px);
+        height: pxToRem(16px);
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: pxToRem(150px) auto pxToRem(45px);
+        border-radius: pxToRem(16px);
+
+        .progress{
+            width: 0;
+            height: pxToRem(16px);
+            background-color: #6fdfff;
+            border-radius: pxToRem(16px);
+        }
+    }
+
+    .loading-progress{
+        @include font-dpr(26px);
+        color: #333333;
+        text-align: center;
+    }
+}
+
+.star-yell{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+
+    .star-video{
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .jump{
+        width: pxToRem(160px);
+        height: pxToRem(60px);
+        display: block;
+        top: pxToRem(35px);
+        right: pxToRem(35px);
+        position: absolute;
+        z-index: 2;
+    }
+}
+
 .index-container{
     width: 100%;
     background-image: url('../images/index/indexBackground.png');

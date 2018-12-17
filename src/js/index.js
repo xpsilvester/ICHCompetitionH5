@@ -1,9 +1,38 @@
+let loadingAction = () => {
+    let progress = 0;
+    let timer = setInterval(() => {
+        progress++;
+        $(".loading-number").html(progress);
+        $(".progress").css("width",progress + "%");
+        if(progress == 100){
+            clearInterval(timer);
+            $(".index-progress").addClass("not-display");
+            $(".star-yell").removeClass("not-display");
+        }
+    },50);
+}
+
+let jumpStarYell = () => {
+    $(".jump").on("click",function(){
+        $(".star-video").get(0).pause();
+        $(".star-yell").addClass("not-display");
+        $(".index-container").removeClass("not-display");
+    });
+    $(".star-video").on("ended",function(){
+        $(".star-yell").addClass("not-display");
+        $(".index-container").removeClass("not-display");
+    });
+}
+
 let getTheme = () => {
     getThemeAjax();
 }
 
 let setTheme = (theme,link) => {
     $(".index-container .header .action").unbind().attr("class","action " + theme);
+    if(data.theme != "enroll"){
+        $('.enroll-below').addClass('not-display');
+    }
     $(".index-container .header .action").on("click",function(){
         window.location.href = link;
     });
@@ -83,5 +112,7 @@ let uploadVideo = (learningIndex)=>{
 }
 
 $(()=>{
+    loadingAction();
+    jumpStarYell();
     getTheme();
 });
