@@ -124,6 +124,18 @@
         z-index: 1;
     }
 
+    .star-play{
+        width: pxToRem(86px);
+        height: pxToRem(85px);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        z-index: 2;
+    }
+
     .jump{
         width: pxToRem(160px);
         height: pxToRem(60px);

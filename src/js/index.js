@@ -12,6 +12,17 @@ let loadingAction = () => {
     },50);
 }
 
+let starYellAction = () => {
+    $(".star-play").on("click",function(){
+        $(this).addClass("not-display");
+        $(".star-video").get(0).play();
+    });
+    $(".star-video").on("click",function(){
+        $(".star-play").removeClass("not-display");
+        $(".star-video").get(0).pause();
+    });
+}
+
 let jumpStarYell = () => {
     $(".jump").on("click",function(){
         $(".star-video").get(0).pause();
@@ -113,6 +124,7 @@ let uploadVideo = (learningIndex)=>{
 
 $(()=>{
     loadingAction();
+    starYellAction();
     jumpStarYell();
     getTheme();
 });
