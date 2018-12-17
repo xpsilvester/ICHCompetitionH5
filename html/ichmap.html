@@ -154,34 +154,31 @@
              * 保存图片
              */
             function saveImage() {
-                var shareContent = document.body;//需要截图的包裹的（原生的）DOM 对象
-                var width = shareContent.offsetWidth; //获取dom 宽度
-                var height = shareContent.offsetHeight; //获取dom 高度
-                var canvas = document.createElement("canvas"); //创建一个canvas节点
-                var scale = 3; //定义任意放大倍数 支持小数
-                canvas.width = width * scale; //定义canvas 宽度 * 缩放
-                canvas.height = height * scale; //定义canvas高度 *缩放
-                canvas.getContext("2d").scale(scale, scale); //获取context,设置scale 
+                var shareContent = document.body;
+                var width = shareContent.offsetWidth; 
+                var height = shareContent.offsetHeight; 
+                var canvas = document.createElement("canvas"); 
+                var scale = 3; 
+                canvas.width = width * scale; 
+                canvas.height = height * scale; 
+                canvas.getContext("2d").scale(scale, scale); 
                 var opts = {
-                    scale: scale, // 添加的scale 参数
-                    canvas: canvas, //自定义 canvas
-                    // logging: true, //日志开关，便于查看html2canvas的内部执行流程
-                    width: width, //dom 原始宽度
+                    scale: scale, 
+                    canvas: canvas, 
+                    width: width, 
                     height: height,
-                    allowTaint: true, //允许污染
-                    taintTest: true, //在渲染前测试图片
-                    useCORS: true // 【重要】开启跨域配置
+                    allowTaint: true, 
+                    taintTest: true, 
+                    useCORS: true 
                 };
                 html2canvas(shareContent, opts).then(function (canvas) {
 
                     var context = canvas.getContext('2d');
-                    // 【重要】关闭抗锯齿
                     context.mozImageSmoothingEnabled = false;
                     context.webkitImageSmoothingEnabled = false;
                     context.msImageSmoothingEnabled = false;
                     context.imageSmoothingEnabled = false;
 
-                    // 【重要】默认转化的格式为png,也可设置为其他格式
                     var img = Canvas2Image.convertToJPEG(canvas, canvas.width, canvas.height);
                     img.id = 'yuko-screenshot';
 
@@ -202,9 +199,25 @@
             /**
              * 分享图片
              */
-            function shareImage() {
-
-            }
+            //微信朋友圈分享，参考https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
+            // wx.config({
+            //     debug: false,
+            //     appId: '@appId',
+            //     timestamp: '@timestamp',
+            //     nonceStr: '@noncestr',
+            //     signature: '@signature',
+            //     jsApiList: ['updateTimelineShareData']
+            // });
+            // wx.ready(function () {//需在用户可能点击分享按钮前就先调用
+            //     wx.updateTimelineShareData({ 
+            //         title: '', // 分享标题
+            //         link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            //         imgUrl: '', // 分享图标
+            //         success: function () {
+            //             // 设置成功
+            //         }
+            //     });
+            // });
 
 
             // 点亮图标
