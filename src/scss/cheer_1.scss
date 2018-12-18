@@ -56,6 +56,7 @@
     background-size: 100% 100%;
     font-family: 'PingFang Regular';
     padding-top: pxToRem(45px);
+    padding-bottom: pxToRem(25px);
 
     .main{
         width: pxToRem(678px);
@@ -78,6 +79,13 @@
             left: 0;
             right: 0;
 
+            .head{
+                position: absolute;
+                width: pxToRem(118px);
+                height: pxToRem(117px);
+                top: pxToRem(4px);
+                left: pxToRem(5px);
+            }
             .header-word{
                 color: #58595b;
                 @include font-dpr(32px, 44px);
@@ -153,7 +161,7 @@
     .invitation{
         width: pxToRem(580px);
         height: pxToRem(110px);
-        margin: pxToRem(80px) auto pxToRem(25px);
+        margin: pxToRem(80px) auto 0;
         background-image: url('../images/cheer1/invitation.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;

@@ -75,6 +75,23 @@
                 }
             });
         }
+        //获取头像
+        let headAjax = () => {
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    $('.head').attr('src',data.imgLink);
+                    console.log(data);//可修改，success处理
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
+
         //微信朋友圈分享，参考https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
         // wx.config({
         //     debug: false,
@@ -102,6 +119,7 @@
             $(".invitation").on("click",function(){
                 //微信朋友圈分享
                 console.log("微信朋友圈分享");
+                showCheerGuide();
             });
         });
     </script>
@@ -111,6 +129,7 @@
     <div class="cheer1-container">
         <div class="main">
             <div class="main-header">
+                <img class="head" src="../static/images/cheer1/head.png" />
                 <p class="header-word">
                     我是第 <span class="header-number">2839230</span> 位加入<br>
                     非遗文化保护的小使者！

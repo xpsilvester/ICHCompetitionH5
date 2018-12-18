@@ -54,4 +54,5 @@ $(()=>{
     videoPause();
     getFavor();
     favor();
+    headAjax();
 });

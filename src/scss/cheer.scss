@@ -55,6 +55,7 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     font-family: 'PingFang Regular';
+    padding-bottom: pxToRem(35px);
 
     .header{
         width: 100%;
@@ -205,6 +206,6 @@
         background-image: url('../images/cheer/invitation.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        margin: pxToRem(70px) auto pxToRem(35px);
+        margin: pxToRem(70px) auto 0;
     }
 }

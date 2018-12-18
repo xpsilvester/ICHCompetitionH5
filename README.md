@@ -30,6 +30,8 @@ gulp
 1. 首页index.html添加开始加载动效、开屏明星喊话
 2. uploadVideo_1.html 更新选题图片，scss样式修改
 3. \static\font\enroll文件夹 添加字体文件PingFang Regular.woff 
+4. cheer_1.html 页面头像改为后台调用
+5. cheer_1.html、cheer.html 页面点击弹出层
 
 #### 各个html对应页面：
 ##### index.html --->  首页
