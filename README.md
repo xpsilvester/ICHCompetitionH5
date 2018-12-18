@@ -40,7 +40,7 @@ gulp
 ##### uploadVideo_1.html ---> 上传视频-选题
 ##### uploadVideo_2.html --->  点击上传视频 
 ##### cheer.html ---> 参赛者视角-好友助威
-##### cheerGuide.html ---> 新手引导-好友助威(弹窗，需要在前两个页面调用)
 ##### cheer_1.html ---> 好友助威
+##### cheerGuide.html ---> 新手引导-好友助威(弹窗，需要在前两个页面调用)
 ##### learnPark.html ---> 学习乐园
 ##### ichmap.html ---> 非遗小站地图
