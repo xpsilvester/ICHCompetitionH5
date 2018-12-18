@@ -31,44 +31,64 @@
         }
 
         $(function(){
-            uploadVideo(0); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
+            //跳过开屏视频
+            $(".jump").on("click",function(){
+                $(".star-video").get(0).pause();
+                $(".star-yell").addClass("not-display");
+                $(".index-container").removeClass("not-display");
+                uploadVideo(0); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
 
-            //获取视频数据（如果不动态获取，可直接在html标签中添加）
-            $.ajax({
-                url: 'xxxxx',
-                type: 'get',
-                dataType: 'json',
-                data: {  },//数据
-                success: function (list) {
-                    if(list != null){
-                        var videoList ="";
-                        for(var i=0;i<list.length;i++){
-                            //假设：list[i].id 视频id 
-                            //list[i].video 视频url , list[i].videoImg 视频略缩图， list[i].intro 视频简介 
-                            videoList += `
-                            <div class="swiper-slide" data-id="`+ list[i].id +`">
-                                <div class="learning not-display"></div>
-                                <video class="video_pic" src="`+ list[i].video +`" poster="`+ list[i].videoImg +`" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
-                                <p class="title">第1站 - 参赛指南</p>
-                                <div class="video_play"></div>
-                            </div>
-                            `
-                        }
-                        videoList.length > 0 ? $('.swiper-wrapper').html(videoList):'';
-                    }
-            
-                    //获取当前学习的站点
-                    $.ajax({
-                        url: 'xxxxx',
-                        type: 'get',
-                        dataType: 'json',
-                        data: {  },//数据
-                        success: function (index) {
-                            uploadVideo(index);
-                        }
-                    })
-                }
+                getActiveVideoList(); //动态获取视频
             });
+            $(".star-video").on("ended",function(){
+                $(".star-yell").addClass("not-display");
+                $(".index-container").removeClass("not-display");
+                uploadVideo(0); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
+
+                getActiveVideoList(); //动态获取视频
+            });
+
+            function getActiveVideoList(){
+                //获取视频数据（如果不动态获取，可直接在html标签中添加）
+                $.ajax({
+                    url: 'xxxxx',
+                    type: 'get',
+                    dataType: 'json',
+                    data: {  },//数据
+                    success: function (list) {
+                        if(list != null){
+                            var videoList ="";
+                            for(var i=0;i<list.length;i++){
+                                //假设：list[i].id 视频id 
+                                //list[i].video 视频url , list[i].videoImg 视频略缩图， list[i].intro 视频简介 
+                                videoList += `
+                                <div class="swiper-slide" data-id="`+ list[i].id +`">
+                                    <div class="learning not-display"></div>
+                                    <video class="video_pic" src="`+ list[i].video +`" poster="`+ list[i].videoImg +`" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+                                    <p class="title">第1站 - 参赛指南</p>
+                                    <div class="video_play"></div>
+                                </div>
+                                `
+                            }
+                            videoList.length > 0 ? $('.swiper-wrapper').html(videoList):'';
+                        }
+                
+                        //获取当前学习的站点
+                        $.ajax({
+                            url: 'xxxxx',
+                            type: 'get',
+                            dataType: 'json',
+                            data: {  },//数据
+                            success: function (index) {
+                                uploadVideo(index);
+                            }
+                        })
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+                });
+            }
         });
     </script>
     <title>中华少年说</title>
@@ -83,7 +103,7 @@
         <p class="loading-progress">正在加载...<span class="loading-number">0</span>%</p>
     </div>
     <div class="star-yell not-display">
-        <video class="star-video" src="http://video.tp-link.com.cn/mercury/1_p2.mp4" poster="../static/images/index/starPoster.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+        <video class="star-video" src="xxx.mp4" poster="../static/images/index/starPoster.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
         <img class="star-play" src="../static/images/index/play.png" />
         <img class="jump" src="../static/images/index/jump.png" />
     </div>

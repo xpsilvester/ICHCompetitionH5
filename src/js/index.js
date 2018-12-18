@@ -23,18 +23,6 @@ let starYellAction = () => {
     });
 }
 
-let jumpStarYell = () => {
-    $(".jump").on("click",function(){
-        $(".star-video").get(0).pause();
-        $(".star-yell").addClass("not-display");
-        $(".index-container").removeClass("not-display");
-    });
-    $(".star-video").on("ended",function(){
-        $(".star-yell").addClass("not-display");
-        $(".index-container").removeClass("not-display");
-    });
-}
-
 let getTheme = () => {
     getThemeAjax();
 }
@@ -125,6 +113,5 @@ let uploadVideo = (learningIndex)=>{
 $(()=>{
     loadingAction();
     starYellAction();
-    jumpStarYell();
     getTheme();
 });
