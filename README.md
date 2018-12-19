@@ -33,6 +33,11 @@ gulp
 4. cheer_1.html 页面头像改为后台调用
 5. cheer_1.html、cheer.html 页面点击弹出层
 
+#### 12.19
+1. 更新\static\images\ichmap\active 中16个图标
+2. learnPark.html页面 原声音频<audio>标签修改
+3. 调试cheer_1.html、cheer.html 页面点击弹出层不能scroll问题，请替换\src\js\common.js和\static\js\common.min.js文件
+
 #### 各个html对应页面：
 ##### index.html --->  首页
 ##### rule.html ---> 活动规则(弹窗，需要在页面按钮中调用)
