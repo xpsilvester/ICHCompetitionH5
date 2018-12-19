@@ -124,6 +124,14 @@ body{
         }
     }
 
+    #yuko-station-head {
+        // // background-image: url(../images/ichmap/inactive/1.png);
+        top: pxToRem(15px);
+        left: pxToRem(45px);
+        width: pxToRem(85px);
+        height: pxToRem(85px);
+    }
+
     #yuko-station-01 {
         // // background-image: url(../images/ichmap/inactive/1.png);
         top: pxToRem(173px);

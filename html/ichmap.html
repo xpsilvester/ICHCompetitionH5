@@ -24,6 +24,9 @@
     <div id="yuko-root">
         <div id="yuko-mask-transparent"></div>
         <img id="yuko-root-bg" src="../static/images/ichmap/bg.png" />
+        <div class="yuko-station" id="yuko-station-head">
+            <img src="../static/images/ichmap/head.png" />
+        </div>
         <div id="yuko-station-activenum">16</div>
         <div class="yuko-station" id="yuko-station-01">
             <img src="../static/images/ichmap/inactive/1.png" />
@@ -237,6 +240,21 @@
                         // 点亮图标
                         $($('.yuko-station')[i]).addClass('active');
                     }
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+
+            //动态获取头像
+            $.ajax({
+                url: '/',
+                type: 'post',
+                data: {},//请求所需数据，如用户ID等
+                dataType: 'json',
+                success: function (data) {
+                    var imgLink = data.imgLink;//头像图片路径
+                    $('#yuko-station-head img').attr('src',imgLink);
                 },
                 error: function (data) {
                     console.log(data);

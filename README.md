@@ -37,6 +37,7 @@ gulp
 1. 更新\static\images\ichmap\active 中16个图标
 2. learnPark.html页面 原声音频<audio>标签修改
 3. 调试cheer_1.html、cheer.html 页面点击弹出层不能scroll问题，请替换\src\js\common.js和\static\js\common.min.js文件
+4. 非遗小地图头像动态获取
 
 #### 各个html对应页面：
 ##### index.html --->  首页
