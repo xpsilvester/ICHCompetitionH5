@@ -42,6 +42,23 @@ let showCheerGuide = () => {
     }
 }
 
+let cheerRuleClick = () => {
+    $(".content-cheer").on("click",function(){
+        try{
+            $("#cheerRule").contents().find(".rule-container").removeClass("not-display");
+            $("body").css("overflow","hidden");
+            $("#cheerRule").css("z-index","10");
+        }
+        catch(error){
+            alert("iframe跨域,需部署到网站");
+            console.log(error);
+            $("body").css("overflow","scroll");
+            $("#cheerRule").css("z-index","-1");
+        }
+    });
+}
+
 $(() => {
     ruleClick();
+    cheerRuleClick();
 });

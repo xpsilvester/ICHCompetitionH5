@@ -131,4 +131,30 @@
             width: pxToRem(520px);
         }
     }
+    .cheerRule-content{
+        width: pxToRem(678px);
+        height: pxToRem(917px);
+        background-image: url('../images/rule/cheerRuleBackground.png');
+        background-size: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        .content-title{
+            margin: pxToRem(70px) auto pxToRem(40px);
+        }
+        .content-close-cheer{
+            width: pxToRem(38px);
+            height: pxToRem(38px);
+            display: block;
+            margin: pxToRem(160px) 0 0 pxToRem(586px);
+        }
+        .content-word{
+            margin-top: pxToRem(10px);
+            width: pxToRem(590px);
+            @include font-dpr(28px,42px);
+        }
+    }
 }

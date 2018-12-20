@@ -41,6 +41,8 @@ gulp
 
 #### 12.20
 1. index.html 页面视频增加代打卡、已打卡，二维码单独切图
+2. cheer_1.html、cheer.html 页面点击弹出层修改
+3. 添加助威规则页面cheerRule.html(从cheer.html页面点开)
 
 
 #### 各个html对应页面：
