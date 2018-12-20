@@ -69,9 +69,15 @@ let uploadVideo = (learningIndex)=>{
     }
     changeSite(learningIndex);
 
-    //学习中图标
-    $('.swiper-slide .learning').addClass('not-display');
-    $('.swiper-slide .learning').eq(learningIndex).removeClass('not-display');
+    //学习中/未打卡/已打卡图标
+    $('.swiper-slide .learning').removeClass('not-display');
+    for(let i=0;i<$('.swiper-slide .learning').length;i++){
+        if(i<learningIndex){
+            $('.swiper-slide .learning').eq(i).css('background-image','url(../static/images/index/learning0.png)');
+        }else if(i>learningIndex){
+            $('.swiper-slide .learning').eq(i).css('background-image','url(../static/images/index/learning1.png)');
+        }
+    }
 
 
     //监听左右滑动

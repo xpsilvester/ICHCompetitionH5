@@ -39,6 +39,10 @@ gulp
 3. 调试cheer_1.html、cheer.html 页面点击弹出层不能scroll问题，请替换\src\js\common.js和\static\js\common.min.js文件
 4. 非遗小地图头像动态获取
 
+#### 12.20
+1. index.html 页面视频增加代打卡、已打卡，二维码单独切图
+
+
 #### 各个html对应页面：
 ##### index.html --->  首页
 ##### rule.html ---> 活动规则(弹窗，需要在页面按钮中调用)

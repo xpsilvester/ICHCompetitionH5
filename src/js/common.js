@@ -29,9 +29,10 @@ let hideCheerGuide = () => {
 let showCheerGuide = () => {
     try{
         $("#cheer-guide").contents().find(".cheer-guide").removeClass("not-display");
-        $("body").css("overflow","scroll");
+        $("body").css("overflow","hidden");
         $("#cheer-guide").css("z-index","10");
         $("#cheer-guide").css('height',$("body").height()+'px');
+        $(window).scrollTop(0);
     }
     catch(error){
         alert("iframe跨域,需部署到网站");

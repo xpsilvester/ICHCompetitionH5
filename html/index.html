@@ -36,14 +36,14 @@
                 $(".star-video").get(0).pause();
                 $(".star-yell").addClass("not-display");
                 $(".index-container").removeClass("not-display");
-                uploadVideo(0); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
+                uploadVideo(1); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
 
                 getActiveVideoList(); //动态获取视频
             });
             $(".star-video").on("ended",function(){
                 $(".star-yell").addClass("not-display");
                 $(".index-container").removeClass("not-display");
-                uploadVideo(0); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
+                uploadVideo(1); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
 
                 getActiveVideoList(); //动态获取视频
             });
@@ -63,7 +63,7 @@
                                 //list[i].video 视频url , list[i].videoImg 视频略缩图， list[i].intro 视频简介 
                                 videoList += `
                                 <div class="swiper-slide" data-id="`+ list[i].id +`">
-                                    <div class="learning not-display"></div>
+                                    <div class="learning"></div>
                                     <video class="video_pic" src="`+ list[i].video +`" poster="`+ list[i].videoImg +`" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                                     <p class="title">第1站 - 参赛指南</p>
                                     <div class="video_play"></div>
@@ -131,43 +131,43 @@
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="2">
-                        <div class="learning not-display"></div>
+                        <div class="learning"></div>
                         <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="3">
-                        <div class="learning not-display"></div>
+                        <div class="learning"></div>
                         <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="3">
-                        <div class="learning not-display"></div>
+                        <div class="learning"></div>
                         <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="3">
-                        <div class="learning not-display"></div>
+                        <div class="learning"></div>
                         <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="3">
-                        <div class="learning not-display"></div>
+                        <div class="learning"></div>
                         <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="3">
-                        <div class="learning not-display"></div>
+                        <div class="learning"></div>
                         <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="3">
-                        <div class="learning not-display"></div>
+                        <div class="learning"></div>
                         <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
                         <div class="video_play"></div>
@@ -176,7 +176,10 @@
             </div>
             <div class="slide-lr"></div>
         </div>
-        <div class="star-cheer"></div>
+        <div class="star-cheer">
+            <!---二维码-->
+            <img class="qcode" src="../static/images/index/qcode.png" />
+        </div>
         <div class="enroll-progress">
             <a class="enroll-below" href="#"></a>
         </div>

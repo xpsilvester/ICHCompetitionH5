@@ -314,6 +314,14 @@
         background-image: url('../images/index/starCheer.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+        position: relative;
+        .qcode{
+            width: pxToRem(284px);
+            height: pxToRem(284px);
+            position: absolute;
+            top:pxToRem(630px);
+            left: pxToRem(420px);
+        }
     }
 
     .enroll-progress{
