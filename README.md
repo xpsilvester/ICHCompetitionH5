@@ -54,5 +54,6 @@ gulp
 ##### cheer.html ---> 参赛者视角-好友助威
 ##### cheer_1.html ---> 好友助威
 ##### cheerGuide.html ---> 新手引导-好友助威(弹窗，需要在前两个页面调用)
+##### cheerRule.html ---> 助威规则(从cheer.html页面点开)
 ##### learnPark.html ---> 学习乐园
 ##### ichmap.html ---> 非遗小站地图
