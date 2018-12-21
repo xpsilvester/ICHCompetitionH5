@@ -103,15 +103,20 @@ let uploadVideo = (learningIndex)=>{
     //播放视频
     $('.video_play').on('click',function(){
         if($(this).parent().index() == 0){
-            window.location.href = $(this).parent().find('video').attr('src');
+            $(this).parent().find('video').get(0).play();
+            $(this).addClass('not-display');
+        }else{
+            window.location.href = 'learnPark.html?id='+$(this).parent().index();
         }
-        $(this).parent().find('video').get(0).play();
-        $(this).addClass('not-display');
     })
     $('.video_pic').on('click',function(){
         if($(this).parent().find('.video_play').hasClass('not-display')){
             $(this).get(0).pause()
             $(this).parent().find('.video_play').removeClass('not-display')
+        }
+
+        if($(this).parent().index() != 0){
+            window.location.href = 'learnPark.html?id='+$(this).parent().index();
         }
     })
 }

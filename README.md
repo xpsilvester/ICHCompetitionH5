@@ -46,7 +46,8 @@ gulp
 
 #### 12.21
 1. index.html 页面已打卡、学习中、待打卡图标替换（static\images\index中的learning0.png learning.png learning1.png）
-2. enroll.html 页面解决重新发送验证码字体重叠 (enroll.html、\src\js\enroll.js 、\src\scss\controls.scss、\static\js\enroll.min.js、\static\css\controls.min.css)
+2. enroll.html 页面解决重新发送验证码字体重叠 (enroll.html、\src\js\enroll.js 、\src\scss\controls.scss)
+3. index.html 页面 视频点击修改，展示学习中、待打卡动态获取，明星助威图片切图(index.html、\src\scss\index.scss、\src\js\index.js,添加static\images\index中的qcodeBox.png、watch.png)
 
 
 #### 各个html对应页面：

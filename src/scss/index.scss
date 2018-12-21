@@ -321,6 +321,24 @@
             position: absolute;
             top:pxToRem(630px);
             left: pxToRem(420px);
+            z-index: 5;
+        }
+        .qcodeBox{
+            width: pxToRem(315px);
+            height: pxToRem(318px);
+            position: absolute;
+            top:pxToRem(618px);
+            left: pxToRem(407px);
+            z-index: 4;
+        }
+        .watch{
+            width: pxToRem(546px);
+            height: pxToRem(361px);
+            position: absolute;
+            top:pxToRem(333px);
+            left: pxToRem(60px);
+            border-radius: pxToRem(25px);
+            z-index: 3;
         }
     }
 

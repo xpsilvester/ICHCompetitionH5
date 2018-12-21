@@ -36,17 +36,44 @@
                 $(".star-video").get(0).pause();
                 $(".star-yell").addClass("not-display");
                 $(".index-container").removeClass("not-display");
-                uploadVideo(1); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
 
                 getActiveVideoList(); //动态获取视频
+                getlearningState(); //获取当前学习的站点
             });
             $(".star-video").on("ended",function(){
                 $(".star-yell").addClass("not-display");
                 $(".index-container").removeClass("not-display");
-                uploadVideo(1); //动态获取视频时去掉 参数为正在学习的站点索引 第一站为0
 
                 getActiveVideoList(); //动态获取视频
+                getlearningState(); //获取当前学习的站点
             });
+            
+            //获取正在学习，已打卡，未打卡数据
+            function getlearningState(){
+                //获取当前学习的站点
+                $.ajax({
+                    url: 'xxxxx',
+                    type: 'get',
+                    dataType: 'json',
+                    data: {  },//数据
+                    success: function (data) {
+                        uploadVideo(data.learningIndex);//参数为正在学习的站点索引 第一站为0
+
+                        // !如果打卡是按顺序的可以注释掉以下
+                        var arr1 = data.unlearning ; //未打卡的站点索引（数组）例如：[2,3,4]
+                        for(var q=0;q<arr1.length;q++){
+                            $('.swiper-slide .learning').eq(arr1[q]).css('background-image','url(../static/images/index/learning1.png)');
+                        }
+                        var arr2 = data.learned; //已打卡的站点索引（数组）例如：[7,8,9]
+                        for(var k=0;k<arr1.length;k++){
+                            $('.swiper-slide .learning').eq(arr1[q]).css('background-image','url(../static/images/index/learning0.png)');
+                        }
+                    },
+                    error: function(data){
+                        uploadVideo(1);
+                    }
+                })
+            }
 
             function getActiveVideoList(){
                 //获取视频数据（如果不动态获取，可直接在html标签中添加）
@@ -177,6 +204,8 @@
             <div class="slide-lr"></div>
         </div>
         <div class="star-cheer">
+            <img class="watch" src="../static/images/index/watch.png" />
+            <img class="qcodeBox" src="../static/images/index/qcodeBox.png" />
             <!---二维码-->
             <img class="qcode" src="../static/images/index/qcode.png" />
         </div>
