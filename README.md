@@ -44,6 +44,10 @@ gulp
 2. cheer_1.html、cheer.html 页面点击弹出层修改
 3. 添加助威规则页面cheerRule.html(从cheer.html页面点开)
 
+#### 12.21
+1. index.html 页面已打卡、学习中、待打卡图标替换（static\images\index中的learning0.png learning.png learning1.png）
+
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
