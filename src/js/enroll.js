@@ -35,7 +35,7 @@ let getVerifyCode = () => {
 let changeCodeStyle = () => {
     let time = 120;
     $(".code .yuko-textfield_textbtn").unbind();
-    $(".code .yuko-textfield_textbtn").html("重新发送("+time+"s)");
+    $(".code .yuko-textfield_textbtn").html("<p>重新发送("+time+"s)</p>");
     $(".code .yuko-textfield_textbtn").css("color","#ccc");
     let timer = setInterval(function(){
         if(time == 0){
@@ -45,7 +45,7 @@ let changeCodeStyle = () => {
         }
         else{
             time--;
-            $(".code .yuko-textfield_textbtn").html("重新发送("+time+"s)");
+            $(".code .yuko-textfield_textbtn").html("<p>重新发送("+time+"s)</p>");
         }
     },1000);
 }

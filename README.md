@@ -46,7 +46,7 @@ gulp
 
 #### 12.21
 1. index.html 页面已打卡、学习中、待打卡图标替换（static\images\index中的learning0.png learning.png learning1.png）
-
+2. enroll.html 页面解决重新发送验证码字体重叠 (enroll.html、\src\js\enroll.js 、\src\scss\controls.scss、\static\js\enroll.min.js、\static\css\controls.min.css)
 
 
 #### 各个html对应页面：

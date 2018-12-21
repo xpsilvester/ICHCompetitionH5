@@ -47,7 +47,7 @@
     
     .yuko-textfield_input {
         color: #999999;
-        @include font-dpr(26px);
+        @include font-dpr(24px);
         border: none;
         outline: none;
         background-color: #f8f8f8;
@@ -66,7 +66,7 @@
 
     .yuko-textfield_textbtn {
         color: #cba200;
-        @include font-dpr(26px);
+        @include font-dpr(24px);
         position: absolute;
         right: pxToRem(26px);
     }
@@ -106,6 +106,14 @@
             border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent;
             cursor: pointer;
             overflow: hidden;
+        }
+    }
+    @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone5 */
+        .yuko-textfield_textbtn {
+            right: 0;
+            p{
+                transform: scale(0.75);
+            }
         }
     }
 }
