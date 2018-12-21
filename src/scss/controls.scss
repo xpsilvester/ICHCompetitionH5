@@ -108,7 +108,7 @@
             overflow: hidden;
         }
     }
-    @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone5 */
+    @media (device-width:320px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/5 */
         .yuko-textfield_textbtn {
             right: 0;
             p{
