@@ -132,16 +132,7 @@
 
             //播放原声
             var playPro = function(){
-                playProInter = setInterval(function(){
-                    if(flagPlay == 0){
-                        flagPlay = 1;
-                        $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_play.png)');
-                    }else{
-                        flagPlay = 0;
-                        $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_ready.png)');
-                    }
-                },500);
-                
+                $('#yuko-recordplay-play').css('background-image','url(../static/images/learnPark/voice_play.gif)');
                 $('#player').get(0).play();
             }
 
