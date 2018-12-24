@@ -43,6 +43,7 @@
             $('.upload-back-mask').css('height',percent*1.65+'px');
             $('.progress').text(percent + '%');
         }
+        
         //上传结束效果，需要传入视频链接
         var uploadEnd = function (url){
             $('.upload-back-word').addClass('not-display');
@@ -54,6 +55,36 @@
             $('video').attr('url',url);
             videoPlay();
         }
+
+        //后台转码过程 
+        var transcode = function(Videourl){
+            $('.upload-back-word').text('转码中请稍等...');
+            var transcodeClear = setInterval(function(){
+                
+                //请求转码状态 
+                $.ajax({
+                    url: "xxxx",//后端链接
+                    type: "post",
+                    data: {},
+                    dataType: "json",
+                    success: function(data){
+                        //判断是否转码成功 data.isCompelete = 1 时成功
+                        if(data.isCompelete == 1 ){
+                            uploadEnd(Videourl);
+                            clearInterval(transcodeClear);
+                        }
+                    },
+                    error: function(data){
+                        console.log(data);
+                        setTimeout(function(){
+                            uploadEnd(Videourl);
+                            clearInterval(transcodeClear);
+                        }, 1000);
+                    }
+                });
+            },2000);
+        }
+
         //上传视频函数
         var uploadFiles = function(){                                            
             var formData = new FormData();
@@ -67,7 +98,7 @@
                 return;
             }
             //上传地址
-            var submitUrl = '';
+            var submitUrl = 'xxx';
             if(submitUrl != ''){
                 $.ajax({
                     type:"post",
@@ -96,7 +127,7 @@
                     },                    
                     success:function(data){                      
                         //上传成功
-                        uploadEnd();                       
+                        transcode(data.url);                       
                     },
                     error:function(){
                         //上传失败
@@ -104,13 +135,18 @@
                         $('.mask').removeClass('not-display');
                         $('.submit-error').removeClass('not-display');
                         $('.file').val("");
+                        $('.upload-back-img').addClass('not-visible');
+                        $('.upload-back-word').text('请重新上传视频');
+                        $('.upload-btn').removeClass('not-display');
+                        $('.progress').addClass('not-display');
+                        $('.upload-back-mask').css('height','0px');
                     }
                 });                             
             }else{
                 //模拟上传（正式环境可删除）
                 uploadStart(); //开始上传
                 uploading(100); //上传过程
-                setTimeout(uploadEnd, 1000); //上传结束
+                setTimeout(transcode, 1000); //上传结束
             } 
         }
         

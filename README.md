@@ -49,6 +49,10 @@ gulp
 2. enroll.html 页面解决重新发送验证码字体重叠 (enroll.html、\src\js\enroll.js 、\src\scss\controls.scss)
 3. index.html 页面 视频点击修改，展示学习中、待打卡动态获取，明星助威图片切图(index.html、\src\scss\index.scss、\src\js\index.js,添加static\images\index中的qcodeBox.png、watch.png)
 
+#### 12.24
+1. learnPark.html 页面播放音频修改(\static\images\learnPark\voice_play.gif 、learnPark.html)
+2. uploadVidoe_2.html 页面修复上传失败后不能上传bug、添加iphone4、5页面兼容适配、添加转码过程函数transcode()、(\src\scss\uploadVideo.scss、uploadVideo_2.html)
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
