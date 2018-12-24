@@ -176,6 +176,12 @@
                 $('.file').click();
                 intervaClear = setInterval(() => {
                     if($('.file').val() != ""){
+                        $('.upload-back-mask').removeClass('not-display');
+                        $('.upload-back-mask').css('height','0px');
+                        $('.video-play').addClass('not-display');
+                        $('.upload-end-word').addClass('not-diaplay');
+                        $('.upload-back-word').removeClass('not-display');
+                        $('.progress').text('0%');
                         uploadFiles();
                         clearInterval(intervaClear);
                     }

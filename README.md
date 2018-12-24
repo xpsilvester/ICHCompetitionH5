@@ -53,6 +53,10 @@ gulp
 1. learnPark.html 页面播放音频修改(\static\images\learnPark\voice_play.gif 、learnPark.html)
 2. uploadVidoe_2.html 页面修复上传失败后不能上传bug、添加iphone4、5页面兼容适配、添加转码过程函数transcode()、(\src\scss\uploadVideo.scss、uploadVideo_2.html)
 
+#### 12.25
+1. enroll.html 页面文案修改 “没上小学”改为“学龄前” （enroll.html）
+2. uploadVideo_2.html 页面重新上传显示上传动画和转码提示 （uploadVideo_2.html "//重新提交" ）
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
