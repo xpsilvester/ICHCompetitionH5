@@ -67,6 +67,24 @@
         margin: 0 auto pxToRem(80px);
         position: relative;
 
+        .main-title{
+            @include font-dpr(30px,40px);
+            color: #ffffff;
+            text-align: center;
+            margin: 0 auto;
+            position: absolute;
+            top: pxToRem(30px);
+            left: 0;
+            right: 0;
+            letter-spacing: pxToRem(-1px);
+            font-weight: bold;
+
+            .main-title-number{
+                @include font-dpr(40px,40px);
+                color: #ea4684;
+            }
+        }
+
         .main-header{
             width: pxToRem(534px);
             height: pxToRem(128px);
@@ -81,10 +99,11 @@
 
             .head{
                 position: absolute;
-                width: pxToRem(118px);
+                width: pxToRem(117px);
                 height: pxToRem(117px);
                 top: pxToRem(4px);
                 left: pxToRem(5px);
+                border-radius: 100%;
             }
             .header-word{
                 color: #58595b;
@@ -165,5 +184,14 @@
         background-image: url('../images/cheer1/invitation.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+    }
+}
+
+@media (device-width:320px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/5 */
+    .cheer1-container .main .main-title {
+        @include font-dpr(25px,35px);
+    }
+    .cheer1-container .main .main-title .main-title-number{
+        @include font-dpr(35px,35px);
     }
 }
