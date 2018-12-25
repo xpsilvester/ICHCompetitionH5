@@ -213,6 +213,15 @@ body{
         z-index: 2;
         margin: 117px auto 0;
     }
+    .transcode-icon{
+        width: 150px;
+        height: 150px;
+        background: url(../images/uploadVideo/transcode.png);
+        background-size: 100%;
+        position: relative;
+        z-index: 2;
+        margin: 65px auto 0;
+    }
     .upload-back-mask{
         width: 309px;
         height: 0px;
@@ -249,6 +258,20 @@ body{
         color: #fff;
         @include font-dpr(122px);
         line-height: 75px;
+    }
+    .transcode-word{
+        width: 200px;
+        height: 75px;
+        margin: 102px auto 0;
+        .transcoding{
+            width: 150px;
+            height: 150px;
+            background: url(../images/uploadVideo/transcoding.gif);
+            background-size:100%; 
+        }
+        p{
+            @include font-dpr(30px,50px);
+        }
     }
     .upload-end-word{
         display: block;

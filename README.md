@@ -55,7 +55,7 @@ gulp
 
 #### 12.25
 1. enroll.html 页面文案修改 “没上小学”改为“学龄前” （enroll.html）
-2. uploadVideo_2.html 页面重新上传显示上传动画和转码提示 （uploadVideo_2.html "//重新提交" ）
+2. uploadVideo_2.html 页面重新上传显示上传动画和转码提示 （uploadVideo_2.html）
 
 
 #### 各个html对应页面：

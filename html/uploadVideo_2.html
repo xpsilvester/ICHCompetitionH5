@@ -48,7 +48,6 @@
         var uploadEnd = function (url){
             $('.upload-back-word').addClass('not-display');
             $('.upload-back-mask').addClass('not-display');
-            $('.progress').addClass('not-display');
             $('.upload-end-word').removeClass('not-display');
             $('.video-play').removeClass('not-display');
             $('.upload-compelete').removeClass('not-display');
@@ -58,7 +57,10 @@
 
         //后台转码过程 
         var transcode = function(Videourl){
-            $('.upload-back-word').text('转码中请稍等...');
+            $('.upload-back-word').addClass('not-display');
+            $('.transcode-icon').removeClass('not-display');
+            $('.progress').addClass('not-display');
+            $('.transcode-word').removeClass('not-display');
             var transcodeClear = setInterval(function(){
                 
                 //请求转码状态 
@@ -70,16 +72,20 @@
                     success: function(data){
                         //判断是否转码成功 data.isCompelete = 1 时成功
                         if(data.isCompelete == 1 ){
+                            $('.transcode-icon').addClass('not-display');
+                            $('.transcode-word').addClass('not-display');
                             uploadEnd(Videourl);
                             clearInterval(transcodeClear);
                         }
                     },
                     error: function(data){
                         console.log(data);
-                        setTimeout(function(){
-                            uploadEnd(Videourl);
-                            clearInterval(transcodeClear);
-                        }, 1000);
+                        // setTimeout(function(){
+                        //     $('.transcode-icon').addClass('not-display');
+                        //     $('.transcode-word').addClass('not-display');
+                        //     uploadEnd(Videourl);
+                        //     clearInterval(transcodeClear);
+                        // }, 1000);
                     }
                 });
             },2000);
@@ -98,7 +104,7 @@
                 return;
             }
             //上传地址
-            var submitUrl = 'xxx';
+            var submitUrl = '';
             if(submitUrl != ''){
                 $.ajax({
                     type:"post",
@@ -221,9 +227,14 @@
             <div class="upload-back-mask"></div>
             <p class="upload-back-word">等待上传视频</p>
             <div class="video-play not-display"></div>
+            <div class="transcode-icon not-display"></div>
         </div>
         <div class="upload-btn"></div>
         <div class="progress not-display">0%</div>
+        <div class="transcode-word not-display">
+            <div class="transcoding"></div>
+            <p>视频转码中，预计需要2-3分钟，请稍等</p>
+        </div>
         <div class="upload-end-word not-display">完成上传<br/><span>点击播放按钮预览</span></div>
         <p class="illus">
                 作品要求：时长2分钟以内，不超过300M<br/>
