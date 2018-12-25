@@ -260,17 +260,20 @@ body{
         line-height: 75px;
     }
     .transcode-word{
-        width: 200px;
+        width: 300px;
         height: 75px;
-        margin: 102px auto 0;
+        margin: 0 auto 55px;
         .transcoding{
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             background: url(../images/uploadVideo/transcoding.gif);
             background-size:100%; 
+            margin: 0 auto -40px;
         }
         p{
             @include font-dpr(30px,50px);
+            color: #fff;
+            text-align: center;
         }
     }
     .upload-end-word{
@@ -350,6 +353,15 @@ body{
             z-index: 2;
             margin: 100px auto 0;
         }
+        .transcode-icon{
+            width: 120px;
+            height: 120px;
+            background: url(../images/uploadVideo/transcode.png);
+            background-size: 100%;
+            position: relative;
+            z-index: 2;
+            margin: 55px auto 0;
+        }
         .upload-back-mask{
             width: 268.5px;
             height: 0px;
@@ -387,6 +399,18 @@ body{
             color: #fff;
             @include font-dpr(122px);
             line-height: 75px;
+        }
+        .transcode-word{
+            width: 300px;
+            height: 75px;
+            margin: 0 auto 50px;
+            .transcoding{
+                width: 120px;
+                height: 120px;
+                background: url(../images/uploadVideo/transcoding.gif);
+                background-size:100%; 
+                margin: 0 auto -45px;
+            }
         }
         .upload-end-word{
             display: block;

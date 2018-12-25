@@ -80,12 +80,12 @@
                     },
                     error: function(data){
                         console.log(data);
-                        // setTimeout(function(){
-                        //     $('.transcode-icon').addClass('not-display');
-                        //     $('.transcode-word').addClass('not-display');
-                        //     uploadEnd(Videourl);
-                        //     clearInterval(transcodeClear);
-                        // }, 1000);
+                        setTimeout(function(){
+                            $('.transcode-icon').addClass('not-display');
+                            $('.transcode-word').addClass('not-display');
+                            uploadEnd(Videourl);
+                            clearInterval(transcodeClear);
+                        }, 1000);
                     }
                 });
             },2000);
@@ -185,7 +185,7 @@
                         $('.upload-back-mask').removeClass('not-display');
                         $('.upload-back-mask').css('height','0px');
                         $('.video-play').addClass('not-display');
-                        $('.upload-end-word').addClass('not-diaplay');
+                        $('.upload-end-word').addClass('not-display');
                         $('.upload-back-word').removeClass('not-display');
                         $('.progress').text('0%');
                         uploadFiles();
