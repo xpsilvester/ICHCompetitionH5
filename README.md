@@ -57,7 +57,7 @@ gulp
 1. enroll.html 页面文案修改 “没上小学”改为“学龄前” （enroll.html）
 2. uploadVideo_2.html 页面重新上传显示上传动画和转码提示 （uploadVideo_2.html）
 3. uploadVideo_2.html 页面添加转码中动态效果（uploadVideo_2.html、\src\scss\uploadVideo.scss、\static\images\uploadVideo\transcode.png、\static\images\uploadVideo\transcode.png、\static\images\uploadVideo\transcoding.gif）
-4. cheer_1.html 页面顶部图文分离、头像加圆角（/src/scss/cheer_1.scss、cheer_1.html、/static/images/cheer1/content.png）
+4. cheer_1.html 页面顶部图文分离、头像加圆角（\src\scss\cheer_1.scss、cheer_1.html、\static\images\cheer1\content.png）
 
 
 #### 各个html对应页面：
