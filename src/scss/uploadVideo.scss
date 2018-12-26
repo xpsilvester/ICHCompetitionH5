@@ -473,7 +473,7 @@ body{
     // display: flex;
     // justify-content:center;
     // align-items:center;
-    .submit-error,.submit-out{
+    .submit-error,.submit-out,.transcode-error{
         position: absolute;
         top:0;
         left: 0;
@@ -487,11 +487,28 @@ body{
         background: url(../images/uploadVideo/submit_error.png);
         background-size: 100%;
     }
-    .submit-out{
+    .submit-out,.transcode-error{
         width: 303.5px;
         height: 152.5px;
         background: url(../images/uploadVideo/submit_out.png);
         background-size: 100%;
+    }
+    .transcode-error{
+        background: url(../images/uploadVideo/transcode_error.png);
+        background-size: 100%;
+        overflow: hidden;
+        text-align: center;
+    
+        h3{
+            margin: 37px auto 0;
+            @include font-dpr(42px,43px);
+            color: #1acbfd;
+        }
+        p{
+            margin: 26px 15px;
+            @include font-dpr(32px,42px);
+            color: #1acbfd;
+        }
     }
     .cancel{
         width: 20px;

@@ -54,6 +54,22 @@
             $('video').attr('url',url);
             videoPlay();
         }
+        //转码失败
+        var transcodeError = function(){
+            $('.transcode-word').addClass('not-display');
+            $('.transcode-icon').addClass('not-display');
+            $('.upload-back-word').removeClass('not-display');
+            $('.mask').removeClass('not-display');
+            $('.transcode-error').removeClass('not-display');
+            $('.file').val("");
+            $('.upload-back-img').addClass('not-visible');
+            $('.upload-back-word').text('请重新上传视频');
+            $('.upload-btn').removeClass('not-display');
+            $('.progress').addClass('not-display');
+            $('.upload-back-mask').css('height','0px');
+            $('.video-play').addClass('not-display');
+            $('.upload-end-word').addClass('not-display');
+        }
 
         //后台转码过程 
         var transcode = function(Videourl){
@@ -77,15 +93,15 @@
                             uploadEnd(Videourl);
                             clearInterval(transcodeClear);
                         }
+                        if(error){
+                            transcodeError();
+                            clearInterval(transcodeClear);
+                        }
                     },
                     error: function(data){
                         console.log(data);
-                        setTimeout(function(){
-                            $('.transcode-icon').addClass('not-display');
-                            $('.transcode-word').addClass('not-display');
-                            uploadEnd(Videourl);
-                            clearInterval(transcodeClear);
-                        }, 1000);
+                        transcodeError();
+                        clearInterval(transcodeClear);
                     }
                 });
             },2000);
@@ -146,6 +162,9 @@
                         $('.upload-btn').removeClass('not-display');
                         $('.progress').addClass('not-display');
                         $('.upload-back-mask').css('height','0px');
+                        $('.video-play').addClass('not-display');
+                        $('.upload-end-word').addClass('not-display');
+                        $('.upload-back-word').removeClass('not-display');
                     }
                 });                             
             }else{
@@ -199,7 +218,7 @@
         
         //取消弹窗
         $('.cancel').on('click',function(){
-            $('.mask,.submit-error,.submit-out').addClass('not-display');
+            $('.mask,.submit-error,.submit-out,.transcode-error').addClass('not-display');
         })
         //同意授权
         $(".confirm1 .yuko-radio").on("click",function(){
@@ -258,6 +277,11 @@
     <div class="mask not-display">
         <div class="submit-error not-display"><div class="cancel"></div></div>
         <div class="submit-out not-display"><div class="cancel"></div></div>
+        <div class="transcode-error not-display">
+            <div class="cancel"></div>
+            <h3>转码失败</h3>
+            <p>视频转码失败，请确认视频文件正常，然后重新上传尝试</p>
+        </div>
     </div>
     <input class="file not-visible" type="file"  name="file" value=""/>
     <iframe id="rule" name="rule" src="rule.html"></iframe>

@@ -59,6 +59,9 @@ gulp
 3. uploadVideo_2.html 页面添加转码中动态效果（uploadVideo_2.html、\src\scss\uploadVideo.scss、\static\images\uploadVideo\transcode.png、\static\images\uploadVideo\transcode.png、\static\images\uploadVideo\transcoding.gif）
 4. cheer_1.html 页面顶部图文分离、头像加圆角（\src\scss\cheer_1.scss、cheer_1.html、\static\images\cheer1\content.png）
 
+#### 12.26
+1. uploadVideo_2.html 转码失败弹窗，转码失败重新上传 (uploadVideo_2.html、\src\scss\uploadVideo.scss、\static\images\uploadVideo\transcode_error.png)
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
