@@ -12,7 +12,7 @@
     <script src="../static/js/flexible.min.js"></script>
     <script src="../static/js/html2canvas.min.js"></script>
     <script src="../static/js/canvas2image.js"></script>
-    <script src="../static/js/ichmap.min.js"></script>
+    <!-- <script src="../static/js/ichmap.min.js"></script> -->
     <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
 </head>
 
@@ -108,44 +108,12 @@
     <script>
         $(function () {
 
-            var touchTotalTime = 0,// 按住屏幕的时间
-                touchStartTime, // 手指按下屏幕的时间
-                touchEndTime, // 手指松开屏幕的时间
-                timeoutId,
-                LONG_TOUCH_TIME = 700; // 判定为长按的时间，单位毫秒，可修改
-            $(document).on('touchstart', function (evt) {
-                touchStartTime = new Date().getTime();
-                timeoutId = setTimeout(function () {
-                    touchEndHandler(evt);
-                }, LONG_TOUCH_TIME);
-            });
-
-            $(document).on('touchmove', function (evt) {
-                // 一旦手指移动，重置 touchStartTime
-                touchStartTime = new Date().getTime();
-                clearTimeout(timeoutId);
-            });
-
-            $(document).on('touchend', function (evt) {
-                clearTimeout(timeoutId);
-            });
-
-            /*
-             * 处理长按事件
-             */
-            function touchEndHandler(evt) {
-                touchEndTime = new Date().getTime();
-                touchTotalTime = touchEndTime - touchStartTime;
-                if (touchTotalTime >= LONG_TOUCH_TIME &&    // 按下时间超过判定时间
-                    evt.target.id !== 'yuko-qrcode-img' &&  // 非二维码
-                    evt.target.id !== 'yuko-screenshot' &&  // 非分享截图
-                    evt.target.id !== 'yuko-mask' &&        // 非 Mask
-                    evt.target.parentElement.id !== 'yuko-mask') {
-                    // 保存图片和分享
+            //去掉遮罩，加载保存图片
+            $('#yuko-mask-iknow').on('touchend', function () {
+                $('#yuko-mask').fadeOut(280,function(){
                     saveImage();
-                }
-            }
-
+                });
+            });
             /**
              * 设置点亮的图标数目
              */
@@ -194,7 +162,7 @@
                         'z-index': 99
                     });
                     $(document.body).append(img);
-                    alert('图片生成成功');
+                    //alert('图片生成成功');
 
                 });
             }

@@ -130,6 +130,9 @@ body{
         left: pxToRem(45px);
         width: pxToRem(85px);
         height: pxToRem(85px);
+        img{
+            border-radius: 100%;
+        }
     }
 
     #yuko-station-01 {

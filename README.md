@@ -62,6 +62,9 @@ gulp
 #### 12.26
 1. uploadVideo_2.html 转码失败弹窗，转码失败重新上传 (uploadVideo_2.html、\src\scss\uploadVideo.scss、\static\images\uploadVideo\transcode_error.png)
 
+#### 12.28
+1. ichmap.html 页面头像加圆角，长按保存图片修改（ichmap.html、\src\scss\ichmap.scss）
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
