@@ -192,7 +192,7 @@
             #yuko-recordplay-cn {
                 line-height: pxToRem(38px);
                 @include font-dpr(28px);
-                margin-bottom: pxToRem(50px);
+                margin-bottom: pxToRem(70px);
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
@@ -215,10 +215,23 @@
 
                 #yuko-recordplay-record {
                     position: relative;
-                    width: pxToRem(128px);
-                    height: pxToRem(128px);
+                    width: pxToRem(100px);
+                    height: pxToRem(100px);
                     background: url(../images/learnPark/voice_record.png) no-repeat center center;
                     background-size: 100%;
+                    .yuko-toggletip{
+                        position: absolute;
+                        width: pxToRem(300px);
+                        height: pxToRem(100px);
+                        top:pxToRem(-75px);
+                        left: 50%;
+                        margin-left: pxToRem(-150px);
+                        .time,.word{
+                            color: rgb(20, 201, 253);
+                            @include font-dpr(18px);
+                            text-align: center;
+                        }
+                    }
                 }
 
                 #yuko-recordplay-read {

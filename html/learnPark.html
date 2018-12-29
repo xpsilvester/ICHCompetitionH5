@@ -51,7 +51,10 @@
                 <div id="yuko-recordplay-opr">
                     <div id="yuko-recordplay-play"></div>
                     <div id="yuko-recordplay-record">
-                        <!-- <div class="yuko-toggletip"></div> -->
+                        <div class="yuko-toggletip not-display">
+                            <p class="time">00:00</p>
+                            <p class="word">点击完成录音 正计时</p>
+                        </div>
                     </div>
                     <div id="yuko-recordplay-read"></div>
                 </div>
@@ -120,7 +123,7 @@
             /**
              * 录音相关按钮点击事件
              */
-            var playProInter,flagPlay=0;
+            var playProInter,flagPlay=0,timeCal,timeData=0;
             //状态
             //开始状态
             var initial = function(){
@@ -129,6 +132,25 @@
                 $('#yuko-recordplay-read').css('background-image','url(../static/images/learnPark/blank.png)');
             }
             initial();
+
+
+            //时间变化
+            var silceNum = function(num){
+                return num > 9 ? num.toString() : '0'+num.toString();
+            }
+            var timeMove = function(){
+                timeCal = setInterval(function() {
+                    timeData++;
+                    
+                    if(timeData<60){
+                        $('.yuko-toggletip .time').text('00:'+silceNum(timeData))
+                    }else{
+                        var timeMin = Math.floor(timeData/60),
+                            timeSec = timeData%60;
+                        $('.yuko-toggletip .time').text(silceNum(timeMin)+':'+silceNum(timeSec))
+                    }
+                }, 1000);
+            };
 
             //播放原声
             var playPro = function(){
@@ -146,11 +168,19 @@
             //开始录音
             var record = function(){
                 $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record2.png)');
+                $('.yuko-toggletip').removeClass('not-display')
+                timeMove()
             }
 
             //停止录音
             var recordStop = function(){
                 $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record.png)');
+                setTimeout(() => {
+                    $('.yuko-toggletip').addClass('not-display');
+                    $('.yuko-toggletip .time').text('00:00');
+                }, 500);
+                timeData=0;
+                clearInterval(timeCal);
             }
 
             //通过验证打分
@@ -180,32 +210,56 @@
                 pausePro()
             }, false);
 
-
             //录音相关方法及上传需调用微信JS-SDK，相关参数需后台传入,具体配置请参考API：https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
-            $('#yuko-recordplay').on('touchstart', function (evt) {
+            var isRecording=false;
+            $('#yuko-recordplay-record').on('click', function (evt) {
                 var tar = evt.target;
+                if(!isRecording){
+                    isRecording = true;
+                    /*
+                    * 开始录音
+                    * 此处调用微信录音相关接口获取录音权限并开始录音
+                    wx.startRecord();
+                    */
+                    // TODO
+                    record();
+                    console.log('开始录音');
+                    
+                }else{
+                    isRecording = false;
+                    recordStop();
+                    /*
+                        * 结束录音 并 上传
+                        * 此处调用微信录音相关接口获取录音权限并停止录音，上传录音
+                        wx.stopRecord({
+                            success: function (res) {
+                                recordLocalId = res.localId;
+                                wx.uploadVoice({
+                                    localId: res.localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                                    isShowProgressTips: 1, // 默认为1，显示进度提示
+                                    success: function (res) {
+                                        var serverId = res.serverId; // 返回音频的服务器端ID
+                                    }
+                                });
+                            }
+                        });
+                        */
+                    // TODO
+                    //验证
+                    var valide = true;
+                    if(valide){
+                        setTimeout(pass,1000); //通过验证
+                    }else{
+                        setTimeout(unPass,1000); //未通过验证
+                    }
 
-                isRecordTouched = true;
-                switch (tar.id) {
-                    case 'yuko-recordplay-record':
-                        /*
-                         * 开始录音
-                         * 此处调用微信录音相关接口获取录音权限并开始录音
-                           wx.startRecord();
-                         */
-                        // TODO
-                        record();
-                        console.log('开始录音');
-
-                        break;
-                    default:
-                        break;
+                    console.log('结束录音');
                 }
             });
 
             $('#yuko-recordplay').on('touchend', function (evt) {
                 var tar = evt.target;
-                isRecordTouched = false;
+                //isRecordTouched = false;
                 switch (tar.id) {
                     case 'yuko-recordplay-read':
                         if (!isRecordPlaying) {
@@ -237,36 +291,7 @@
                         }
 
                         break;
-                    case 'yuko-recordplay-record':
-                        recordStop();
-                        /*
-                         * 结束录音 并 上传
-                         * 此处调用微信录音相关接口获取录音权限并停止录音，上传录音
-                           wx.stopRecord({
-                                success: function (res) {
-                                    recordLocalId = res.localId;
-                                    wx.uploadVoice({
-                                        localId: res.localId, // 需要上传的音频的本地ID，由stopRecord接口获得
-                                        isShowProgressTips: 1, // 默认为1，显示进度提示
-                                        success: function (res) {
-                                            var serverId = res.serverId; // 返回音频的服务器端ID
-                                        }
-                                    });
-                                }
-                           });
-                         */
-                        // TODO
-                        //验证
-                        var valide = true;
-                        if(valide){
-                            setTimeout(pass,1000); //通过验证
-                        }else{
-                            setTimeout(unPass,1000); //未通过验证
-                        }
-
-                        console.log('结束录音');
-
-                        break;
+                        
                     case 'yuko-recordplay-play':
                         if (!isVoicePlaying) {
 

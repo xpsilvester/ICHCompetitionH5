@@ -65,6 +65,9 @@ gulp
 #### 12.28
 1. ichmap.html 页面头像加圆角，长按保存图片修改（ichmap.html、\src\scss\ichmap.scss）
 
+#### 12.29
+1. learnPark.html 添加录音效果（learnPark.html、\src\scss\learnPark.scss）
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
