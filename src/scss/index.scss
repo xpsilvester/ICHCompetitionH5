@@ -314,7 +314,7 @@
         width: pxToRem(750px);
         height: pxToRem(1349px);
         margin: pxToRem(48px) auto pxToRem(70px);
-        background-image: url('../images/index/starCheer.png');
+        background-image: url('../images/index/starCheer.png?1');
         background-repeat: no-repeat;
         background-size: 100% 100%;
         position: relative;
@@ -342,6 +342,21 @@
             left: pxToRem(60px);
             border-radius: pxToRem(25px);
             z-index: 3;
+        }
+        .advertise-container{
+            width: pxToRem(678px);
+            height: pxToRem(256px);
+            position: absolute;
+            top:pxToRem(1072px);
+            left: pxToRem(35px);
+            right: pxToRem(35px);
+            margin: 0 auto;
+
+            .adv{
+                width: pxToRem(678px);
+                height: pxToRem(256px);
+                border-radius: pxToRem(10px);
+            }
         }
     }
 
