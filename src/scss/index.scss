@@ -76,17 +76,19 @@
     background-color: #f3d548;
 
     .badge{
-        width: pxToRem(187px);
-        height: pxToRem(188px);
+        width: pxToRem(122px);
+        height: pxToRem(135px);
         display: block;
-        margin: pxToRem(95px) auto pxToRem(80px);
+        position: absolute;
+        left: pxToRem(10px);
+        top: pxToRem(10px);
     }
 
     .logo{
-        width: pxToRem(708px);
-        height: pxToRem(510px);
+        width: pxToRem(629px);
+        height: pxToRem(573px);
         display: block;
-        margin: 0 auto;
+        margin: pxToRem(300px) auto 0;
     }
 
     .progress-bar{
@@ -175,6 +177,7 @@
                 display: block;
             }
         }
+
 
         .action{
             position: absolute;
