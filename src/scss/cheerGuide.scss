@@ -56,6 +56,7 @@
     position: fixed;
     overflow: scroll;
     font-family: 'PingFang Regular';
+    z-index: 99999;
 
     .guide{
         width: pxToRem(444px);

@@ -172,6 +172,7 @@
                 timeMove()
             }
 
+            var isRecordEnd = false;
             //停止录音
             var recordStop = function(){
                 $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record.png)');
@@ -187,12 +188,14 @@
             var pass = function(){
                 $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record3.png)');
                 readStop();
+                isRecordEnd = true;
             }
 
             //未通过验证打分
             var unPass = function(){
                 $('#yuko-recordplay-record').css('background-image','url(../static/images/learnPark/voice_record4.png)');
                 readStop();
+                isRecordEnd = true;
             }
 
             //我的录音停止
@@ -262,7 +265,7 @@
                 //isRecordTouched = false;
                 switch (tar.id) {
                     case 'yuko-recordplay-read':
-                        if (!isRecordPlaying) {
+                        if (!isRecordPlaying && isRecordEnd) {
                             /*
                              * 播放录音
                                 if(recordLocalId) {
@@ -275,7 +278,7 @@
                             readPlay();
                             isRecordPlaying = true;
                             console.log('播放录音');
-                        } else {
+                        } else if(isRecordEnd){
                             /*
                             * 停止播放录音
                             if(recordLocalId) {
