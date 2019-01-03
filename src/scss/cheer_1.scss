@@ -148,7 +148,23 @@
                 left: 0;
             }
         }
-
+        .user-head{
+            height: pxToRem(50px);
+            position: absolute;
+            left:pxToRem(210px);
+            bottom: pxToRem(270px);
+            img{
+                width: pxToRem(30px);
+                height: pxToRem(30px);
+                float: left;
+                margin: pxToRem(10px) pxToRem(20px);
+            }
+            p{
+                @include font-dpr(24px, 50px);
+                float: right;
+                color: #fff;
+            }
+        }
         .main-heart{
             width: pxToRem(137px);
             height: pxToRem(128px);

@@ -121,6 +121,19 @@
                 console.log("微信朋友圈分享");
                 showCheerGuide();
             });
+            //获取用户信息
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    $('.user-head').html('<img src="'+data.url+'" /><p>'+data.name+'</p>')
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
         });
     </script>
     <title>中华少年说</title>
@@ -142,6 +155,10 @@
             <div class="main-screen">
                 <img class="screen-play" src="../static/images/cheer/play.png" />
                 <video class="screen-video" src="xxx.mp4" poster="../static/images/cheer1/poster.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+            </div>
+            <div class="user-head">
+                <img src="../static/images/cheer/head.png" />
+                <p>51Talk 恭喜您</p>
             </div>
             <div class="main-heart"></div>
             <p class="main-word">为TA助威</p>
