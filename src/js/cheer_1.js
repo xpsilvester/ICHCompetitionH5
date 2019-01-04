@@ -25,7 +25,7 @@ let videoPause = () => {
     $(".screen-video").on("touchstart",function(){
         if($(".screen-play").hasClass("not-display")){
             $(".screen-play").removeClass("not-display");
-            $(".content-video").get(0).pause();
+            $(".screen-video").get(0).pause();
         }
     });
 }
