@@ -61,9 +61,24 @@
     background-size: 100% 100%;
     font-family: 'PingFang Regular';
 
-    .attention-img{
+    .qcode-content{
         width: pxToRem(607px);
         height: pxToRem(626px);
         display: block;
+        position: relative;
+        .attention-img{
+            position: absolute;
+            width: pxToRem(607px);
+            height: pxToRem(626px);
+            top: 0;
+            left: 0;
+        }
+        .attention-qcode{
+            position: absolute;
+            width: pxToRem(263px);
+            height: pxToRem(264px);
+            bottom: pxToRem(102px);
+            left: pxToRem(170px);
+        }
     }
 }
