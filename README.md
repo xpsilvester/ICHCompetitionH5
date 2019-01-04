@@ -68,6 +68,12 @@ gulp
 #### 12.29
 1. learnPark.html 添加录音效果（learnPark.html、\src\scss\learnPark.scss）
 
+#### 1.4
+1. index.html 首页明星视频修改，主页第一个视频加controls (其他视频暂时不加，后续确认后再加上，避免修改时重复工作)（index.html、index.scss）
+2. learnPark.html 修复点击空白地方会出现按钮bug（learnPark.html）
+3. cheer_1.html 修复遮罩没挡住视频控件bug，字体样式修改 (cheerGuide.js、common.js、cheer_1.scss)
+4. attention.html 二维码单独切 (attention.html、attention.scss、images\attention\QRcode2.png)
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
