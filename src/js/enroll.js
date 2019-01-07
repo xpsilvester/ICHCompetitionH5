@@ -97,7 +97,7 @@ let schoolChoice = (data) => {
         $(".school .yuko-list_items").append('<div>' + data[i] + '</div>');
     }
     $(".school .yuko-list_items").removeClass("yuko-list_hide");
-    $(".school .yuko-list_items>div").on("touchend",function(){
+    $(".school .yuko-list_items>div").on("click",function(){
         school = $(this).html();
         $("#school").val(school);
         $(".school .yuko-list_items").addClass("yuko-list_hide");

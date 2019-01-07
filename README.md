@@ -74,6 +74,10 @@ gulp
 3. cheer_1.html 修复遮罩没挡住视频控件bug，字体样式修改 (cheerGuide.js、common.js、cheer_1.js、cheer_1.scss)
 4. attention.html 二维码单独切 (attention.html、attention.scss、images\attention\QRcode2.png)
 
+#### 1.15
+1. 视频比例调整(index.scss、cheer_1.scss、cheer.scss、uploadVideo.scss、learnPark.scss)
+2. 报名信息页面搜索修改(enroll.js)
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
