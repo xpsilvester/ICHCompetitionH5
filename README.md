@@ -8,7 +8,9 @@ gulp
 ```
 
 ### 三、更新日志
-
+#### 1.15
+1. 视频比例调整(index.scss、cheer_1.scss、cheer.scss、uploadVideo.scss、learnPark.scss)
+2. 报名信息页面搜索修改(enroll.js)
 
 
 
