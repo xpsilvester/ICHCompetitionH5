@@ -136,10 +136,17 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                z-index: 2;
+                z-index: 999;
                 margin: auto;
             }
-
+            .poster-img{
+                width: pxToRem(562px);
+                height: pxToRem(297px);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 998;
+            }
             .screen-video{
                 width: pxToRem(562px);
                 height: pxToRem(297px);
