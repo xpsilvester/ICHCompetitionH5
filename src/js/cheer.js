@@ -15,14 +15,15 @@ let setVideo = (src) => {
 }
 
 let videoPlay = () => {
-    $(".content-play").on("touchstart",function(){
+    $(".content-play").on("click",function(){
         $(this).addClass("not-display");
+        $('.poster-img').addClass("not-display");
         $(".content-video").get(0).play();
     });
 }
 
 let videoPause = () => {
-    $(".content-video").on("touchstart",function(){
+    $(".content-video").on("click",function(){
         if($(".content-play").hasClass("not-display")){
             $(".content-play").removeClass("not-display");
             $(".content-video").get(0).pause();

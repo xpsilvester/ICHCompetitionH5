@@ -164,9 +164,17 @@
             position: absolute;
             top: pxToRem(160px);
             left: pxToRem(320px);
-            z-index: 2;
+            z-index: 999;
         }
-
+        .poster-img{
+            width: pxToRem(517px);
+            height: pxToRem(310px);
+            position: absolute;
+            top: pxToRem(56px);
+            left: pxToRem(115px);
+            z-index: 998;
+            border-radius: 8px;
+        }
         .content-video{
             width: pxToRem(515px);
             height: pxToRem(300px);
