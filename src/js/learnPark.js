@@ -23,6 +23,7 @@ $(() => {
         if (tar.id === 'yuko-videoplay-icon' || tar.nodeName.toLocaleLowerCase() === 'video') {
             if (!$videoMainCon.hasClass('playing')) {
                 $videoMainCon.addClass('playing');
+                $('.poster-img').addClass('not-display');
                 $video[0].play();
             } else {
                 $videoMainCon.removeClass('playing');

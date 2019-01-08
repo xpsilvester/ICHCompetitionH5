@@ -122,6 +122,14 @@
                 height: pxToRem(102px);
                 top: pxToRem(168px);
                 left: pxToRem(327px);
+                z-index: 4;
+            }
+            .poster-img{
+                width: pxToRem(600px);
+                height: pxToRem(320px);
+                position: absolute;
+                top: pxToRem(54px);
+                left: pxToRem(76px);
                 z-index: 3;
             }
         }
