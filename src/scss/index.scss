@@ -277,17 +277,27 @@
                 right: -10px;
                 background: url(../images/index/learning.png);
                 background-size: 100%;
+                z-index: 999;
             }
             .video_play{
-                width: 70px;
-                height: 70px;
+                width: 43px;
+                height: 42.5px;
                 background: url(../images/index/play.png);
                 background-size: 100%;
                 position: absolute;
-                top: 37%;
+                top: 60px;
                 left: 50%;
-                margin-left: -30px;
-                margin-top: -30px;
+                margin-left: -21.5px;
+                z-index: 999;
+            }
+            .poster-img{
+                width: 250px;
+                height: 140px;
+                position: absolute;
+                top: 17px;
+                left: 21px;
+                z-index: 998;
+                border-radius: 8px;
             }
             .title{
                 @include font-dpr(34px);
