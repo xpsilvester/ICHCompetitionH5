@@ -18,6 +18,7 @@ let videoPlay = () => {
     $(".screen-play").on("touchstart",function(){
         $(this).addClass("not-display");
         $(".screen-video").get(0).play();
+        $('.poster-img').addClass("not-display");
     });
 }
 
