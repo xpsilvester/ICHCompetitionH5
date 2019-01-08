@@ -4,7 +4,7 @@ let cheerGuideClick = () => {
         $(window.parent.document.body).css("overflow","scroll");
         $(window.parent.document).find("#cheer-guide").css("z-index","-1");
         $(window.parent.document).find("video").removeClass('not-visible');
-        $(window.parent.document).find('.main-screen').removeClass('not-visible');
+        // $(window.parent.document).find('.main-screen').removeClass('not-visible');
     });
 }
 
