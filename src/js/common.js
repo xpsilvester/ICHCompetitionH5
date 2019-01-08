@@ -3,7 +3,7 @@ let ruleClick = () => {
         try{
             $("#rule").contents().find(".rule-container").removeClass("not-display");
             $("body").css("overflow","hidden");
-            $("#rule").css("z-index","10");
+            $("#rule").css("z-index","9999");
         }
         catch(error){
             alert("iframe跨域,需部署到网站");
@@ -30,9 +30,10 @@ let showCheerGuide = () => {
     try{
         $("#cheer-guide").contents().find(".cheer-guide").removeClass("not-display");
         $("body").css("overflow","hidden");
-        $("#cheer-guide").css("z-index","10");
+        $("#cheer-guide").css("z-index","99999");
         $("#cheer-guide").css('height',$("body").height()+'px');
         $('video').addClass('not-visible');
+        //$('.main-screen').addClass('not-visible');
         $(window).scrollTop(0);
     }
     catch(error){
@@ -48,7 +49,7 @@ let cheerRuleClick = () => {
         try{
             $("#cheerRule").contents().find(".rule-container").removeClass("not-display");
             $("body").css("overflow","hidden");
-            $("#cheerRule").css("z-index","10");
+            $("#cheerRule").css("z-index","99999");
         }
         catch(error){
             alert("iframe跨域,需部署到网站");
