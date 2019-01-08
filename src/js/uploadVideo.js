@@ -21,6 +21,7 @@ let uploadVideo = ()=>{
     $('.video_play').on('click',function(){
         $(this).parent().find('video').get(0).play();
         $(this).addClass('hidden');
+        $(this).parent().find('.poster-img').addClass('not-display');
     })
     $('.video_pic').on('click',function(){
         if($(this).parent().find('.video_play').hasClass('hidden')){

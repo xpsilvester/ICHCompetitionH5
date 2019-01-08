@@ -150,7 +150,18 @@ body{
         top:274px;
         left: 50%;
         margin-left: -21.5px;
+        z-index: 999;
     }
+    .poster-img{
+        width: 245.5px;
+        height: 133px;
+        position: absolute;
+        bottom: 44px;
+        left: 19px;
+        z-index: 998;
+        border-radius: 8px;
+    }
+
     .intro{
         @include font-dpr(26px);
     }
