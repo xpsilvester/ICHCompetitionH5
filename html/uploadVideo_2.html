@@ -54,6 +54,8 @@
             $('.upload-compelete').removeClass('not-display');
             $('video').attr('url',url);
             $('.poster-img').removeClass('not-display');
+            $('.upload-btn').addClass('not-display');
+            $('.time-img').attr('src','../static/images/uploadVideo/header3.png');
             videoPlay();
         }
         //转码失败
@@ -226,6 +228,25 @@
         $(".confirm1 .yuko-radio").on("click",function(){
             $(this).hasClass('is-checked') ? $(this).removeClass('is-checked') : $(this).addClass('is-checked');
         });
+
+        //初始化判断是否已上传
+        $.ajax({
+            url: "xxxx",//后端链接
+            type: "post",
+            data: {},
+            dataType: "json",
+            success: function(data){
+                //判断是否已上传
+                if(data.isCompelete == 1 ){
+                    uploadEnd(data.url);//传入视频链接
+                }
+                
+            },
+            error: function(data){
+                console.log(data);
+            }
+        });
+
     })
 </script>
 <body>
