@@ -21,6 +21,7 @@
             $('.video-play').on('click',function(){
                 $('video').get(0).play();
                 $('.video-play').addClass('not-visible');
+                $('.poster-img').addClass('not-display');
             })
             $('video').on('click',function(){
                 if($('.video-play').hasClass('not-visible')){
@@ -52,6 +53,7 @@
             $('.video-play').removeClass('not-display');
             $('.upload-compelete').removeClass('not-display');
             $('video').attr('url',url);
+            $('.poster-img').removeClass('not-display');
             videoPlay();
         }
         //转码失败
@@ -242,7 +244,8 @@
     </section>
     <section class="upload-box">
         <div class="upload-back">
-            <video class="upload-back-img not-visible" poster="../static/images/uploadVideo/video_pic2.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+            <video class="upload-back-img not-visible" poster="../static/images/uploadVideo/video_pic2.png" playsinline muted controls="false" x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+            <img class="poster-img not-display" src="../static/images/uploadVideo/video_pic.png" />
             <div class="upload-back-mask"></div>
             <p class="upload-back-word">等待上传视频</p>
             <div class="video-play not-display"></div>

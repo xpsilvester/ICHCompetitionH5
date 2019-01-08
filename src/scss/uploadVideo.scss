@@ -221,8 +221,17 @@ body{
         background: url(../images/uploadVideo/video_play.png);
         background-size: 100%;
         position: relative;
-        z-index: 2;
+        z-index: 999;
         margin: 117px auto 0;
+    }
+    .poster-img{
+        width: 309px;
+        height: 165.5px;
+        position: absolute;
+        top: 59px;
+        left: 15px;
+        z-index: 998;
+        border-radius: 8px;
     }
     .transcode-icon{
         width: 150px;
@@ -361,8 +370,17 @@ body{
             background: url(../images/uploadVideo/video_play.png);
             background-size: 100%;
             position: relative;
-            z-index: 2;
+            z-index: 999;
             margin: 100px auto 0;
+        }
+        .poster-img{
+            width: 268.5px;
+            height: 145.5px;
+            position: absolute;
+            top: 52px;
+            left: 15px;
+            z-index: 998;
+            border-radius: 8px;
         }
         .transcode-icon{
             width: 120px;
