@@ -112,6 +112,7 @@ let uploadVideo = (learningIndex)=>{
         if($(this).parent().index() == 0){
             $(this).parent().find('video').get(0).play();
             $(this).addClass('not-display');
+            $('.poster-img').addClass('not-display');
         }else{
             window.location.href = 'learnPark.html?id='+$(this).parent().index();
         }
