@@ -81,7 +81,7 @@ let uploadVideo = (learningIndex)=>{
 
 
     //监听左右滑动
-    let moveX = 0;
+    let moveX = 0,tag = 1;
     $('.swiper-container').on('touchstart',function(){
         moveX = swiper.getTranslate()
     });
@@ -90,6 +90,13 @@ let uploadVideo = (learningIndex)=>{
             $('.slide-lr').css('opacity','0');
             var $index = $('.swiper-slide-active').index();
             changeSite($index);
+            if(tag==1){
+                $('.index-container .small-site .swiper-slide .video_pic').css('width','auto');
+                tag = 2;
+            }else{
+                $('.index-container .small-site .swiper-slide .video_pic').css('width','250px');
+                tag = 1;
+            }
         };
     });
 
