@@ -48,6 +48,9 @@
                 getlearningState(); //获取当前学习的站点
             });
             
+            //开屏进度条加载            
+            loadingAction(getActiveVideoList,getlearningState);
+
             //获取正在学习，已打卡，未打卡数据
             function getlearningState(){
                 //获取当前学习的站点
