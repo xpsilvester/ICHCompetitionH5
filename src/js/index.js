@@ -1,8 +1,10 @@
-let loadingAction = () => {
+let loadingAction = (fun1,fun2) => {
     let visited = sessionStorage.getItem("visited");
     if(visited){
         $(".index-progress,.star-yell").addClass("not-display");
         $(".index-container").removeClass("not-display");
+        fun1();
+        fun2();
     }
     else{
         let progress = 0;
@@ -144,7 +146,6 @@ let uploadVideo = (learningIndex)=>{
 }
 
 $(()=>{
-    loadingAction();
     starYellAction();
     getTheme();
 });
