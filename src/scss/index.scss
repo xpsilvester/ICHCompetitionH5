@@ -85,8 +85,8 @@
     }
 
     .logo{
-        width: pxToRem(629px);
-        height: pxToRem(573px);
+        width: pxToRem(624px);
+        height: pxToRem(568px);
         display: block;
         margin: pxToRem(300px) auto 0;
     }
@@ -184,13 +184,13 @@
             position: absolute;
             z-index: 1;
             right: 0;
-            left: 0;
+            left: pxToRem(-10px);
             margin: 0 auto;
             background-repeat: no-repeat;
             background-size: 100% 100%;
             width: pxToRem(294px);
             height: pxToRem(285px);
-            top: pxToRem(890px);
+            top: pxToRem(898px);
             animation: ball .5s infinite alternate;
         }
 
