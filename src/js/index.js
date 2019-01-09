@@ -1,15 +1,29 @@
 let loadingAction = () => {
-    let progress = 0;
-    let timer = setInterval(() => {
-        progress++;
-        $(".loading-number").html(progress);
-        $(".progress").css("width",progress + "%");
-        if(progress == 100){
-            clearInterval(timer);
-            $(".index-progress").addClass("not-display");
-            $(".star-yell").removeClass("not-display");
-        }
-    },50);
+    let visited = sessionStorage.getItem("visited");
+    if(visited){
+        $(".index-progress,.star-yell").addClass("not-display");
+        $(".index-container").removeClass("not-display");
+    }
+    else{
+        let progress = 0;
+        let canplay = false;
+        $(".star-video").on("canplaythrough",function(){
+            canplay = true;
+            sessionStorage.setItem("visited",true);
+        });
+        let timer = setInterval(() => {
+            if((progress < 90) || (progress >= 90 && canplay)){
+                progress++;
+            }
+            $(".loading-number").html(progress);
+            $(".progress").css("width",progress + "%");
+            if(progress == 100){
+                clearInterval(timer);
+                $(".index-progress").addClass("not-display");
+                $(".star-yell").removeClass("not-display");
+            }
+        },10);
+    }
 }
 
 let starYellAction = () => {
