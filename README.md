@@ -15,12 +15,14 @@ gulp
 4. uploadVideo_2.html 页面添加初始化判断是否上传，及上传后转变成确认提交状态（uploadVideo_2.html、\static\images\uploadVideo\header3.png）
 5. 开屏进度条加载修改 （index.html、index.js）
 6. 好友助威邀请好友弹出层修改（common.js、cheerGuide.js）
-7. 首页、助威规则主办方文案修改（\static\images\index\host.png、\static\images\index\header.png、\static\images\rule\cheerRuleBackground.png、index.scss、rule.scss）
+7. 首页、助威规则主办方文案修改（\static\images\index\host.png、\static\images\index\logo.png、\static\images\index\header.png、\static\images\rule\cheerRuleBackground.png、index.scss、rule.scss）
+8. 添加活动规则页面（rule_1.html、rule_1.scss、common.js ）
 
 
 #### 各个html对应页面：
 ##### index.html --->  首页
 ##### rule.html ---> 活动规则(弹窗，需要在页面按钮中调用)
+##### rule_1.html ---> 活动规则
 ##### attention.html ---> 点击报名-引导关注服务号
 ##### uploadVideo_1.html ---> 上传视频-选题
 ##### uploadVideo_2.html --->  点击上传视频 
