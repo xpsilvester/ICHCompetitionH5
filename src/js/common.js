@@ -32,8 +32,7 @@ let showCheerGuide = () => {
         $("body").css("overflow","hidden");
         $("#cheer-guide").css("z-index","99999");
         $("#cheer-guide").css('height',$("body").height()+'px');
-        $('video').addClass('not-visible');
-        //$('.main-screen').addClass('not-visible');
+        $('video').addClass('not-display');
         $(window).scrollTop(0);
     }
     catch(error){

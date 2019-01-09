@@ -80,6 +80,7 @@ gulp
 3. 视频播放按钮错位调整（index.html、index.scss、index.js、uploadVideo_1.html、uploadVideo_2.html、uploadVideo.js、uploadVideo.scss、cheer.html、cheer.scss、cheer.js、cheer_1.html、cheer_1.scss、cheer_1.js、learnPark.html、learnPark.scss、learnPark.js、common.js、cheerGuide.js）
 4. uploadVideo_2.html 页面添加初始化判断是否上传，及上传后转变成确认提交状态（uploadVideo_2.html、\static\images\uploadVideo\header3.png）
 5. 开屏进度条加载修改 （index.html、index.js）
+6. 好友助威邀请好友弹出层修改（common.js、cheerGuide.js）
 
 
 #### 各个html对应页面：
