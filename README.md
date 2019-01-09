@@ -81,6 +81,7 @@ gulp
 4. uploadVideo_2.html 页面添加初始化判断是否上传，及上传后转变成确认提交状态（uploadVideo_2.html、\static\images\uploadVideo\header3.png）
 5. 开屏进度条加载修改 （index.html、index.js）
 6. 好友助威邀请好友弹出层修改（common.js、cheerGuide.js）
+7. 首页、助威规则主办方文案修改（\static\images\index\host.png、\static\images\index\logo.png、\static\images\index\header.png、\static\images\rule\cheerRuleBackground.png、index.scss、rule.scss）
 
 
 #### 各个html对应页面：
