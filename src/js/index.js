@@ -112,13 +112,6 @@ let uploadVideo = (learningIndex)=>{
             $('.slide-lr').css('opacity','0');
             var $index = $('.swiper-slide-active').index();
             changeSite($index);
-            if(tag==1){
-                $('.index-container .small-site .swiper-slide .video_pic').css('width','auto');
-                tag = 2;
-            }else{
-                $('.index-container .small-site .swiper-slide .video_pic').css('width','250px');
-                tag = 1;
-            }
         };
     });
 
