@@ -17,9 +17,7 @@ let loadingAction = (fun1,fun2) => {
         let timer = setInterval(() => {
             time++;
             if(time > 500){
-                clearInterval(timer);
-                $(".index-progress").addClass("not-display");
-                $(".star-yell").removeClass("not-display");
+                progress++;
                 sessionStorage.setItem("visited",true);
             }
             if((progress < 90) || (progress >= 90 && canplay)){
