@@ -84,6 +84,10 @@ gulp
 7. 首页、助威规则主办方文案修改（\static\images\index\host.png、\static\images\index\logo.png、\static\images\index\header.png、\static\images\rule\cheerRuleBackground.png、index.scss、rule.scss）
 8. 添加活动规则页面（rule_1.html、rule_1.scss、common.js ）
 
+#### 1.18
+1. 替换images文件夹
+2. 更新cheer_1.scss、controls.scss、enroll.scss
+
 
 #### 各个html对应页面：
 ##### index.html --->  首页
