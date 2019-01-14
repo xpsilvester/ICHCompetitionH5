@@ -86,7 +86,7 @@ gulp
 
 #### 1.18
 1. 替换images文件夹
-2. 更新cheer_1.scss、controls.scss、enroll.scss
+2. 更新cheer_1.scss、controls.scss、enroll.scss、common.js、rule.js
 
 
 #### 各个html对应页面：

@@ -49,6 +49,7 @@ let cheerRuleClick = () => {
         try{
             $("#cheerRule").contents().find(".rule-container").removeClass("not-display");
             $("body").css("overflow","hidden");
+            $('.content-video').addClass('not-display');
             $("#cheerRule").css("z-index","99999");
         }
         catch(error){
