@@ -10,7 +10,6 @@
     @else {
         @return $px / $base * 10 * 1rem;
     }
-
 }
 
 // 设置dpr下的字体大小

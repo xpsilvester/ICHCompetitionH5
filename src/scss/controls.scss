@@ -56,6 +56,7 @@
         padding: 0 pxToRem(62px) 0 pxToRem(26px);
         position: absolute;
         right: 0;
+        color: #000000;
     }
 
     .yuko-textfield_label {
@@ -152,6 +153,8 @@
         z-index: 99;
         max-height: pxToRem(328px);
         overflow: scroll;
+        border: pxToRem(2px) solid #aeaeae;
+        border-top: none;
     }
 
     .yuko-select_hide {
@@ -184,6 +187,11 @@
     .yuko-select_selected.yuko-select_arrow-active:after {
         background: url(../images/arrow_up.png) no-repeat center center;
         background-size: contain;
+    }
+
+    .yuko-select_selected.yuko-select_arrow-active{
+        border: pxToRem(2px) solid #aeaeae;
+        border-bottom: none;
     }
 
 }
