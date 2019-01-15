@@ -142,6 +142,15 @@ let uploadVideo = (learningIndex)=>{
             window.location.href = 'learnPark.html?id='+$(this).parent().index();
         }
     })
+
+    let balloonTop = $('.enroll').eq(0).offset().top + $('.enroll').height();
+    $(window).on('scroll',()=>{
+        if($(window).scrollTop() > balloonTop){
+            $('.enroll-below').css('position','fixed');
+        }else{
+            $('.enroll-below').css('position','absolute');
+        }
+    }) 
 }
 
 $(()=>{

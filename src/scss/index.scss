@@ -228,7 +228,7 @@
             background: url(../images/index/stationNormal.png) center center;
             background-size: 100%;
             position: absolute;
-            @include font-dpr(28px,92px);
+            @include font-dpr(28px,88px);
             text-align: center;
             color: #fff;
         }
@@ -304,6 +304,7 @@
                 margin: -6px auto 0;
                 font-weight: bold;
                 font-family:'PingFangSC-Semibold','PingFang';
+                color: #58595b;
             }
             .intro{
                 @include font-dpr(26px);
@@ -374,6 +375,7 @@
             top: pxToRem(390px);
             right: pxToRem(20px);
             animation: enrollBelow .5s infinite alternate;
+            z-index: 999;
         }
     }
 
