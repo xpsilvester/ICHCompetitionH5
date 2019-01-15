@@ -34,10 +34,24 @@
         transform: scale(1.1,1.1);
     }
 }
+
+
+@font-face {
+    font-family: 'PingFang Regular';
+    src: url('../font/enroll/PingFang Regular.eot');
+    src:
+      url('../font/enroll/PingFang Regular.eot?#font-spider') format('embedded-opentype'),
+      url('../font/enroll/PingFang Regular.woff') format('woff'),
+      url('../font/enroll/PingFang Regular.ttf') format('truetype'),
+      url('../font/enroll/PingFang Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
 #yuko-root {
     min-height: 100%;
     background: linear-gradient(to bottom,#0dc7fd, #effbff);
     padding-bottom: pxToRem(40px);
+    font-family: 'PingFang Regular';
 
     #yuko-header {
         padding: pxToRem(46px) pxToRem(36px) pxToRem(43px) pxToRem(36px);
@@ -140,29 +154,29 @@
             line-height: pxToRem(36px);
             @include font-dpr(24px);
             display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
+            // -webkit-box-orient: vertical;
+            // -webkit-line-clamp: 3;
             overflow: hidden;
 
-            &:after {
-                position: absolute;
-                content: "";
-                bottom: 0;
-                right: 0;
-                width: 0;
-                height: 0;
-                border: 6px solid transparent;
-                border-color: #000 transparent transparent transparent;
-            }
+            // &:after {
+            //     position: absolute;
+            //     content: "";
+            //     bottom: 0;
+            //     right: 0;
+            //     width: 0;
+            //     height: 0;
+            //     border: 6px solid transparent;
+            //     border-color: #000 transparent transparent transparent;
+            // }
 
-            &.expanded {
-                -webkit-line-clamp: 5;
+            // &.expanded {
+            //     -webkit-line-clamp: 5;
 
-                &:after {
-                    bottom: 6px;
-                    border-color: transparent transparent #000 transparent;
-                }
-            }
+            //     &:after {
+            //         bottom: 6px;
+            //         border-color: transparent transparent #000 transparent;
+            //     }
+            // }
         }
 
         #yuko-recordplay {
@@ -177,9 +191,9 @@
                 display: block;
                 width: pxToRem(130px);
                 height: pxToRem(135px);
-                position: absolute;
-                top: 0;
-                right: 0;
+                position: fixed;
+                top: pxToRem(1000px);;
+                right: pxToRem(34px);
                 user-select: none;
                 background: url(../images/learnPark/enroll.png);
                 background-size: 100%;
@@ -223,8 +237,8 @@
 
                 #yuko-recordplay-record {
                     position: relative;
-                    width: pxToRem(100px);
-                    height: pxToRem(100px);
+                    width: pxToRem(108px);
+                    height: pxToRem(108px);
                     background: url(../images/learnPark/voice_record.png) no-repeat center center;
                     background-size: 100%;
                     .yuko-toggletip{
