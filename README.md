@@ -88,7 +88,7 @@ gulp
 1. 替换images文件夹
 2. 更新cheer_1.scss、controls.scss、enroll.scss、common.js、rule.js
 3. 更新ichmap.scss、learnPark.scss
-4. 更新index.scss、uploadVideo.scss、index.js
+4. 更新index.scss、uploadVideo.scss、index.js、common.scss
 
 
 #### 各个html对应页面：
