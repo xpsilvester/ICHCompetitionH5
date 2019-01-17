@@ -1,13 +1,51 @@
-body{
-    background: #000;
+@keyframes enrollBelow
+{
+    from {
+        transform: scale(1,1);
+    }
+    to {
+        transform: scale(1.1,1.1);
+    }
 }
-.hello{
-    height: 750px;
-    ul{
-        li{
-            a{
-                font-size: 28px;
-            }
+
+.index-progress{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #f3d548;
+
+    .badge{
+        width: 187px;
+        height: 188px;
+        display: block;
+        margin: 95px auto 80px;
+    }
+
+    .logo{
+        width: 632px;
+        height: 510px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .progress-bar{
+        width: 550px;
+        height: 16px;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 150px auto 45px;
+        border-radius: 16px;
+
+        .progress{
+            width: 0;
+            height: 16px;
+            background-color: #6fdfff;
+            border-radius: 16px;
         }
+    }
+
+    .loading-progress{
+        font-size:26px;
+        color: #333333;
+        text-align: center;
     }
 }
