@@ -29,4 +29,5 @@ let uploadVideo = ()=>{
             $(this).parent().find('.video_play').removeClass('hidden')
         }
     })
+    $(window).scrollTop(1000);
 }

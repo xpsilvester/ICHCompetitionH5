@@ -150,6 +150,7 @@ let uploadVideo = (learningIndex)=>{
         }else{
             $('.enroll-below').css('position','absolute');
         }
+        $('.next-arrow').fadeOut();
     }) 
 }
 

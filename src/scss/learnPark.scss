@@ -191,13 +191,17 @@
                 display: block;
                 width: pxToRem(130px);
                 height: pxToRem(135px);
-                position: fixed;
-                top: pxToRem(1000px);;
-                right: pxToRem(34px);
+                position: absolute;
+                top: pxToRem(10px);;
+                right: pxToRem(10px);
                 user-select: none;
                 background: url(../images/learnPark/enroll.png);
                 background-size: 100%;
                 animation: enrollBelow .5s infinite alternate;
+            }
+
+            #yuko-recordplay-text {
+                height: pxToRem(840px);
             }
             
             #yuko-recordplay-en {
@@ -214,7 +218,7 @@
             #yuko-recordplay-cn {
                 line-height: pxToRem(38px);
                 @include font-dpr(28px);
-                margin-bottom: pxToRem(70px);
+                // margin-bottom: pxToRem(70px);
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;

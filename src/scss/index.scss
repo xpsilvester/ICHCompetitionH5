@@ -55,7 +55,7 @@
         transform: scale(1,1);
     }
     to {
-        transform: scale(1.03,1.03);
+        transform: scale(1.1,1.1);
     }
 }
 
@@ -201,6 +201,17 @@
 
         .invitation{
             background-image: url('../images/index/invitation.png');
+        }
+        .next-arrow{
+            width: pxToRem(324px);
+            height: pxToRem(50px);
+            position: absolute;
+            left: 50%;
+            bottom: pxToRem(150px);
+            margin-left: pxToRem(-162px);
+            background-size: 100%;
+            background-image: url('../images/index/next2.png');
+            z-index: 999;
         }
     }
 
