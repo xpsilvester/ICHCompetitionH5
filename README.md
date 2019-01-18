@@ -19,10 +19,11 @@ gulp
 8. 添加活动规则页面（rule_1.html、rule_1.scss、common.js ）
 
 #### 1.18（UI样式修改）
-1. 替换images文件夹
-2. 更新cheer_1.scss、controls.scss、enroll.scss、common.js、rule.js
-3. 更新ichmap.scss、learnPark.scss
-4. 更新index.scss、uploadVideo.scss、index.js、common.scss
+1. UI走查样式修改 （替换images文件夹、cheer_1.scss、controls.scss、enroll.scss、common.js、rule.js、ichmap.scss、learnPark.scss、index.scss、uploadVideo.scss、index.js、common.scss）
+2. 报名页面手指换成红色*(enroll.html、controls.scss)
+3. 学习乐园最小高度修改（learnPark.html、learnPark.scss）
+4. 首页第一屏加提示语、点击报名效果修改（index.html，index.scss、index.js）
+5. 选题页面自动下滑（uploadVideo.js）
 
 #### 各个html对应页面：
 ##### index.html --->  首页

@@ -191,9 +191,9 @@
                 display: block;
                 width: pxToRem(130px);
                 height: pxToRem(135px);
-                position: fixed;
-                top: pxToRem(1000px);;
-                right: pxToRem(34px);
+                position: absolute;
+                top: pxToRem(10px);;
+                right: pxToRem(10px);
                 user-select: none;
                 background: url(../images/learnPark/enroll.png);
                 background-size: 100%;
