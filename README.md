@@ -18,7 +18,7 @@ gulp
 7. 首页、助威规则主办方文案修改（\static\images\index\host.png、\static\images\index\logo.png、\static\images\index\header.png、\static\images\rule\cheerRuleBackground.png、index.scss、rule.scss）
 8. 添加活动规则页面（rule_1.html、rule_1.scss、common.js ）
 
-#### 1.18（UI样式修改）
+#### 1.18
 1. UI走查样式修改 （替换images文件夹、cheer_1.scss、controls.scss、enroll.scss、common.js、rule.js、ichmap.scss、learnPark.scss、index.scss、uploadVideo.scss、index.js、common.scss）
 2. 报名页面手指换成红色*(enroll.html、controls.scss)
 3. 学习乐园最小高度修改（learnPark.html、learnPark.scss）

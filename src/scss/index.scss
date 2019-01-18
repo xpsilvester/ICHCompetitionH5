@@ -128,8 +128,8 @@
     }
 
     .star-play{
-        width: pxToRem(86px);
-        height: pxToRem(85px);
+        width: pxToRem(187px);
+        height: pxToRem(187px);
         position: absolute;
         top: 0;
         bottom: 0;
@@ -358,6 +358,7 @@
             top:pxToRem(635px);
             left: pxToRem(407px);
             z-index: 4;
+            border-radius: pxToRem(33px);
         }
         .watch{
             width: pxToRem(546px);
