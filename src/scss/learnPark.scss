@@ -199,6 +199,10 @@
                 background-size: 100%;
                 animation: enrollBelow .5s infinite alternate;
             }
+
+            #yuko-recordplay-text {
+                height: pxToRem(840px);
+            }
             
             #yuko-recordplay-en {
                 line-height: pxToRem(48px);
@@ -214,7 +218,7 @@
             #yuko-recordplay-cn {
                 line-height: pxToRem(38px);
                 @include font-dpr(28px);
-                margin-bottom: pxToRem(70px);
+                // margin-bottom: pxToRem(70px);
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
