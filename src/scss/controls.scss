@@ -40,8 +40,11 @@
         display: block;
         width: pxToRem(60px);
         height: pxToRem(80px);
-        background: url(../images/pollex.png) no-repeat center center;
-        background-size: 37%;
+        //background: url(../images/pollex.png) no-repeat center center;
+        //background-size: 37%;
+        text-align: center;
+        @include font-dpr(24px,80px);
+        color: #ff0000;
         float: left;
     }
     
