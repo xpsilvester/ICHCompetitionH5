@@ -118,8 +118,8 @@
     background: #000;
 
     .star-video{
-        width: 100%;
-        height: 100%;
+        width: pxToRem(750px);
+        height: pxToRem(1453px);
         display: block;
         position: absolute;
         z-index: 1;

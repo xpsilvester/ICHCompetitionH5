@@ -56,13 +56,15 @@ let initProvince = () => {
         $(".province .yuko-select_items").append('<div>' + zone[i].name + '</div>');
     }
     
-    $(".province .yuko-select_items>div").on("touchstart",function(){
+    $(".province .yuko-select_items>div").on("touchstart",function(e){
         province = $(this).html();
         $(".city .yuko-select_items>div").unbind();
         $(".city .yuko-select_items").html("");
         $(".city .yuko-select_selected").html("请选择");
         city = "";
         appendCity(province);
+        e.preventDefault()
+        $('.yuko-textfield_input').blur()
     });
 }
 
@@ -74,8 +76,10 @@ let appendCity = (province) => {
             }
         }
     }
-    $(".city .yuko-select_items>div").on("touchstart",function(){
+    $(".city .yuko-select_items>div").on("touchstart",function(e){
         city = $(this).html();
+        e.preventDefault()
+        $('.yuko-textfield_input').blur()
     });
 }
 
