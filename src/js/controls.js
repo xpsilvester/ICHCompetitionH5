@@ -150,7 +150,11 @@
             };
 
             var fingerdownPointY, fingerupPointY;
-
+            var hideKeyboard = function() {
+                document.activeElement.blur();
+                $("input").blur();
+            };
+            
             document.addEventListener(fingerdown, function (evt) {
                 // _this: yuko-selectbox
                 var _this,
@@ -168,6 +172,7 @@
                         _selected = _items.previousElementSibling;
                         _this = _selected.parentElement;
                     }
+                    hideKeyboard();
                 }
 
             });

@@ -64,7 +64,6 @@ let initProvince = () => {
         city = "";
         appendCity(province);
         e.preventDefault()
-        $('.yuko-textfield_input').blur()
     });
 }
 
@@ -79,7 +78,6 @@ let appendCity = (province) => {
     $(".city .yuko-select_items>div").on("touchstart",function(e){
         city = $(this).html();
         e.preventDefault()
-        $('.yuko-textfield_input').blur()
     });
 }
 
