@@ -32,8 +32,8 @@
 
         $(function(){
             //跳过开屏视频
-            $(".jump").on("click",function(){
-                $(".star-video").get(0).pause();
+            $(".jump,.star-video").on("click",function(){
+                //$(".star-video").get(0).pause();
                 $(".star-yell").addClass("not-display");
                 $(".index-container").removeClass("not-display");
 
@@ -134,8 +134,8 @@
     </div>
     <div class="star-yell not-display">
         <!-- <video class="star-video" src="http://demo.lanrenzhijia.com/demo/51/5183/demo/vedio/sintel.mp4" poster="../static/images/index/starPoster.png"  style="object-fit:fill" poster="../static/images/index/starPoster.png" x5-video-player-type="h5" x5-video-player-fullscreen="true" playsinline x5-video-orientation="portraint" x5-playsinline="true" playsinline="true" webkit-playsinline="true"></video> -->
-        <img class="star-video" src="../static/images/index/starPoster.png" style="object-fit:fill;width: 10rem;height: 19.37333rem;" />
-        <img class="star-play" src="../static/images/index/play.png" />
+        <img class="star-video" src="../static/images/index/starPoster.png" />
+        <!-- <img class="star-play" src="../static/images/index/play.png" /> -->
         <img class="jump" src="../static/images/index/jump.png" />
     </div>
     <div class="index-container not-display">

@@ -10,13 +10,14 @@ let loadingAction = (fun1,fun2) => {
         let progress = 0;
         let time = 0;
         let canplay = false;
-        $(".star-video").on("canplaythrough",function(){
+
+        $(".star-video").load(function(){
             canplay = true;
             sessionStorage.setItem("visited",true);
         });
         let timer = setInterval(() => {
             time++;
-            if(time > 500){
+            if(time > 300){
                 progress++;
                 sessionStorage.setItem("visited",true);
             }
@@ -37,11 +38,11 @@ let loadingAction = (fun1,fun2) => {
 let starYellAction = () => {
     $(".star-play").on("click",function(){
         $(this).addClass("not-display");
-        $(".star-video").get(0).play();
+        //$(".star-video").get(0).play();
     });
     $(".star-video").on("click",function(){
         $(".star-play").removeClass("not-display");
-        $(".star-video").get(0).pause();
+        //$(".star-video").get(0).pause();
     });
 }
 
