@@ -219,6 +219,30 @@
         background-image: url('../images/index/host.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+
+        .host-title{
+            @include font-dpr(42px,64px);
+            color: #58595b;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .host-subtitle{
+            @include font-dpr(32px,64px);
+            color: #58595b;
+            text-align: center;
+            margin: pxToRem(8px) 0 pxToRem(40px);
+            font-weight: bold;
+        }
+
+        .host-content{
+            @include font-dpr(24px,38px);
+            color: #58595b;
+            text-align: left;
+            width: pxToRem(530px);
+            margin: 0 auto;
+            font-weight: bold;
+        }
     }
 
     .small-site{
@@ -354,13 +378,21 @@
             border-radius: pxToRem(33px);
         }
         .watch{
-            width: pxToRem(546px);
-            height: pxToRem(361px);
+            width: pxToRem(612px);
+            height: pxToRem(355px);
             position: absolute;
             top:pxToRem(333px);
-            left: pxToRem(60px);
+            left: pxToRem(50px);
             border-radius: pxToRem(25px);
             z-index: 3;
+        }
+        .word{
+            color: #333333;
+            @include font-dpr(28px,48px);
+            text-align: right;
+            position: absolute;
+            top:pxToRem(775px);
+            left: pxToRem(60px);
         }
     }
 
@@ -372,6 +404,46 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         position: relative;
+
+        .column1{
+            position: absolute;
+            top: pxToRem(320px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column2{
+            position: absolute;
+            top: pxToRem(440px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column3{
+            position: absolute;
+            top: pxToRem(560px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column4{
+            position: absolute;
+            top: pxToRem(685px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column5{
+            position: absolute;
+            top: pxToRem(800px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
 
         .enroll-below{
             width: pxToRem(130px);
@@ -394,5 +466,22 @@
         background-image: url('../images/index/copyRight.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+    }
+}
+
+@media (device-width:320px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/5 */
+    .index-container .host .host-title {
+        @include font-dpr(38px,56px);
+    }
+    .index-container .host .host-subtitle{
+        @include font-dpr(28px,56px);
+        margin: pxToRem(4px) 0 pxToRem(30px);
+    }
+    .index-container .host .host-content{
+        @include font-dpr(18px,28px);
+        width: pxToRem(540px);
+    }
+    .index-container .star-cheer .word {
+        @include font-dpr(16px,36px);
     }
 }
