@@ -182,8 +182,8 @@
         #yuko-recordplay {
             position: relative;
             margin: pxToRem(34px);
-            height: pxToRem(1030px);
-            padding: 0 pxToRem(56px);
+            // height: pxToRem(1030px);
+            // padding: 0 pxToRem(56px);
             background: url(../images/learnPark/record_display.png) no-repeat center center;
             background-size: contain;
 
@@ -200,13 +200,32 @@
                 animation: enrollBelow .5s infinite alternate;
             }
 
+            #yuko-recordplay-part1 {
+                height: pxToRem(353px);
+                background: url(../images/learnPark/record_display_1.png) no-repeat center center;
+            }
+
+            #yuko-recordplay-part3 {
+                height: pxToRem(215px);
+                margin-top: -4px;
+                background: url(../images/learnPark/record_display_3.png) no-repeat center center;
+            }
+
             #yuko-recordplay-text {
-                height: pxToRem(840px);
+                // height: pxToRem(840px);
+                margin-top: -2px;
+                padding-bottom: pxToRem(50px);
+                background: url(../images/learnPark/record_display_2.png) center center;
+            }
+
+            .yuko-recordplay-part {
+                padding: 0 pxToRem(56px);
+                background-size: contain !important;
             }
             
             #yuko-recordplay-en {
                 line-height: pxToRem(48px);
-                padding-top: pxToRem(338px);
+                // padding-top: pxToRem(338px);
                 margin-bottom: pxToRem(38px);
                 @include font-dpr(34px);
                 display: -webkit-box;
