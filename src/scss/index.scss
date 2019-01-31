@@ -466,6 +466,19 @@
         background-image: url('../images/index/copyRight.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+
+        .support{
+            @include font-dpr(30px,38px);
+            color: #58595b;
+            text-align: center;
+            padding: pxToRem(40px) 0 pxToRem(35px);
+
+            .word{
+                @include font-dpr(32px,38px);
+                color: #58595b;
+                font-weight: bold;
+            }
+        }
     }
 }
 
