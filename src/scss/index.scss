@@ -381,6 +381,14 @@
                 border-radius: pxToRem(10px);
             }
         }
+        .word{
+            color: #333333;
+            @include font-dpr(28px,48px);
+            text-align: right;
+            position: absolute;
+            top:pxToRem(800px);
+            left: pxToRem(50px);
+        }
     }
 
     .enroll-progress{
@@ -405,6 +413,46 @@
             animation: enrollBelow .5s infinite alternate;
             z-index: 999;
         }
+
+        .column1{
+            position: absolute;
+            top: pxToRem(320px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column2{
+            position: absolute;
+            top: pxToRem(440px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column3{
+            position: absolute;
+            top: pxToRem(560px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column4{
+            position: absolute;
+            top: pxToRem(685px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
+
+        .column5{
+            position: absolute;
+            top: pxToRem(800px);
+            left: pxToRem(260px);
+            @include font-dpr(32px);
+            color: #58595b;
+        }
     }
 
     .operation{
@@ -422,5 +470,11 @@
         background-image: url('../images/index/copyRight.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+    }
+}
+
+@media (device-width:320px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/5 */
+    .index-container .star-cheer .word {
+        @include font-dpr(16px,36px);
     }
 }
